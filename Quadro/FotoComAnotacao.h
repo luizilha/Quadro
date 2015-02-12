@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface FotoComentada : NSObject
+@interface FotoComAnotacao : NSObject
 
 @property (nonatomic) UIImage *foto;
 @property (nonatomic) NSString *comentario;

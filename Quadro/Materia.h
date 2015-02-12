@@ -2,18 +2,17 @@
 //  Materia.h
 //  Quadro
 //
-//  Created by Luiz Ilha on 2/9/15.
-//  Copyright (c) 2015 Ilha. All rights reserved.
+//  Created by Luiz Ilha on 2/12/15.
+//  Copyright (c) 2015 LUIZ ILHA M MACIEL. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface Materia : NSObject
 
-@property (nonatomic) NSMutableArray *listaFotos;
-@property (nonatomic) NSDate *dataPublicacao;
-@property (nonatomic) NSString *nomeMateria;
+@property (nonatomic) NSString *nome;
+@property (nonatomic) NSMutableArray *assuntos;
 
--(instancetype)initMateriaPorData:(NSDate *)dataPublicacao comNomeMateria:(NSString *)nomeMateria;
+-(instancetype)initMateria:(NSString *)nome;
 
 @end

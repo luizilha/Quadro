@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Ilha. All rights reserved.
 //
 
-#import "FotoComentada.h"
+#import "FotoComAnotacao.h"
 
-@implementation FotoComentada
+@implementation FotoComAnotacao
 
 -(instancetype)initFotoComentada:(UIImage *)foto comComentario:(NSString *) comentario {
     self = [super init];
@@ -18,6 +18,5 @@
     }
     return self;
 }
-
 
 @end

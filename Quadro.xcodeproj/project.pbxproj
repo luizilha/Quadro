@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		725F15551A8CC2E200BD7E26 /* Materia.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15541A8CC2E200BD7E26 /* Materia.m */; };
-		725F15581A8CC2F600BD7E26 /* FotoComentada.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15571A8CC2F600BD7E26 /* FotoComentada.m */; };
+		725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15541A8CC2E200BD7E26 /* Assunto.m */; };
+		725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */; };
+		725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */; };
+		725F15631A8CC72B00BD7E26 /* Materia.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15621A8CC72B00BD7E26 /* Materia.m */; };
 		72766CF81A8BF2CA0064862F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CF71A8BF2CA0064862F /* main.m */; };
 		72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CFA1A8BF2CA0064862F /* AppDelegate.m */; };
 		72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72766CFC1A8BF2CA0064862F /* Quadro.xcdatamodeld */; };
-		72766D011A8BF2CA0064862F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D001A8BF2CA0064862F /* ViewController.m */; };
+		72766D011A8BF2CA0064862F /* MateriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D001A8BF2CA0064862F /* MateriaViewController.m */; };
 		72766D041A8BF2CA0064862F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72766D021A8BF2CA0064862F /* Main.storyboard */; };
 		72766D061A8BF2CA0064862F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72766D051A8BF2CA0064862F /* Images.xcassets */; };
 		72766D091A8BF2CA0064862F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72766D071A8BF2CA0064862F /* LaunchScreen.xib */; };
@@ -30,18 +32,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		725F15531A8CC2CE00BD7E26 /* Materia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Materia.h; sourceTree = "<group>"; };
-		725F15541A8CC2E200BD7E26 /* Materia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materia.m; sourceTree = "<group>"; };
-		725F15561A8CC2EE00BD7E26 /* FotoComentada.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FotoComentada.h; sourceTree = "<group>"; };
-		725F15571A8CC2F600BD7E26 /* FotoComentada.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotoComentada.m; sourceTree = "<group>"; };
+		725F15531A8CC2CE00BD7E26 /* Assunto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assunto.h; sourceTree = "<group>"; };
+		725F15541A8CC2E200BD7E26 /* Assunto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assunto.m; sourceTree = "<group>"; };
+		725F15561A8CC2EE00BD7E26 /* FotoComAnotacao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FotoComAnotacao.h; sourceTree = "<group>"; };
+		725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotoComAnotacao.m; sourceTree = "<group>"; };
+		725F155E1A8CC42F00BD7E26 /* TodasMateriasSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodasMateriasSingleton.h; sourceTree = "<group>"; };
+		725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodasMateriasSingleton.m; sourceTree = "<group>"; };
+		725F15611A8CC72B00BD7E26 /* Materia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materia.h; sourceTree = "<group>"; };
+		725F15621A8CC72B00BD7E26 /* Materia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materia.m; sourceTree = "<group>"; };
 		72766CF21A8BF2CA0064862F /* Quadro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quadro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72766CF61A8BF2CA0064862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72766CF71A8BF2CA0064862F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		72766CF91A8BF2CA0064862F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72766CFA1A8BF2CA0064862F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		72766CFD1A8BF2CA0064862F /* Quadro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quadro.xcdatamodel; sourceTree = "<group>"; };
-		72766CFF1A8BF2CA0064862F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		72766D001A8BF2CA0064862F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		72766CFF1A8BF2CA0064862F /* MateriaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MateriaViewController.h; sourceTree = "<group>"; };
+		72766D001A8BF2CA0064862F /* MateriaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MateriaViewController.m; sourceTree = "<group>"; };
 		72766D031A8BF2CA0064862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72766D051A8BF2CA0064862F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		72766D081A8BF2CA0064862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -68,6 +74,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		725F15591A8CC35A00BD7E26 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				725F15611A8CC72B00BD7E26 /* Materia.h */,
+				725F15621A8CC72B00BD7E26 /* Materia.m */,
+				725F15531A8CC2CE00BD7E26 /* Assunto.h */,
+				725F15541A8CC2E200BD7E26 /* Assunto.m */,
+				725F15561A8CC2EE00BD7E26 /* FotoComAnotacao.h */,
+				725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		725F155A1A8CC39700BD7E26 /* interface */ = {
+			isa = PBXGroup;
+			children = (
+				72766D021A8BF2CA0064862F /* Main.storyboard */,
+				72766D071A8BF2CA0064862F /* LaunchScreen.xib */,
+			);
+			name = interface;
+			sourceTree = "<group>";
+		};
+		725F155B1A8CC3BE00BD7E26 /* root */ = {
+			isa = PBXGroup;
+			children = (
+				72766CF91A8BF2CA0064862F /* AppDelegate.h */,
+				72766CFA1A8BF2CA0064862F /* AppDelegate.m */,
+			);
+			name = root;
+			sourceTree = "<group>";
+		};
+		725F155C1A8CC3DA00BD7E26 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				72766CFF1A8BF2CA0064862F /* MateriaViewController.h */,
+				72766D001A8BF2CA0064862F /* MateriaViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		725F155D1A8CC3F500BD7E26 /* singleton */ = {
+			isa = PBXGroup;
+			children = (
+				725F155E1A8CC42F00BD7E26 /* TodasMateriasSingleton.h */,
+				725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */,
+			);
+			name = singleton;
+			sourceTree = "<group>";
+		};
 		72766CE91A8BF2CA0064862F = {
 			isa = PBXGroup;
 			children = (
@@ -89,17 +144,12 @@
 		72766CF41A8BF2CA0064862F /* Quadro */ = {
 			isa = PBXGroup;
 			children = (
-				725F15531A8CC2CE00BD7E26 /* Materia.h */,
-				725F15541A8CC2E200BD7E26 /* Materia.m */,
-				725F15561A8CC2EE00BD7E26 /* FotoComentada.h */,
-				725F15571A8CC2F600BD7E26 /* FotoComentada.m */,
-				72766CF91A8BF2CA0064862F /* AppDelegate.h */,
-				72766CFA1A8BF2CA0064862F /* AppDelegate.m */,
-				72766CFF1A8BF2CA0064862F /* ViewController.h */,
-				72766D001A8BF2CA0064862F /* ViewController.m */,
-				72766D021A8BF2CA0064862F /* Main.storyboard */,
+				725F155D1A8CC3F500BD7E26 /* singleton */,
+				725F15591A8CC35A00BD7E26 /* model */,
+				725F155B1A8CC3BE00BD7E26 /* root */,
+				725F155C1A8CC3DA00BD7E26 /* controller */,
+				725F155A1A8CC39700BD7E26 /* interface */,
 				72766D051A8BF2CA0064862F /* Images.xcassets */,
-				72766D071A8BF2CA0064862F /* LaunchScreen.xib */,
 				72766CFC1A8BF2CA0064862F /* Quadro.xcdatamodeld */,
 				72766CF51A8BF2CA0064862F /* Supporting Files */,
 			);
@@ -232,12 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725F15581A8CC2F600BD7E26 /* FotoComentada.m in Sources */,
+				725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */,
+				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
 				72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */,
 				72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */,
-				72766D011A8BF2CA0064862F /* ViewController.m in Sources */,
-				725F15551A8CC2E200BD7E26 /* Materia.m in Sources */,
+				72766D011A8BF2CA0064862F /* MateriaViewController.m in Sources */,
+				725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */,
 				72766CF81A8BF2CA0064862F /* main.m in Sources */,
+				725F15631A8CC72B00BD7E26 /* Materia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
