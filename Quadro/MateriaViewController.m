@@ -9,9 +9,12 @@
 #import "MateriaViewController.h"
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
+#import "AssuntoViewController.h"
 
 @interface MateriaViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *table;
+@property (nonatomic) NSMutableArray *assuntos;
 
 @end
 // sar
@@ -27,14 +30,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.table reloadData];
+    
+}
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
         Materia *materia = [[Materia alloc] initMateria:nomeMateria];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] insertObject:materia atIndex:0];
+        NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.table insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
-    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.table insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (IBAction)adicionaMateria:(id)sender {
@@ -48,6 +56,8 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identificador];
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
     cell.textLabel.text = materia.nome;
+    cell.backgroundColor = [UIColor blackColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
     return cell;
 }
 
@@ -61,4 +71,18 @@
     return 1;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+    self.assuntos = materia.assuntos;
+    [self performSegueWithIdentifier:@"segueAssunto" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier  isEqual: @"segueAssunto"]) {
+        AssuntoViewController *view = [segue destinationViewController];
+        view.assuntos = self.assuntos;
+    }
+}
 @end

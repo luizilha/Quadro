@@ -11,6 +11,7 @@
 		725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */; };
 		725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */; };
 		725F15631A8CC72B00BD7E26 /* Materia.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15621A8CC72B00BD7E26 /* Materia.m */; };
+		725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */; };
 		72766CF81A8BF2CA0064862F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CF71A8BF2CA0064862F /* main.m */; };
 		72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CFA1A8BF2CA0064862F /* AppDelegate.m */; };
 		72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72766CFC1A8BF2CA0064862F /* Quadro.xcdatamodeld */; };
@@ -40,6 +41,8 @@
 		725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodasMateriasSingleton.m; sourceTree = "<group>"; };
 		725F15611A8CC72B00BD7E26 /* Materia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materia.h; sourceTree = "<group>"; };
 		725F15621A8CC72B00BD7E26 /* Materia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materia.m; sourceTree = "<group>"; };
+		725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssuntoViewController.h; sourceTree = "<group>"; };
+		725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoViewController.m; sourceTree = "<group>"; };
 		72766CF21A8BF2CA0064862F /* Quadro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quadro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72766CF61A8BF2CA0064862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72766CF71A8BF2CA0064862F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 			children = (
 				72766CFF1A8BF2CA0064862F /* MateriaViewController.h */,
 				72766D001A8BF2CA0064862F /* MateriaViewController.m */,
+				725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */,
+				725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			files = (
 				725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
+				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,
 				72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */,
 				72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */,
 				72766D011A8BF2CA0064862F /* MateriaViewController.m in Sources */,
