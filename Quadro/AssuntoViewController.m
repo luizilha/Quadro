@@ -9,6 +9,9 @@
 #import "AssuntoViewController.h"
 #import "Assunto.h"
 #import "AssuntoTableViewCell.h"
+#import "TodasMateriasSingleton.h"
+#import "Materia.h"
+#import "PosCameraViewController.h"
 
 @interface AssuntoViewController ()
 
@@ -26,20 +29,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)camera:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PosCameraViewController *pos = [sb instantiateViewControllerWithIdentifier:@"pos"];
+    pos.foto = image;
+    
+    [picker dismissViewControllerAnimated:NO completion:nil];
+    [pos setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self presentViewController:pos animated:NO completion:nil];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identiicador = @"assuntoCell";
     AssuntoTableViewCell *cell = [[AssuntoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identiicador];
-    Assunto *assunto = [self.assuntos objectAtIndex:indexPath.row];
+    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    Assunto *assunto = [materia.assuntos objectAtIndex:indexPath.row];
     cell.assunto.text = assunto.nomeAssunto;
-    cell.data = assunto.dataPublicacao;
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"hh:mm dd/MM";
+    cell.data.text =  [df stringFromDate:assunto.dataPublicacao];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.assuntos.count;
+    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    return materia.assuntos.count;
 }
 
 /*

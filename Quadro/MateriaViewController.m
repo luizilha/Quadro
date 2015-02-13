@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic) NSMutableArray *assuntos;
+@property (nonatomic) NSInteger posicaoMateria;
 
 @end
 // sar
@@ -30,11 +31,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [self.table reloadData];
-    
 }
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
@@ -73,8 +73,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
-    self.assuntos = materia.assuntos;
+    self.posicaoMateria = indexPath.row;
     [self performSegueWithIdentifier:@"segueAssunto" sender:self];
 }
 
@@ -82,7 +81,9 @@
 {
     if ([segue.identifier  isEqual: @"segueAssunto"]) {
         AssuntoViewController *view = [segue destinationViewController];
-        view.assuntos = self.assuntos;
+        view.posicaoMateria = self.posicaoMateria;
     }
 }
+
+
 @end

@@ -11,5 +11,6 @@
 @interface PosCameraViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic) UIImage *foto;
+@property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
 
 @end

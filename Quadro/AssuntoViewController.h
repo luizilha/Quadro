@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AssuntoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface AssuntoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) NSMutableArray *assuntos;
+@property (nonatomic) NSInteger posicaoMateria;
 
 @end

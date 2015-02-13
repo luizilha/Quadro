@@ -10,6 +10,7 @@
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "FotoComAnotacao.h"
+#import "Assunto.h"
 
 @interface PosCameraViewController ()
 
@@ -35,11 +36,10 @@
 
 - (IBAction)terminaEdicao:(id)sender {
     FotoComAnotacao *fotoComentada = [[FotoComAnotacao alloc] initFotoComentada:self.foto comComentario:nil];
-//    Materia *materia = [[Materia alloc] initMateriaPorData:[NSDate date] comNomeMateria:self.txtMateria.text];
-//    [materia.listaFotos addObject:fotoComentada];
-    
-    
-//    [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:materia];
+    Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
+    [assunto.listaFotos addObject:fotoComentada];
+    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    [materia.assuntos addObject:assunto];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -59,9 +59,8 @@
         }];
         [self.txtMateria endEditing:YES];
     }
-    
-    
 }
+
 /*
 #pragma mark - Navigation
 
