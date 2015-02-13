@@ -8,6 +8,7 @@
 
 #import "AssuntoViewController.h"
 #import "Assunto.h"
+#import "AssuntoTableViewCell.h"
 
 @interface AssuntoViewController ()
 
@@ -25,15 +26,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    static NSString *identiicador = @"assuntoCell";
+    AssuntoTableViewCell *cell = [[AssuntoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identiicador];
+    Assunto *assunto = [self.assuntos objectAtIndex:indexPath.row];
+    cell.assunto.text = assunto.nomeAssunto;
+    cell.data = assunto.dataPublicacao;
+    return cell;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    return nil;
+    return self.assuntos.count;
 }
 
 /*

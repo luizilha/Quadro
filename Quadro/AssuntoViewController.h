@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AssuntoViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface AssuntoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) NSMutableArray *assuntos;
 
