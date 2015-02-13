@@ -13,5 +13,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *assunto;
 @property (weak, nonatomic) IBOutlet UILabel *data;
 
-
 @end

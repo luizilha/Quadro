@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721ABFB51A8E26440075377F /* PosCameraViewController.m */; };
 		725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15541A8CC2E200BD7E26 /* Assunto.m */; };
 		725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */; };
 		725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		721ABFB41A8E263A0075377F /* PosCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosCameraViewController.h; sourceTree = "<group>"; };
+		721ABFB51A8E26440075377F /* PosCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosCameraViewController.m; sourceTree = "<group>"; };
 		725F15531A8CC2CE00BD7E26 /* Assunto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assunto.h; sourceTree = "<group>"; };
 		725F15541A8CC2E200BD7E26 /* Assunto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assunto.m; sourceTree = "<group>"; };
 		725F15561A8CC2EE00BD7E26 /* FotoComAnotacao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FotoComAnotacao.h; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 				72766D001A8BF2CA0064862F /* MateriaViewController.m */,
 				725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */,
 				725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */,
+				721ABFB41A8E263A0075377F /* PosCameraViewController.h */,
+				721ABFB51A8E26440075377F /* PosCameraViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,
+				721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */,
 				72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */,
 				72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */,
 				72766D011A8BF2CA0064862F /* MateriaViewController.m in Sources */,
