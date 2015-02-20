@@ -12,7 +12,7 @@
 @interface FotoComAnotacao : NSObject
 
 @property (nonatomic) UIImage *foto;
-@property (nonatomic) NSString *comentario;
+@property (nonatomic) NSString *anotacao;
 
 -(instancetype)initFotoComentada:(UIImage *)foto comComentario:(NSString *) comentario;
 

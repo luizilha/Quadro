@@ -10,15 +10,13 @@
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "Assunto.h"
-
+#import "FotosCollectionViewCell.h"
+#import "FotoComAnotacao.h"
 @interface FotosViewController ()
 @property UIPageViewController *pageViewController;
-
-@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
-@property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (weak, nonatomic) IBOutlet UITextView *anotacao;
 @property NSUInteger pageIndex;
 @property NSMutableArray *fotosComAnotacao;
+
 @end
 
 @implementation FotosViewController
@@ -36,16 +34,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadVisiblePages {
-    CGFloat larguraPagina = self.scroll.frame.size.width;
-
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
+    FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
+    cell.foto.image = fotoComAnotacao.foto;
+    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
+    return cell;
 }
 
-- (void)loadPage:(NSInteger)page {
-    if (page < 0 || page >= 15) {
-        return;
-    }
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.fotosComAnotacao.count;
 }
+
 /*
 #pragma mark - Navigation
 

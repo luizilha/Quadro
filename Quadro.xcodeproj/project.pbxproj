@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721ABFB51A8E26440075377F /* PosCameraViewController.m */; };
 		722F36771A9658D900B4B826 /* FotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722F36761A9658D900B4B826 /* FotosViewController.m */; };
+		7258B3561A97A24700A5B16F /* FotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */; };
 		725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15541A8CC2E200BD7E26 /* Assunto.m */; };
 		725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */; };
 		725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */; };
@@ -40,6 +41,8 @@
 		721ABFB51A8E26440075377F /* PosCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosCameraViewController.m; sourceTree = "<group>"; };
 		722F36751A9658D900B4B826 /* FotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FotosViewController.h; sourceTree = "<group>"; };
 		722F36761A9658D900B4B826 /* FotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotosViewController.m; sourceTree = "<group>"; };
+		7258B3541A97A24700A5B16F /* FotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FotosCollectionViewCell.h; sourceTree = "<group>"; };
+		7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotosCollectionViewCell.m; sourceTree = "<group>"; };
 		725F15531A8CC2CE00BD7E26 /* Assunto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assunto.h; sourceTree = "<group>"; };
 		725F15541A8CC2E200BD7E26 /* Assunto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assunto.m; sourceTree = "<group>"; };
 		725F15561A8CC2EE00BD7E26 /* FotoComAnotacao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FotoComAnotacao.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 			children = (
 				72766D1E1A8D8BD20064862F /* AssuntoTableViewCell.h */,
 				72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */,
+				7258B3541A97A24700A5B16F /* FotosCollectionViewCell.h */,
+				7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 			files = (
 				725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */,
 				72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */,
+				7258B3561A97A24700A5B16F /* FotosCollectionViewCell.m in Sources */,
 				722F36771A9658D900B4B826 /* FotosViewController.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,

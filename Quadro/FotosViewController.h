@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FotosViewController : UIViewController <UIScrollViewDelegate>
+@interface FotosViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
+
 
 
 @end

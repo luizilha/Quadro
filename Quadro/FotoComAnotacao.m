@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         self.foto = foto;
-        self.comentario = comentario;
+        self.anotacao = comentario;
     }
     return self;
 }
