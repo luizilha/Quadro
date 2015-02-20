@@ -12,10 +12,11 @@
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "PosCameraViewController.h"
+#import "FotosViewController.h"
 
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
-
+@property NSInteger posicaoAssunto;
 @end
 
 @implementation AssuntoViewController
@@ -79,6 +80,23 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.posicaoAssunto = indexPath.row;
+    [self performSegueWithIdentifier:@"segueListaFotos" sender:self];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier  isEqual: @"segueListaFotos"]) {
+        FotosViewController *view = [segue destinationViewController];
+        view.posicaoMateria = self.posicaoMateria;
+        view.posicaoAssunto = self.posicaoAssunto;
+    }
+}
+
 /*
 #pragma mark - Navigation
 

@@ -10,7 +10,6 @@
 
 @interface AssuntoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic) NSMutableArray *assuntos;
 @property (nonatomic) NSInteger posicaoMateria;
 
 @end

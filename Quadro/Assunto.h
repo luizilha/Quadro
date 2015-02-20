@@ -10,7 +10,7 @@
 
 @interface Assunto : NSObject
 
-@property (nonatomic) NSMutableArray *listaFotos;
+@property (nonatomic) NSMutableArray *listaFotosComAnotacao;
 @property (nonatomic) NSDate *dataPublicacao;
 @property (nonatomic) NSString *nomeAssunto;
 
