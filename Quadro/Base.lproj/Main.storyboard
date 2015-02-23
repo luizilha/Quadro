@@ -75,11 +75,12 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="N9E-bw-YEt">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="sRi-A9-cdb"/>
                                 </constraints>
                                 <color key="separatorColor" red="0.0" green="0.98039215690000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="assuntoCell" rowHeight="50" id="VJI-lS-vW2" customClass="AssuntoTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -114,20 +115,23 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="4sO-H6-EQ2"/>
                                                         <constraint firstAttribute="width" constant="190" id="BWe-ob-lQ1"/>
+                                                        <constraint firstAttribute="width" constant="190" id="yJ3-lS-MDt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.98039215686274506" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="0.15686274509803921" green="0.93099814967105265" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="4sO-H6-EQ2"/>
                                                             <exclude reference="BWe-ob-lQ1"/>
+                                                            <exclude reference="yJ3-lS-MDt"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="4sO-H6-EQ2"/>
-                                                            <include reference="BWe-ob-lQ1"/>
+                                                            <exclude reference="4sO-H6-EQ2"/>
+                                                            <exclude reference="BWe-ob-lQ1"/>
+                                                            <include reference="yJ3-lS-MDt"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -136,9 +140,12 @@
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Iz9-o8-xQ7" firstAttribute="leading" secondItem="Kqd-Zp-kl1" secondAttribute="leadingMargin" id="8xj-ND-Gvv"/>
+                                                <constraint firstItem="Cde-MJ-mQn" firstAttribute="trailing" secondItem="Kqd-Zp-kl1" secondAttribute="trailingMargin" id="U3Y-dE-4iA"/>
                                                 <constraint firstItem="Cde-MJ-mQn" firstAttribute="leading" secondItem="Iz9-o8-xQ7" secondAttribute="trailing" constant="8" id="UyO-Kw-i8t"/>
                                                 <constraint firstItem="Cde-MJ-mQn" firstAttribute="leading" secondItem="Iz9-o8-xQ7" secondAttribute="trailing" constant="8" id="Yqh-A5-uHZ"/>
                                                 <constraint firstItem="Iz9-o8-xQ7" firstAttribute="top" secondItem="Kqd-Zp-kl1" secondAttribute="topMargin" constant="7" id="ahT-d4-R03"/>
+                                                <constraint firstItem="Cde-MJ-mQn" firstAttribute="top" secondItem="Kqd-Zp-kl1" secondAttribute="topMargin" constant="7" id="dax-jo-XFv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Cde-MJ-mQn" secondAttribute="bottom" constant="5.5" id="oGA-8A-QpK"/>
                                                 <constraint firstItem="Cde-MJ-mQn" firstAttribute="top" secondItem="Kqd-Zp-kl1" secondAttribute="topMargin" id="q5z-pj-daU"/>
                                                 <constraint firstItem="Cde-MJ-mQn" firstAttribute="trailing" secondItem="Kqd-Zp-kl1" secondAttribute="trailingMargin" id="uZx-VK-VvA"/>
                                             </constraints>
@@ -148,12 +155,15 @@
                                                     <exclude reference="Cde-MJ-mQn"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="UyO-Kw-i8t"/>
-                                                    <exclude reference="Yqh-A5-uHZ"/>
-                                                    <exclude reference="q5z-pj-daU"/>
-                                                    <exclude reference="uZx-VK-VvA"/>
                                                     <exclude reference="8xj-ND-Gvv"/>
                                                     <exclude reference="ahT-d4-R03"/>
+                                                    <exclude reference="U3Y-dE-4iA"/>
+                                                    <exclude reference="UyO-Kw-i8t"/>
+                                                    <exclude reference="Yqh-A5-uHZ"/>
+                                                    <exclude reference="dax-jo-XFv"/>
+                                                    <exclude reference="oGA-8A-QpK"/>
+                                                    <exclude reference="q5z-pj-daU"/>
+                                                    <exclude reference="uZx-VK-VvA"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -162,12 +172,15 @@
                                                     <include reference="Cde-MJ-mQn"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="UyO-Kw-i8t"/>
-                                                    <include reference="Yqh-A5-uHZ"/>
-                                                    <include reference="q5z-pj-daU"/>
-                                                    <include reference="uZx-VK-VvA"/>
                                                     <include reference="8xj-ND-Gvv"/>
                                                     <include reference="ahT-d4-R03"/>
+                                                    <include reference="U3Y-dE-4iA"/>
+                                                    <exclude reference="UyO-Kw-i8t"/>
+                                                    <exclude reference="Yqh-A5-uHZ"/>
+                                                    <include reference="dax-jo-XFv"/>
+                                                    <include reference="oGA-8A-QpK"/>
+                                                    <exclude reference="q5z-pj-daU"/>
+                                                    <exclude reference="uZx-VK-VvA"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -377,7 +390,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="0.0"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
