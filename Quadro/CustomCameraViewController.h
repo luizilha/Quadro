@@ -10,5 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface CustomCameraViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *cameraFrame;
+- (IBAction)takePhoto:(id)sender;
 
 @end

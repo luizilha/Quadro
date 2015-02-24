@@ -418,6 +418,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lqO-T5-Pyb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bpK-Od-DEg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFk-zV-MM5">
@@ -460,6 +461,9 @@
                                         <include reference="qet-Dy-wua"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="takePhoto:" destination="D3e-O5-ePj" eventType="touchUpInside" id="0qO-zX-u2X"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmW-mU-zQL">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -504,16 +508,16 @@
                                 <exclude reference="lmW-mU-zQL"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="P5w-vn-Lil"/>
-                                <exclude reference="pdS-ku-E6S"/>
-                                <exclude reference="tNb-r7-vrx"/>
+                                <exclude reference="aDP-Dy-QS8"/>
                                 <exclude reference="J6K-85-81h"/>
                                 <exclude reference="aV2-fM-xC6"/>
                                 <exclude reference="ota-hU-iZS"/>
                                 <exclude reference="5Gl-FP-RHp"/>
                                 <exclude reference="Hcp-PJ-NqW"/>
                                 <exclude reference="hMX-NK-6Cn"/>
-                                <exclude reference="aDP-Dy-QS8"/>
+                                <exclude reference="P5w-vn-Lil"/>
+                                <exclude reference="pdS-ku-E6S"/>
+                                <exclude reference="tNb-r7-vrx"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -523,19 +527,22 @@
                                 <include reference="lmW-mU-zQL"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="P5w-vn-Lil"/>
-                                <include reference="pdS-ku-E6S"/>
-                                <include reference="tNb-r7-vrx"/>
+                                <include reference="aDP-Dy-QS8"/>
                                 <include reference="J6K-85-81h"/>
                                 <include reference="aV2-fM-xC6"/>
                                 <include reference="ota-hU-iZS"/>
                                 <include reference="5Gl-FP-RHp"/>
                                 <include reference="Hcp-PJ-NqW"/>
                                 <include reference="hMX-NK-6Cn"/>
-                                <include reference="aDP-Dy-QS8"/>
+                                <include reference="P5w-vn-Lil"/>
+                                <include reference="pdS-ku-E6S"/>
+                                <include reference="tNb-r7-vrx"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="cameraFrame" destination="wFk-zV-MM5" id="5j9-81-X3F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eh-eQ-UfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

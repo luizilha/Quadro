@@ -45,7 +45,8 @@
     [self presentViewController:picker animated:YES completion:nil];
      */
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CustomCameraViewController *camera = [sb instantiateViewControllerWithIdentifier:@"camera"];
+    CustomCameraViewController *camera = [sb instantiateViewControllerWithIdentifier:@"Camera"];
+    [self presentViewController:camera animated:YES completion:nil];
     
 }
 
