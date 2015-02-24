@@ -24,6 +24,7 @@
 		72766D091A8BF2CA0064862F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72766D071A8BF2CA0064862F /* LaunchScreen.xib */; };
 		72766D151A8BF2CA0064862F /* QuadroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D141A8BF2CA0064862F /* QuadroTests.m */; };
 		72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */; };
+		727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		72766D141A8BF2CA0064862F /* QuadroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadroTests.m; sourceTree = "<group>"; };
 		72766D1E1A8D8BD20064862F /* AssuntoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssuntoTableViewCell.h; sourceTree = "<group>"; };
 		72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoTableViewCell.m; sourceTree = "<group>"; };
+		727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
+		727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				721ABFB51A8E26440075377F /* PosCameraViewController.m */,
 				722F36751A9658D900B4B826 /* FotosViewController.h */,
 				722F36761A9658D900B4B826 /* FotosViewController.m */,
+				727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */,
+				727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				72766D011A8BF2CA0064862F /* MateriaViewController.m in Sources */,
 				725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */,
 				72766CF81A8BF2CA0064862F /* main.m in Sources */,
+				727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */,
 				725F15631A8CC72B00BD7E26 /* Materia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

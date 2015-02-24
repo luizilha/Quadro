@@ -13,6 +13,7 @@
 #import "Materia.h"
 #import "PosCameraViewController.h"
 #import "FotosViewController.h"
+#import "CustomCameraViewController.h"
 
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -36,11 +37,16 @@
 }
 
 - (IBAction)camera:(id)sender {
+    /*
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = NO;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     [self presentViewController:picker animated:YES completion:nil];
+     */
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CustomCameraViewController *camera = [sb instantiateViewControllerWithIdentifier:@"camera"];
+    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
