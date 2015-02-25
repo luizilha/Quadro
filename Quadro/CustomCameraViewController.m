@@ -35,31 +35,37 @@ AVCaptureStillImageOutput *stillImage;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    session = [[AVCaptureSession alloc] init];
-    [session setSessionPreset:AVCaptureSessionPresetPhoto];
-    
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    NSError *error;
-    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
-    if ([session canAddInput:deviceInput]) {
-        [session addInput:deviceInput];
+    if (self.terminaEdicao) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    } else {
+        
+        session = [[AVCaptureSession alloc] init];
+        [session setSessionPreset:AVCaptureSessionPresetPhoto];
+        
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        NSError *error;
+        AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+        if ([session canAddInput:deviceInput]) {
+            [session addInput:deviceInput];
+        }
+        AVCaptureVideoPreviewLayer *previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
+        [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+        CALayer *rootLayer = [[self cameraFrame] layer];
+        
+        //    CALayer *rootLayer = [[self frameFromCapture] layer];
+        [rootLayer setMasksToBounds:YES];
+        CGRect frame = self.cameraFrame.frame;
+        [previewLayer setFrame:frame];
+        [rootLayer insertSublayer:previewLayer atIndex:0];
+        
+        stillImage = [[AVCaptureStillImageOutput alloc] init];
+        NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG, AVVideoCodecKey ,nil];
+        [stillImage setOutputSettings:outputSettings];
+        [session addOutput:stillImage];
+        
+        [session startRunning];
     }
-    AVCaptureVideoPreviewLayer *previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-    [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    CALayer *rootLayer = [[self cameraFrame] layer];
     
-//    CALayer *rootLayer = [[self frameFromCapture] layer];
-    [rootLayer setMasksToBounds:YES];
-    CGRect frame = self.cameraFrame.frame;
-    [previewLayer setFrame:frame];
-    [rootLayer insertSublayer:previewLayer atIndex:0];
-    
-    stillImage = [[AVCaptureStillImageOutput alloc] init];
-    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG, AVVideoCodecKey ,nil];
-    [stillImage setOutputSettings:outputSettings];
-    [session addOutput:stillImage];
-    
-    [session startRunning];
     
 }
 
@@ -83,19 +89,21 @@ AVCaptureStillImageOutput *stillImage;
             UIImage *image = [UIImage imageWithData:imageData];
             FotoComAnotacao *fotoComAnotacao = [[FotoComAnotacao alloc] init];
             fotoComAnotacao.foto = image;
-            fotoComAnotacao.anotacao = nil;
             
+            fotoComAnotacao.anotacao = nil;
             [self.listaDeFotosComAnotacao addObject:fotoComAnotacao];
+            self.imagemTirada.image = image;
+            [self.botaoFoto setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.listaDeFotosComAnotacao.count] forState:UIControlStateNormal];
         }
     }];
 }
-
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"seguePosCamera"]) {
         PosCameraViewController *poscamera = [segue destinationViewController];
         poscamera.listaDeFotosComAnotacao = self.listaDeFotosComAnotacao;
+        self.terminaEdicao = YES;
     }
 }
 

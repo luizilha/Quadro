@@ -10,6 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface CustomCameraViewController : UIViewController
+@property bool terminaEdicao;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imagemTirada;
+@property (weak, nonatomic) IBOutlet UIButton *botaoFoto;
 @property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
 @property (weak, nonatomic) IBOutlet UIView *cameraFrame;
 - (IBAction)takePhoto:(id)sender;
