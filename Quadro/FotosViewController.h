@@ -12,6 +12,4 @@
 
 @property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
 
-
-
 @end

@@ -46,6 +46,8 @@
      */
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CustomCameraViewController *camera = [sb instantiateViewControllerWithIdentifier:@"Camera"];
+    camera.posicaoAssunto = self.posicaoAssunto;
+    camera.posicaoMateria = self.posicaoMateria;
     [self presentViewController:camera animated:YES completion:nil];
     
 }

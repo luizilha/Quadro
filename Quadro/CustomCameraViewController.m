@@ -7,15 +7,24 @@
 //
 
 #import "CustomCameraViewController.h"
+#import "TodasMateriasSingleton.h"
+#import "Materia.h"
+#import "Assunto.h"
+#import "FotoComAnotacao.h"
+#import "PosCameraViewController.h"
 
 @interface CustomCameraViewController ()
+@property (nonatomic) NSMutableArray *listaDeFotosComAnotacao;
 
 @end
 
 @implementation CustomCameraViewController
+AVCaptureSession *session;
+AVCaptureStillImageOutput *stillImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.listaDeFotosComAnotacao = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -24,16 +33,70 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+- (void)viewWillAppear:(BOOL)animated
+{
+    session = [[AVCaptureSession alloc] init];
+    [session setSessionPreset:AVCaptureSessionPresetPhoto];
+    
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    NSError *error;
+    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+    if ([session canAddInput:deviceInput]) {
+        [session addInput:deviceInput];
+    }
+    AVCaptureVideoPreviewLayer *previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
+    [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    CALayer *rootLayer = [[self cameraFrame] layer];
+    
+//    CALayer *rootLayer = [[self frameFromCapture] layer];
+    [rootLayer setMasksToBounds:YES];
+    CGRect frame = self.cameraFrame.frame;
+    [previewLayer setFrame:frame];
+    [rootLayer insertSublayer:previewLayer atIndex:0];
+    
+    stillImage = [[AVCaptureStillImageOutput alloc] init];
+    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:AVVideoCodecJPEG, AVVideoCodecKey ,nil];
+    [stillImage setOutputSettings:outputSettings];
+    [session addOutput:stillImage];
+    
+    [session startRunning];
+    
+}
+
+- (IBAction)takePhoto:(id)sender {
+    AVCaptureConnection *videoConnection = nil;
+    for (AVCaptureConnection *connection in stillImage.connections) {
+        for (AVCaptureInputPort *port in [connection inputPorts]) {
+            if ([[port mediaType] isEqual:AVMediaTypeVideo]) {
+                videoConnection = connection;
+                break;
+            }
+        }
+        if (videoConnection) {
+            break;
+        }
+    }
+    
+    [stillImage captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+        if (imageDataSampleBuffer != NULL) {
+            NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            UIImage *image = [UIImage imageWithData:imageData];
+            FotoComAnotacao *fotoComAnotacao = [[FotoComAnotacao alloc] init];
+            fotoComAnotacao.foto = image;
+            fotoComAnotacao.anotacao = nil;
+            
+            [self.listaDeFotosComAnotacao addObject:fotoComAnotacao];
+        }
+    }];
+}
+
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"seguePosCamera"]) {
+        PosCameraViewController *poscamera = [segue destinationViewController];
+        poscamera.listaDeFotosComAnotacao = self.listaDeFotosComAnotacao;
+    }
 }
-*/
 
-- (IBAction)takePhoto:(id)sender {
-}
 @end

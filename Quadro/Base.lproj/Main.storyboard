@@ -484,7 +484,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="PD2-8o-ZvV" kind="show" id="egv-on-eMW"/>
+                                    <segue destination="PD2-8o-ZvV" kind="show" identifier="seguePosCamera" id="egv-on-eMW"/>
                                 </connections>
                             </button>
                         </subviews>

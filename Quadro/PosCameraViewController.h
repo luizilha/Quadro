@@ -12,5 +12,6 @@
 
 @property (nonatomic) UIImage *foto;
 @property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
+@property (nonatomic) NSMutableArray *listaDeFotosComAnotacao;
 
 @end

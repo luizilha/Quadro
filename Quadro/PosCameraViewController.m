@@ -25,7 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.imagem.image = self.foto;
+    FotoComAnotacao *fotoComAnotacao = [self.listaDeFotosComAnotacao objectAtIndex:self.listaDeFotosComAnotacao.count -1];
+    self.imagem.image = fotoComAnotacao.foto;
     // Do any additional setup after loading the view.
 }
 
