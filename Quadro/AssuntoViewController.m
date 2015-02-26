@@ -76,7 +76,7 @@
     Assunto *assunto = [materia.assuntos objectAtIndex:indexPath.row];
     cell.assunto.text = assunto.nomeAssunto;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateFormat = @"hh:mm dd/MM";
+    df.dateFormat = @" dd/MM";
     cell.data.text =  [df stringFromDate:assunto.dataPublicacao];
     return cell;
 }
