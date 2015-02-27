@@ -14,8 +14,10 @@
 #import "FotoComAnotacao.h"
 @interface FotosViewController ()
 @property UIPageViewController *pageViewController;
-@property NSUInteger pageIndex;
 @property NSMutableArray *fotosComAnotacao;
+@property int posicao;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property Assunto *assunto;
 
 @end
 
@@ -26,6 +28,8 @@
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
     self.fotosComAnotacao = assunto.listaFotosComAnotacao;
+    NSString *titulo = [NSString stringWithFormat:@"%@ %d/%d",self.navigationItem.title, self.posicao+1,self.fotosComAnotacao.count];
+    self.title = titulo;
     // Do any additional setup after loading the view.
 }
 
@@ -34,8 +38,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)deletaFoto:(id)sender {
+    [self.fotosComAnotacao removeObjectAtIndex:_posicao];
+    if (self.fotosComAnotacao.count == 0) {
+        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+        [materia.assuntos removeObjectAtIndex:self.posicaoAssunto];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    [self.collectionView reloadData];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.posicao = indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
     cell.foto.image = fotoComAnotacao.foto;
