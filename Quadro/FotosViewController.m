@@ -25,11 +25,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
-    self.fotosComAnotacao = assunto.listaFotosComAnotacao;
-    NSString *titulo = [NSString stringWithFormat:@"%@ %d/%d",self.navigationItem.title, self.posicao+1,self.fotosComAnotacao.count];
-    self.title = titulo;
+//    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+//    Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
+//    self.fotosComAnotacao = assunto.listaFotosComAnotacao;
+//    NSString *titulo = [NSString stringWithFormat:@"%@ %d/%d",self.navigationItem.title, self.posicao+1,self.fotosComAnotacao.count];
+//    self.title = titulo;
+    
+    self.fotosComAnotacao = [[NSMutableArray alloc]init];
+     [self.fotosComAnotacao addObject:@"oioi"];
+     [self.fotosComAnotacao addObject:@"oioi"];
+     [self.fotosComAnotacao addObject:@"oioi"];
+     [self.fotosComAnotacao addObject:@"oioi"];
+     [self.fotosComAnotacao addObject:@"oioi"];
+     [self.fotosComAnotacao addObject:@"oioi"];
+     [self.fotosComAnotacao addObject:@"oioi"];
+     [self.fotosComAnotacao addObject:@"oioi"];
     // Do any additional setup after loading the view.
 }
 
@@ -53,14 +63,22 @@
     self.posicao = indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
-    cell.foto.image = fotoComAnotacao.foto;
-    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
+//    cell.foto.image = fotoComAnotacao.foto;
+//    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.fotosComAnotacao.count;
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CGSize  sizeCell = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    
+    return sizeCell;
 }
 
 /*
