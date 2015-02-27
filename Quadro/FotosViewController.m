@@ -41,6 +41,13 @@
      [self.fotosComAnotacao addObject:@"oioi"];
      [self.fotosComAnotacao addObject:@"oioi"];
     // Do any additional setup after loading the view.
+    
+    [self.collectionView reloadData];
+    
+    //self.collectionView.contentSize = CGSizeMake((self.view.frame.size.width * self.fotosComAnotacao.count), self.view.frame.size.height);
+    
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +70,7 @@
     self.posicao = indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
+//    cell.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 //    cell.foto.image = fotoComAnotacao.foto;
 //    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
     return cell;
@@ -74,12 +82,31 @@
 }
 
 
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.0;
+}
+
+// Layout: Set Edges
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    // return UIEdgeInsetsMake(0,8,0,8);  // top, left, bottom, right
+    return UIEdgeInsetsMake(0,0,0,0);  // top, left, bottom, right
+}
+
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     CGSize  sizeCell = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     
     return sizeCell;
 }
+
 
 /*
 #pragma mark - Navigation
