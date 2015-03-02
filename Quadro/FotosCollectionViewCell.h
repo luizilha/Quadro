@@ -11,5 +11,6 @@
 @interface FotosCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
 @property (weak, nonatomic) IBOutlet UITextView *anotacao;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaDoTexto;
 
 @end

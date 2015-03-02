@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1152" y="295.5"/>
+            <point key="canvasLocation" x="865" y="295"/>
         </scene>
         <!--Assunto-->
         <scene sceneID="ImI-XF-Ybe">
@@ -300,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LX4-HG-9Of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864.5" y="295.5"/>
+            <point key="canvasLocation" x="1341" y="295"/>
         </scene>
         <!--Fotos-->
         <scene sceneID="gaE-xt-ph4">
@@ -398,6 +398,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <outlet property="alturaDoTexto" destination="ccV-Kg-EnM" id="Vju-G8-0YG"/>
                                             <outlet property="anotacao" destination="E5Q-2b-5ze" id="DS8-Gf-TaL"/>
                                             <outlet property="foto" destination="E07-5o-Odc" id="pn1-pC-wXi"/>
                                         </connections>
@@ -454,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2593.5" y="295.5"/>
+            <point key="canvasLocation" x="1793" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vxy-mf-m4F">
@@ -650,7 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eh-eQ-UfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="586.5" y="1052.25"/>
+            <point key="canvasLocation" x="610" y="1160"/>
         </scene>
         <!--Pos Camera View Controller-->
         <scene sceneID="nxw-72-QzB">
@@ -729,7 +730,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yf4-NO-Htt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264.5" y="1052.25"/>
+            <point key="canvasLocation" x="1113" y="1172"/>
         </scene>
     </scenes>
     <resources>

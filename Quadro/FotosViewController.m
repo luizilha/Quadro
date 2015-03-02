@@ -18,6 +18,7 @@
 @property NSInteger posicao;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+
 @end
 
 @implementation FotosViewController
@@ -30,13 +31,6 @@
     NSString *titulo = [NSString stringWithFormat:@"%@ %d %d",self.navigationItem.title, self.posicao+1, self.fotosComAnotacao.count];
     self.title = titulo;
     
-//     self.fotosComAnotacao = [[NSMutableArray alloc]init];
-//     [self.fotosComAnotacao addObject:@"oioi"];
-//     [self.fotosComAnotacao addObject:@"oioi"];
-//     [self.fotosComAnotacao addObject:@"oioi"];
-//     [self.fotosComAnotacao addObject:@"oioi"];
-//    // Do any additional setup after loading the view.
-    
     [self.collectionView reloadData];
     
     //self.collectionView.contentSize = CGSizeMake((self.view.frame.size.width * self.fotosComAnotacao.count), self.view.frame.size.height);
@@ -48,13 +42,22 @@
 }
 
 - (IBAction)deletaFoto:(id)sender {
-    [self.fotosComAnotacao removeObjectAtIndex:_posicao];
-    if (self.fotosComAnotacao.count == 0) {
-        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-        [materia.assuntos removeObjectAtIndex:self.posicaoAssunto];
-        [self.navigationController popViewControllerAnimated:YES];
+    UIActionSheet *alerta = [[UIActionSheet alloc] initWithTitle:@"Foto sera deletada" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:@"Deletar Foto" otherButtonTitles:nil]; //initWithTitle:@"Foto sera deletada" message:@"foto sera deletado permanentemente" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Salvar", nil];
+    [alerta showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    if ([title isEqualToString:@"Deletar Foto"]) {
+        [self.fotosComAnotacao removeObjectAtIndex:_posicao];
+        if (self.fotosComAnotacao.count == 0) {
+            Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+            [materia.assuntos removeObjectAtIndex:self.posicaoAssunto];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [self.collectionView reloadData];
     }
-    [self.collectionView reloadData];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -94,6 +97,13 @@
     return sizeCell;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    [UIView animateWithDuration:0.5 animations:^{
+//        self.alturaDoTexto.constant -= 150;
+        [self.view layoutIfNeeded];
+    }];
+    return YES;
+}
 
 /*
 #pragma mark - Navigation
