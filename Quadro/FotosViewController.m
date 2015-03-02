@@ -15,9 +15,8 @@
 @interface FotosViewController ()
 @property UIPageViewController *pageViewController;
 @property NSMutableArray *fotosComAnotacao;
-@property int posicao;
+@property NSInteger posicao;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property Assunto *assunto;
 
 @end
 
@@ -25,29 +24,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-//    Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
-//    self.fotosComAnotacao = assunto.listaFotosComAnotacao;
-//    NSString *titulo = [NSString stringWithFormat:@"%@ %d/%d",self.navigationItem.title, self.posicao+1,self.fotosComAnotacao.count];
-//    self.title = titulo;
+    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
+    self.fotosComAnotacao = assunto.listaFotosComAnotacao;
+    NSString *titulo = [NSString stringWithFormat:@"%@ %d %d",self.navigationItem.title, self.posicao+1, self.fotosComAnotacao.count];
+    self.title = titulo;
     
-    self.fotosComAnotacao = [[NSMutableArray alloc]init];
-     [self.fotosComAnotacao addObject:@"oioi"];
-     [self.fotosComAnotacao addObject:@"oioi"];
-     [self.fotosComAnotacao addObject:@"oioi"];
-     [self.fotosComAnotacao addObject:@"oioi"];
-     [self.fotosComAnotacao addObject:@"oioi"];
-     [self.fotosComAnotacao addObject:@"oioi"];
-     [self.fotosComAnotacao addObject:@"oioi"];
-     [self.fotosComAnotacao addObject:@"oioi"];
-    // Do any additional setup after loading the view.
+//     self.fotosComAnotacao = [[NSMutableArray alloc]init];
+//     [self.fotosComAnotacao addObject:@"oioi"];
+//     [self.fotosComAnotacao addObject:@"oioi"];
+//     [self.fotosComAnotacao addObject:@"oioi"];
+//     [self.fotosComAnotacao addObject:@"oioi"];
+//    // Do any additional setup after loading the view.
     
     [self.collectionView reloadData];
     
     //self.collectionView.contentSize = CGSizeMake((self.view.frame.size.width * self.fotosComAnotacao.count), self.view.frame.size.height);
-    
-
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,12 +59,12 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.posicao = indexPath.row;
+    self.posicao = (long) indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
 //    cell.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-//    cell.foto.image = fotoComAnotacao.foto;
-//    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
+    cell.foto.image = fotoComAnotacao.foto;
+    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
     return cell;
 }
 
@@ -80,9 +72,6 @@
 {
     return self.fotosComAnotacao.count;
 }
-
-
-
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0.0;
@@ -101,9 +90,7 @@
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     CGSize  sizeCell = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-    
     return sizeCell;
 }
 
