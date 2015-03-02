@@ -439,13 +439,22 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Fotos" id="OMq-Tz-Md4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="62u-7e-fpl">
+                            <connections>
+                                <action selector="deletaFoto:" destination="5nq-wF-5Ad" id="Gb3-Dr-6Gm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="XB2-n9-7Bn" id="mh8-RT-4mG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2590.5" y="286.5"/>
+            <point key="canvasLocation" x="2593.5" y="295.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vxy-mf-m4F">
