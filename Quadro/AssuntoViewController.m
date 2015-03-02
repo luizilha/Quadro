@@ -18,6 +18,7 @@
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property NSInteger posicaoAssunto;
+@property NSIndexPath *posicaoAlterar; // posicao para alterar
 @end
 
 @implementation AssuntoViewController
@@ -81,6 +82,15 @@
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @" dd/MM";
     cell.data.text =  [df stringFromDate:assunto.dataPublicacao];
+    
+    /// long press
+    UILongPressGestureRecognizer *longPressGesture =
+    [[UILongPressGestureRecognizer alloc]
+     initWithTarget:self action:@selector(longPress:)];
+    [cell addGestureRecognizer:longPressGesture];
+    longPressGesture.minimumPressDuration = 1.0f;
+    
+
     return cell;
 }
 
@@ -108,6 +118,79 @@
         view.posicaoAssunto = self.posicaoAssunto;
     }
 }
+/*Pra apagar uma materia*/
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+    [self.table setEditing:editing animated:animated];
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //remover do mutable array
+        [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
+        
+        [tableView reloadData];
+    }
+}
+
+/*Long press*/
+
+- (void)longPress:(UILongPressGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateBegan)
+    {
+        UITableViewCell *cell = (UITableViewCell *)[gesture view];
+        NSIndexPath *indexPath = [self.table indexPathForCell:cell];
+        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+        Assunto *a = m.assuntos[indexPath.row];
+    
+        NSLog(@"%@",a.nomeAssunto);
+        
+        self.posicaoAlterar = indexPath;
+              
+        NSString *titulo = [[NSString alloc]initWithFormat:@"Deseja renomear a materia %@?",a.nomeAssunto];
+        
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:titulo message:nil delegate:self  cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Alterar", nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        
+        
+        
+        
+        
+        [alert show];
+
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    NSString *nomeMateria = [alertView textFieldAtIndex:0].text.capitalizedString;
+    
+    if([title isEqualToString:@"Alterar"]){
+       
+        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
+        Assunto *a = m.assuntos[self.posicaoAlterar.row];
+        a.nomeAssunto = nomeMateria;
+        
+        /*Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
+        
+        materia.nome = [alertView textFieldAtIndex:0].text.capitalizedString;
+        
+        materia.nome = nomeMateria;*/
+        
+        [self.table reloadData];
+        
+    }
+}
+
 
 /*
 #pragma mark - Navigation

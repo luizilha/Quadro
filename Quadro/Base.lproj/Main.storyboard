@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5nq-wF-5Ad">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wEh-OD-zok">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -291,6 +291,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cNo-lV-Iu1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="15X-hR-bgd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XB2-n9-7Bn">
@@ -307,7 +308,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="413"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tempo" translatesAutoresizingMaskIntoConstraints="NO" id="E07-5o-Odc">
@@ -319,7 +320,7 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5Q-2b-5ze">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -363,10 +364,10 @@
                                 <exclude reference="XB2-n9-7Bn"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="zYF-PU-Rcb"/>
                                 <exclude reference="An3-L8-t6r"/>
                                 <exclude reference="c2i-Kw-Jvl"/>
                                 <exclude reference="mhj-7E-K1l"/>
-                                <exclude reference="zYF-PU-Rcb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -374,10 +375,10 @@
                                 <include reference="XB2-n9-7Bn"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="zYF-PU-Rcb"/>
                                 <include reference="An3-L8-t6r"/>
                                 <include reference="c2i-Kw-Jvl"/>
                                 <include reference="mhj-7E-K1l"/>
-                                <include reference="zYF-PU-Rcb"/>
                             </mask>
                         </variation>
                     </view>
@@ -542,16 +543,16 @@
                                 <exclude reference="lmW-mU-zQL"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="39v-v8-3PR"/>
-                                <exclude reference="Vs9-bT-6Gd"/>
-                                <exclude reference="bEd-rR-9aj"/>
-                                <exclude reference="wYm-Oc-CIo"/>
-                                <exclude reference="4DJ-Bg-wGm"/>
-                                <exclude reference="NZT-aN-pkI"/>
-                                <exclude reference="SWB-1U-V9B"/>
                                 <exclude reference="0oa-NG-pm7"/>
                                 <exclude reference="7iH-M8-ULv"/>
                                 <exclude reference="sqF-Ij-3PT"/>
+                                <exclude reference="4DJ-Bg-wGm"/>
+                                <exclude reference="NZT-aN-pkI"/>
+                                <exclude reference="SWB-1U-V9B"/>
+                                <exclude reference="wYm-Oc-CIo"/>
+                                <exclude reference="39v-v8-3PR"/>
+                                <exclude reference="Vs9-bT-6Gd"/>
+                                <exclude reference="bEd-rR-9aj"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -562,16 +563,16 @@
                                 <include reference="lmW-mU-zQL"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="39v-v8-3PR"/>
-                                <include reference="Vs9-bT-6Gd"/>
-                                <include reference="bEd-rR-9aj"/>
-                                <include reference="wYm-Oc-CIo"/>
-                                <include reference="4DJ-Bg-wGm"/>
-                                <include reference="NZT-aN-pkI"/>
-                                <include reference="SWB-1U-V9B"/>
                                 <include reference="0oa-NG-pm7"/>
                                 <include reference="7iH-M8-ULv"/>
                                 <include reference="sqF-Ij-3PT"/>
+                                <include reference="4DJ-Bg-wGm"/>
+                                <include reference="NZT-aN-pkI"/>
+                                <include reference="SWB-1U-V9B"/>
+                                <include reference="wYm-Oc-CIo"/>
+                                <include reference="39v-v8-3PR"/>
+                                <include reference="Vs9-bT-6Gd"/>
+                                <include reference="bEd-rR-9aj"/>
                             </mask>
                         </variation>
                     </view>

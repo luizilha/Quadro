@@ -26,6 +26,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     //BOTAO EDIT
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.editButtonItem.title = @"Editar";
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(adicicionaMateriaRefresh:) forControlEvents:UIControlEventValueChanged];
