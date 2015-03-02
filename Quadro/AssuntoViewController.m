@@ -132,11 +132,27 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remover do mutable array
-        [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
+        //[[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
+        
+        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+        
+        Assunto *a = m.assuntos[indexPath.row];
+        
+        a.nomeAssunto = @"Deveria remover";
+        
+        
+        
+        NSLog(@"-->%@",a.nomeAssunto);
+        
+        
+        //[[[TodasMateriasSingleton sharedInstance]listaDeMaterias] removeObject:a];
+
+        
         
         [tableView reloadData];
     }
 }
+///
 
 /*Long press*/
 
