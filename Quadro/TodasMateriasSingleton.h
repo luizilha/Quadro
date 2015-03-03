@@ -13,6 +13,7 @@
 @property (nonatomic) NSMutableArray *listaDeMaterias;
 
 + (id)sharedInstance;
-
+-(void)loadData;
+-(void)saveData;
 
 @end

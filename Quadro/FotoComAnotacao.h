@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface FotoComAnotacao : NSObject
+@interface FotoComAnotacao : NSObject <NSCoding>
 
 @property (nonatomic) UIImage *foto;
 @property (nonatomic) NSString *anotacao;

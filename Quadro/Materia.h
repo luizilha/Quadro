@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Materia : NSObject
+@interface Materia : NSObject <NSCoding>
 
 @property (nonatomic) NSString *nome;
 @property (nonatomic) NSMutableArray *assuntos;

@@ -31,5 +31,19 @@
     return self;
 }
 
+-(void)loadData
+{
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"materias"];
+    if (data) {
+        self.listaDeMaterias = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+}
+
+-(void)saveData
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.listaDeMaterias];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"materias"];
+}
+
 
 @end

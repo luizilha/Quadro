@@ -19,4 +19,20 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [self init];
+    if (self) {
+        self.foto = [coder decodeObjectForKey:@"foto"];
+        self.anotacao = [coder decodeObjectForKey:@"anotacao"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.foto forKey:@"foto"];
+    [coder encodeObject:self.anotacao forKey:@"anotacao"];
+}
+
 @end

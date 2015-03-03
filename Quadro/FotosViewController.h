@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FotosViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate, UITextFieldDelegate>
+@interface FotosViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate, UITextViewDelegate>
 
 @property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
 

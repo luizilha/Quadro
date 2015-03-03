@@ -13,11 +13,12 @@
 #import "FotosCollectionViewCell.h"
 #import "FotoComAnotacao.h"
 @interface FotosViewController ()
+@property FotosCollectionViewCell *cell;
+
 @property UIPageViewController *pageViewController;
 @property NSMutableArray *fotosComAnotacao;
 @property NSInteger posicao;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
 
 @end
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cell.anotacao.delegate = self;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
     self.fotosComAnotacao = assunto.listaFotosComAnotacao;
@@ -64,10 +66,13 @@
 {
     self.posicao = (long) indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
+    self.cell = cell;
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
 //    cell.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     cell.foto.image = fotoComAnotacao.foto;
     cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
+    
+    cell.anotacao.delegate = self;
     return cell;
 }
 
@@ -97,13 +102,34 @@
     return sizeCell;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     [UIView animateWithDuration:0.5 animations:^{
-//        self.alturaDoTexto.constant -= 150;
+        self.cell.alturaDoTexto.constant = 1000;
         [self.view layoutIfNeeded];
     }];
     return YES;
 }
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    [UIView animateWithDuration:0.5 animations:^{
+//        self.alturaDoTexto.constant -= 150;
+        self.cell.alturaDoTexto.constant += 150;
+        [self.view layoutIfNeeded];
+    }];
+    return YES;
+}
+
+//
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//    if (self.cell.anotacao.isSelectable) {
+//        [UIView animateWithDuration:0.5 animations:^{
+//            self.alturaFoto.constant += 150;
+//            [self.view layoutIfNeeded];
+//        }];
+//        [self.txtMateria endEditing:YES];
+//    }
+//}
+
 
 /*
 #pragma mark - Navigation
