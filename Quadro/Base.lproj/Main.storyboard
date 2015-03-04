@@ -453,7 +453,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="alturaCollection" destination="Ep2-i7-sGT" id="oYZ-5e-qmr"/>
                         <outlet property="collectionView" destination="XB2-n9-7Bn" id="mh8-RT-4mG"/>
+                        <outlet property="posicaoCollection" destination="ufg-7i-rXF" id="U8V-BE-JU2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>

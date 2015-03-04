@@ -20,6 +20,10 @@
 @property NSInteger posicao;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaCollection;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *posicaoCollection;
+
+
 @end
 
 @implementation FotosViewController
@@ -104,31 +108,22 @@
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     [UIView animateWithDuration:0.5 animations:^{
-        self.cell.alturaDoTexto.constant = 1000;
+        self.alturaCollection.constant -= 300;
+        self.posicaoCollection.constant -= 300;
         [self.view layoutIfNeeded];
     }];
     return YES;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    [UIView animateWithDuration:0.5 animations:^{
-//        self.alturaDoTexto.constant -= 150;
-        self.cell.alturaDoTexto.constant += 150;
-        [self.view layoutIfNeeded];
-    }];
-    return YES;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (self.cell.anotacao.isSelectable) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.alturaCollection.constant += 300;
+            [self.view layoutIfNeeded];
+        }];
+//        [self. endEditing:YES];
+    }
 }
-
-//
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-//    if (self.cell.anotacao.isSelectable) {
-//        [UIView animateWithDuration:0.5 animations:^{
-//            self.alturaFoto.constant += 150;
-//            [self.view layoutIfNeeded];
-//        }];
-//        [self.txtMateria endEditing:YES];
-//    }
-//}
 
 
 /*
