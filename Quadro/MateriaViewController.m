@@ -42,17 +42,14 @@
         
     }
     
-    [self refresh];
     
- 
-}
--(void) refresh{
+    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(adicicionaMateriaRefresh:) forControlEvents:UIControlEventValueChanged];
     
     [self.table addSubview: refreshControl];
-    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
