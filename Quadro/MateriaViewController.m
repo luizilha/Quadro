@@ -159,24 +159,13 @@
         
         NSString *titulo = [[NSString alloc]initWithFormat:@"Deseja renomear a materia %@?",materia.nome.capitalizedString];
         
-        
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:titulo message:nil delegate:self  cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Alterar", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         
         self.posicaoAlterar = indexPath;
         
-        
-        
         [alert show];
-        
-        
-        //NSString *novo = @"Kleiton";
-        //  materia.nome = novo;
-        
-        //NSLog(@"----> %@ <----- ",materia.nome);
-        
-        //[self setTitle: s];
+
     }
 }
 

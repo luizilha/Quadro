@@ -102,6 +102,7 @@ AVCaptureStillImageOutput *stillImage;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"seguePosCamera"]) {
         PosCameraViewController *poscamera = [segue destinationViewController];
+        poscamera.posicaoMateria = self.posicaoMateria;
         poscamera.listaDeFotosComAnotacao = self.listaDeFotosComAnotacao;
         self.terminaEdicao = YES;
     }

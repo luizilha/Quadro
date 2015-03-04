@@ -41,13 +41,6 @@
 }
 
 - (IBAction)camera:(id)sender {
-    /*
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = NO;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:nil];
-     */
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CustomCameraViewController *camera = [sb instantiateViewControllerWithIdentifier:@"Camera"];
     camera.posicaoAssunto = self.posicaoAssunto;
@@ -135,19 +128,7 @@
         //[[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
         
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
-        
-        Assunto *a = m.assuntos[indexPath.row];
-        
-        a.nomeAssunto = @"Deveria remover";
-        
-        
-        
-        NSLog(@"-->%@",a.nomeAssunto);
-        
-        
-        //[[[TodasMateriasSingleton sharedInstance]listaDeMaterias] removeObject:a];
-
-        
+        [m.assuntos removeObjectAtIndex:indexPath.row];
         
         [tableView reloadData];
     }
@@ -176,10 +157,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:titulo message:nil delegate:self  cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Alterar", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
         
-        
-        
-        
-        
         [alert show];
 
     }
@@ -195,13 +172,6 @@
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
         Assunto *a = m.assuntos[self.posicaoAlterar.row];
         a.nomeAssunto = nomeMateria;
-        
-        /*Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
-        
-        materia.nome = [alertView textFieldAtIndex:0].text.capitalizedString;
-        
-        materia.nome = nomeMateria;*/
-        
         [self.table reloadData];
         
     }

@@ -36,15 +36,10 @@
 }
 
 - (IBAction)terminaEdicao:(id)sender {
-    
-    
-    //FotoComAnotacao *fotoComentada = [[FotoComAnotacao alloc] initFotoComentada:self.foto comComentario:nil];
     Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
-//    [assunto.listaFotosComAnotacao addObject:fotoComentada];
     assunto.listaFotosComAnotacao = self.listaDeFotosComAnotacao;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [materia.assuntos addObject:assunto];
-    
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

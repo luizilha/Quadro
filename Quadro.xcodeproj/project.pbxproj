@@ -25,6 +25,7 @@
 		72766D151A8BF2CA0064862F /* QuadroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D141A8BF2CA0064862F /* QuadroTests.m */; };
 		72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */; };
 		727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */; };
+		72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoTableViewCell.m; sourceTree = "<group>"; };
 		727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
 		727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
+		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +155,7 @@
 		72766CE91A8BF2CA0064862F = {
 			isa = PBXGroup;
 			children = (
+				72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */,
 				72766CF41A8BF2CA0064862F /* Quadro */,
 				72766D111A8BF2CA0064862F /* QuadroTests */,
 				72766CF31A8BF2CA0064862F /* Products */,
