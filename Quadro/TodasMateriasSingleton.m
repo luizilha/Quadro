@@ -59,7 +59,6 @@
         }
     }
     
-
     // NSCODING REMOVER SE CONSEGUIR IMPLEMENTAR SQLITE3
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"materias"];
     if (data) {

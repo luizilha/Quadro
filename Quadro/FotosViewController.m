@@ -34,7 +34,7 @@
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
     self.fotosComAnotacao = assunto.listaFotosComAnotacao;
-    NSString *titulo = [NSString stringWithFormat:@"%@ %d %d",self.navigationItem.title, self.posicao+1, self.fotosComAnotacao.count];
+    NSString *titulo = [NSString stringWithFormat:@"%@ %d %d",self.navigationItem.title, (int)self.posicao+1, (int)self.fotosComAnotacao.count];
     self.title = titulo;
     
     [self.collectionView reloadData];
@@ -96,14 +96,12 @@
 // Layout: Set Edges
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    // return UIEdgeInsetsMake(0,8,0,8);  // top, left, bottom, right
     return UIEdgeInsetsMake(0,0,0,0);  // top, left, bottom, right
 }
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize  sizeCell = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-    return sizeCell;
+    return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);;
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
@@ -116,12 +114,13 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (self.cell.anotacao.isSelectable) {
+    if (self.cell.anotacao.isEditable) {
         [UIView animateWithDuration:0.5 animations:^{
             self.alturaCollection.constant += 300;
+            self.posicaoCollection.constant += 300;
             [self.view layoutIfNeeded];
         }];
-//        [self. endEditing:YES];
+        [self.cell.anotacao endEditing:YES];
     }
 }
 
