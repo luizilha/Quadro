@@ -96,7 +96,7 @@
         [defaults synchronize];
         
     }else if([title isEqualToString:@"Recusar"]){
-        NSLog(@"Tem que sair");
+        exit(0);
     }
 }
 
