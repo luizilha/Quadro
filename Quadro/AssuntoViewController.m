@@ -28,8 +28,10 @@
     // Do any additional setup after loading the view.
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+ 
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -39,6 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [_table reloadData];
 }
+
 
 - (IBAction)camera:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -146,7 +149,7 @@
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
         Assunto *a = m.assuntos[indexPath.row];
     
-        NSLog(@"%@",a.nomeAssunto);
+       // NSLog(@"%@",a.nomeAssunto);
         
         self.posicaoAlterar = indexPath;
               

@@ -24,15 +24,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    
     //BOTAO EDIT
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.editButtonItem.title = @"Editar";
+    
+    
+    // TERMOS DE USO
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL aceito = [defaults boolForKey:@"aceito"];
+    
+    if (!aceito) {
+        [self termos];
+        
+    }
+    
+    
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(adicicionaMateriaRefresh:) forControlEvents:UIControlEventValueChanged];
     
     [self.table addSubview: refreshControl];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -41,6 +58,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.table reloadData];
+}
+-(void) termos{
+    
+    NSString *msg = @"Para o uso deste aplicativo, você assume toda responsabilidade quanto aos direitos autorais do conteúdo passado pelo professor/tutor, antes de usar o mesmo, deverá pedir prévia autorização para tirar fotografias do conteúdo postado, pois o professor e a universidade poderá ter direitos autorais sobre eles, e não nos responsabilizamos por violações";
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Termos de uso" message:msg delegate:self cancelButtonTitle:@"Recusar" otherButtonTitles:@"Aceitar", nil];
+    [alert show];
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -64,6 +89,14 @@
         
         [self.table reloadData];
         
+    }else if([title isEqualToString:@"Aceitar"]){
+        BOOL aceito = YES;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:aceito forKey:@"aceito"];
+        [defaults synchronize];
+        
+    }else if([title isEqualToString:@"Recusar"]){
+        NSLog(@"Tem que sair");
     }
 }
 
