@@ -28,8 +28,6 @@
     // Do any additional setup after loading the view.
     
     self.automaticallyAdjustsScrollViewInsets = NO;
- 
-    
 }
 
 
@@ -165,13 +163,12 @@
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text.capitalizedString;
     
     if([title isEqualToString:@"Alterar"]){
-       
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
         Assunto *a = m.assuntos[self.posicaoAlterar.row];
         a.nomeAssunto = nomeMateria;

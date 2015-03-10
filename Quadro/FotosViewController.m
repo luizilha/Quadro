@@ -68,6 +68,14 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.cell.anotacao.isFirstResponder) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.alturaCollection.constant += 300;
+            self.posicaoCollection.constant += 300;
+            [self.view layoutIfNeeded];
+        }];
+        [self.cell.anotacao endEditing:YES];
+    }
     self.posicao = (long) indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     self.cell = cell;
@@ -75,7 +83,6 @@
 //    cell.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     cell.foto.image = fotoComAnotacao.foto;
     cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
-    
     cell.anotacao.delegate = self;
     return cell;
 }
@@ -100,7 +107,8 @@
 }
 
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);;
 }
 
@@ -113,8 +121,9 @@
     return YES;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (self.cell.anotacao.isEditable) {
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.cell.anotacao.isFirstResponder) {
         [UIView animateWithDuration:0.5 animations:^{
             self.alturaCollection.constant += 300;
             self.posicaoCollection.constant += 300;
@@ -123,8 +132,6 @@
         [self.cell.anotacao endEditing:YES];
     }
 }
-
-
 /*
 #pragma mark - Navigation
 
