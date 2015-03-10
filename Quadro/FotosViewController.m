@@ -17,16 +17,16 @@
 
 @property UIPageViewController *pageViewController;
 @property NSMutableArray *fotosComAnotacao;
-@property NSInteger posicao;
+@property NSInteger posicaoFoto;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaCollection;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *posicaoCollection;
 
-
 @end
 
 @implementation FotosViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +34,7 @@
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
     self.fotosComAnotacao = assunto.listaFotosComAnotacao;
-    NSString *titulo = [NSString stringWithFormat:@"%@ %d %d",self.navigationItem.title, (int)self.posicao+1, (int)self.fotosComAnotacao.count];
+    NSString *titulo = [NSString stringWithFormat:@"%d/%d", (int)self.posicaoFoto+1, (int)self.fotosComAnotacao.count];
     self.title = titulo;
     
     [self.collectionView reloadData];
@@ -56,7 +56,7 @@
     NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
     
     if ([title isEqualToString:@"Deletar Foto"]) {
-        [self.fotosComAnotacao removeObjectAtIndex:_posicao];
+        [self.fotosComAnotacao removeObjectAtIndex:_posicaoFoto];
         if (self.fotosComAnotacao.count == 0) {
             Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
             [materia.assuntos removeObjectAtIndex:self.posicaoAssunto];
@@ -76,7 +76,7 @@
         }];
         [self.cell.anotacao endEditing:YES];
     }
-    self.posicao = (long) indexPath.row;
+    self.posicaoFoto = (long) indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     self.cell = cell;
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
@@ -131,6 +131,14 @@
         }];
         [self.cell.anotacao endEditing:YES];
     }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
+    FotoComAnotacao *foto = [assunto.listaFotosComAnotacao objectAtIndex:self.posicaoFoto];
+    foto.anotacao = textView.text;
 }
 /*
 #pragma mark - Navigation
