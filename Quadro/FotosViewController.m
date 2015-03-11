@@ -121,6 +121,14 @@
     return YES;
 }
 
+-(void) collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell * c = [[collectionView visibleCells] objectAtIndex:0];
+    NSInteger row = [[collectionView indexPathForCell:c] row];
+    NSString *titulo = [NSString stringWithFormat:@"%d/%d", (int)row+1, (int)self.fotosComAnotacao.count];
+    self.title = titulo;
+    
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.cell.anotacao.isFirstResponder) {
