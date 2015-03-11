@@ -19,7 +19,6 @@
 @property NSMutableArray *fotosComAnotacao;
 @property NSInteger posicaoFoto;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaCollection;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *posicaoCollection;
 
