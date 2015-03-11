@@ -133,12 +133,12 @@
 				72766D001A8BF2CA0064862F /* MateriaViewController.m */,
 				725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */,
 				725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */,
-				721ABFB41A8E263A0075377F /* PosCameraViewController.h */,
-				721ABFB51A8E26440075377F /* PosCameraViewController.m */,
 				722F36751A9658D900B4B826 /* FotosViewController.h */,
 				722F36761A9658D900B4B826 /* FotosViewController.m */,
 				727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */,
 				727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */,
+				721ABFB41A8E263A0075377F /* PosCameraViewController.h */,
+				721ABFB51A8E26440075377F /* PosCameraViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
