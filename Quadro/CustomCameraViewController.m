@@ -71,34 +71,31 @@ AVCaptureStillImageOutput *stillImage;
 }
 
 - (IBAction)takePhoto:(id)sender {
-        self.botaoConfirma.titleLabel.text = @"OK";
-        AVCaptureConnection *videoConnection = nil;
-        for (AVCaptureConnection *connection in stillImage.connections) {
-            for (AVCaptureInputPort *port in [connection inputPorts]) {
-                if ([[port mediaType] isEqual:AVMediaTypeVideo]) {
-                    videoConnection = connection;
-                    break;
-                }
-            }
-            if (videoConnection) {
+    [self.botaoConfirma setTitle:@"OK" forState:UIControlStateNormal];
+    AVCaptureConnection *videoConnection = nil;
+    for (AVCaptureConnection *connection in stillImage.connections) {
+        for (AVCaptureInputPort *port in [connection inputPorts]) {
+            if ([[port mediaType] isEqual:AVMediaTypeVideo]) {
+                videoConnection = connection;
                 break;
             }
         }
-        
-        [stillImage captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
-            if (imageDataSampleBuffer != NULL) {
-                NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-                UIImage *image = [UIImage imageWithData:imageData];
-                FotoComAnotacao *fotoComAnotacao = [[FotoComAnotacao alloc] init];
-                fotoComAnotacao.foto = image;
-                
-                fotoComAnotacao.anotacao = nil;
-                [self.listaDeFotosComAnotacao addObject:fotoComAnotacao];
-                self.imagemTirada.image = image;
-                [self.botaoFoto setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.listaDeFotosComAnotacao.count] forState:UIControlStateNormal];
-            }
-        }];
-    
+        if (videoConnection) {
+            break;
+        }
+    }
+    [stillImage captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+        if (imageDataSampleBuffer != NULL) {
+            NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            UIImage *image = [UIImage imageWithData:imageData];
+            FotoComAnotacao *fotoComAnotacao = [[FotoComAnotacao alloc] init];
+            fotoComAnotacao.foto = image;
+            fotoComAnotacao.anotacao = nil;
+            [self.listaDeFotosComAnotacao addObject:fotoComAnotacao];
+            self.imagemTirada.image = image;
+            [self.botaoFoto setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.listaDeFotosComAnotacao.count] forState:UIControlStateNormal];
+        }
+    }];
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
