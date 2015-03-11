@@ -16,6 +16,10 @@
 @interface CustomCameraViewController ()
 @property (nonatomic) NSMutableArray *listaDeFotosComAnotacao;
 @property (weak, nonatomic) IBOutlet UIButton *botaoConfirma;
+@property (weak, nonatomic) IBOutlet UIImageView *imagemTirada;
+@property (weak, nonatomic) IBOutlet UIButton *botaoFoto;
+@property (weak, nonatomic) IBOutlet UIView *cameraFrame;
+- (IBAction)takePhoto:(id)sender;
 
 @end
 

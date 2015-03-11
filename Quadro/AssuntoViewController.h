@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AssuntoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface AssuntoViewController : UIViewController
+<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) NSInteger posicaoMateria;
 
