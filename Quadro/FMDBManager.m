@@ -11,7 +11,7 @@
 @interface FMDBManager ()
 
 @property (strong, nonatomic) NSString *fileName;
-
+@property (strong, nonatomic) FMDatabase *database;
 
 @end
 
@@ -20,17 +20,32 @@
 
 + (id)sharedManager
 {
-    return nil;
+    static FMDBManager *sharedMyManager = nil;
+    @synchronized(self) {
+        if (sharedMyManager == nil) {
+            sharedMyManager = [[self alloc] init];
+        }
+    }
+    return sharedMyManager;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
 }
 
 - (int)open
 {
-    return 0;
+    return [self.database open];
 }
 
 - (int)close
 {
-    return 0;
+    return [self database];
 }
 
 
