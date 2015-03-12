@@ -38,15 +38,7 @@
 - (IBAction)terminaEdicao:(id)sender {
     Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
     assunto.listaFotosComAnotacao = self.listaDeFotosComAnotacao;
-    // TENTAR SALVAR AS FOTOS LOCALMENTE
-//    int cont = 1;
-//    for (NSMutableArray *array in self.listaDeFotosComAnotacao) {
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-//        NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%d",self.txtMateria.text,cont++]];
-//        FotoComAnotacao *foto = (FotoComAnotacao *) array;
-//        foto.caminhoDaFoto = filePath;
-//        [UIImagePNGRepresentation(foto.foto) writeToFile:filePath atomically:YES];
-//    }
+    
 //    
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [materia.assuntos addObject:assunto];   

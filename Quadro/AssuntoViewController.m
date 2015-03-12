@@ -72,7 +72,7 @@
     }
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:indexPath.row];
-    cell.assunto.text = assunto.nomeAssunto;
+    cell.assunto.text = assunto.nome;
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @" dd/MM";
     cell.data.text =  [df stringFromDate:assunto.dataPublicacao];
@@ -151,7 +151,7 @@
         
         self.posicaoAlterar = indexPath;
               
-        NSString *titulo = [[NSString alloc]initWithFormat:@"Deseja renomear a materia %@?",a.nomeAssunto];
+        NSString *titulo = [[NSString alloc]initWithFormat:@"Deseja renomear a materia %@?",a.nome];
         
         
         
@@ -171,7 +171,7 @@
     if([title isEqualToString:@"Alterar"]){
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
         Assunto *a = m.assuntos[self.posicaoAlterar.row];
-        a.nomeAssunto = nomeMateria;
+        a.nome = nomeMateria;
         [self.table reloadData];
         
     }

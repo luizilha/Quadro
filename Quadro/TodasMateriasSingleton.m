@@ -8,6 +8,10 @@
 
 #import "TodasMateriasSingleton.h"
 #import "FMDBManager.h"
+#import "Materia.h"
+#import "Assunto.h"
+#import "FotoComAnotacao.h"
+
 #import <sqlite3.h>
 
 @implementation TodasMateriasSingleton
@@ -71,7 +75,17 @@
 
 -(void)saveData
 {
-   
+    int cont = 1;
+    for (Materia *materia in self.listaDeMaterias) {
+        for (Assunto *assunto in materia.assuntos) {
+            for (FotoComAnotacao *foto in assunto.listaFotosComAnotacao) {
+                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+                NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@_%d",materia.nome,assunto.nome,cont++]];
+                foto.caminhoDaFoto = filePath;
+                [UIImagePNGRepresentation(foto.foto) writeToFile:filePath atomically:YES];
+            }
+        }
+    }
 }
 
 

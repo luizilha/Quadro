@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         self.dataPublicacao = dataPublicacao;
-        self.nomeAssunto = nomeAssunto;
+        self.nome = nomeAssunto;
         if (self.listaFotosComAnotacao == nil) {
             self.listaFotosComAnotacao = [[NSMutableArray alloc] init];
         }

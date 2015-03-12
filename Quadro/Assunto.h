@@ -12,7 +12,7 @@
 
 @property (nonatomic) NSMutableArray *listaFotosComAnotacao;
 @property (nonatomic) NSDate *dataPublicacao;
-@property (nonatomic) NSString *nomeAssunto;
+@property (nonatomic) NSString *nome;
 
 -(instancetype)initAssuntoPorData:(NSDate *)dataPublicacao comNomeAssunto:(NSString *)nomeAssunto;
 
