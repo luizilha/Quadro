@@ -13,8 +13,6 @@
 		725B42AE1AB1CFDC006212BB /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42A41AB1CFDC006212BB /* FMDatabase+FTS3.m */; };
 		725B42AF1AB1CFDC006212BB /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42A61AB1CFDC006212BB /* FMTokenizers.m */; };
 		725B42B01AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42AA1AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m */; };
-		725B42B11AB1CFDC006212BB /* FMDatabaseAdditionsVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725B42AC1AB1CFDC006212BB /* FMDatabaseAdditionsVariadic.swift */; };
-		725B42B21AB1CFDC006212BB /* FMDatabaseVariadic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725B42AD1AB1CFDC006212BB /* FMDatabaseVariadic.swift */; };
 		725B42BF1AB1CFEE006212BB /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42B51AB1CFEE006212BB /* FMDatabase.m */; };
 		725B42C01AB1CFEE006212BB /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42B71AB1CFEE006212BB /* FMDatabaseAdditions.m */; };
 		725B42C11AB1CFEE006212BB /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42B91AB1CFEE006212BB /* FMDatabasePool.m */; };
@@ -36,6 +34,7 @@
 		72766D151A8BF2CA0064862F /* QuadroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D141A8BF2CA0064862F /* QuadroTests.m */; };
 		72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */; };
 		727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */; };
+		728493F91AB21ED700C25566 /* dbQuadro.db in Resources */ = {isa = PBXBuildFile; fileRef = 728493F81AB21ED600C25566 /* dbQuadro.db */; };
 		72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +62,6 @@
 		725B42A71AB1CFDC006212BB /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
 		725B42A91AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
 		725B42AA1AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
-		725B42AC1AB1CFDC006212BB /* FMDatabaseAdditionsVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseAdditionsVariadic.swift; sourceTree = "<group>"; };
-		725B42AD1AB1CFDC006212BB /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDatabaseVariadic.swift; sourceTree = "<group>"; };
 		725B42B41AB1CFEE006212BB /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		725B42B51AB1CFEE006212BB /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		725B42B61AB1CFEE006212BB /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -106,6 +103,7 @@
 		72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoTableViewCell.m; sourceTree = "<group>"; };
 		727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
 		727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
+		728493F81AB21ED600C25566 /* dbQuadro.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dbQuadro.db; sourceTree = "<group>"; };
 		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -133,7 +131,6 @@
 			children = (
 				725B42A21AB1CFDC006212BB /* fts3 */,
 				725B42A81AB1CFDC006212BB /* InMemoryOnDiskIO */,
-				725B42AB1AB1CFDC006212BB /* Swift extensions */,
 			);
 			path = extra;
 			sourceTree = "<group>";
@@ -157,15 +154,6 @@
 				725B42AA1AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m */,
 			);
 			path = InMemoryOnDiskIO;
-			sourceTree = "<group>";
-		};
-		725B42AB1AB1CFDC006212BB /* Swift extensions */ = {
-			isa = PBXGroup;
-			children = (
-				725B42AC1AB1CFDC006212BB /* FMDatabaseAdditionsVariadic.swift */,
-				725B42AD1AB1CFDC006212BB /* FMDatabaseVariadic.swift */,
-			);
-			path = "Swift extensions";
 			sourceTree = "<group>";
 		};
 		725B42B31AB1CFEE006212BB /* fmdb */ = {
@@ -302,6 +290,7 @@
 		72766CF51A8BF2CA0064862F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				728493F81AB21ED600C25566 /* dbQuadro.db */,
 				72766CF61A8BF2CA0064862F /* Info.plist */,
 				72766CF71A8BF2CA0064862F /* main.m */,
 			);
@@ -417,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72766D041A8BF2CA0064862F /* Main.storyboard in Resources */,
+				728493F91AB21ED700C25566 /* dbQuadro.db in Resources */,
 				72766D091A8BF2CA0064862F /* LaunchScreen.xib in Resources */,
 				72766D061A8BF2CA0064862F /* Images.xcassets in Resources */,
 			);
@@ -445,13 +435,11 @@
 				725B42C11AB1CFEE006212BB /* FMDatabasePool.m in Sources */,
 				725B42C31AB1CFEE006212BB /* FMResultSet.m in Sources */,
 				725B42C01AB1CFEE006212BB /* FMDatabaseAdditions.m in Sources */,
-				725B42B21AB1CFDC006212BB /* FMDatabaseVariadic.swift in Sources */,
 				722F36771A9658D900B4B826 /* FotosViewController.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,
 				721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */,
 				725B42C21AB1CFEE006212BB /* FMDatabaseQueue.m in Sources */,
-				725B42B11AB1CFDC006212BB /* FMDatabaseAdditionsVariadic.swift in Sources */,
 				72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */,
 				72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */,
 				725B42AE1AB1CFDC006212BB /* FMDatabase+FTS3.m in Sources */,

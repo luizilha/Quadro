@@ -33,19 +33,26 @@
 {
     self = [super init];
     if (self) {
-        
+        self.fileName = @"dbQuadro.db";
+        NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+        NSString *docDir = [docPath objectAtIndex:0];
+        self.database = [FMDatabase databaseWithPath:[docDir stringByAppendingPathComponent:self.fileName]];
     }
     return self;
 }
 
 - (int)open
 {
-    return [self.database open];
+    if (![self.database open]) {
+        NSLog(@"BANCO NAO PODE ABRIR!!");
+        return 0;
+    }
+    return 1;
 }
 
 - (int)close
 {
-    return [self database];
+    return [self.database close];
 }
 
 
