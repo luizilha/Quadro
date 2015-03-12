@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface FotoComAnotacao : NSObject <NSCoding>
+@interface FotoComAnotacao : NSObject
 
 @property (nonatomic) UIImage *foto;
 @property (nonatomic) NSString *caminhoDaFoto;

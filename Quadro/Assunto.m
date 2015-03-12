@@ -22,22 +22,4 @@
     return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.dataPublicacao forKey:@"dataPublicacao"];
-    [aCoder encodeObject:self.nomeAssunto forKey:@"nomeAssunto"];
-    [aCoder encodeObject:self.listaFotosComAnotacao forKey:@"listaFotosComAnotacao"];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [self init];
-    if (self) {
-        self.dataPublicacao = [aDecoder decodeObjectForKey:@"dataPublicacao"];
-        self.nomeAssunto = [aDecoder decodeObjectForKey:@"nomeAssunto"];
-        self.listaFotosComAnotacao = [aDecoder decodeObjectForKey:@"listaFotosComAnotacao"];
-    }
-    return self;
-}
-
 @end

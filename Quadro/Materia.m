@@ -21,21 +21,4 @@
     return self;
 }
 
-
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
-    self = [self init];
-    if (self) {
-        self.nome = [coder decodeObjectForKey:@"nome"];
-        self.assuntos = [coder decodeObjectForKey:@"assuntos"];
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder
-{
-    [coder encodeObject:self.nome forKey:@"nome"];
-    [coder encodeObject:self.assuntos forKey:@"assuntos"];
-}
-
 @end

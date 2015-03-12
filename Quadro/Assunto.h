@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Assunto : NSObject <NSCoding>
+@interface Assunto : NSObject
 
 @property (nonatomic) NSMutableArray *listaFotosComAnotacao;
 @property (nonatomic) NSDate *dataPublicacao;
