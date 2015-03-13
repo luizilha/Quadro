@@ -14,8 +14,6 @@
 #import "Materia.h"
 
 
-#import <sqlite3.h>
-
 @implementation TodasMateriasSingleton
 {
     NSString *_databasePath;

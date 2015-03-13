@@ -42,8 +42,6 @@
         
     }
     
-    
-    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(adicicionaMateriaRefresh:) forControlEvents:UIControlEventValueChanged];
     
@@ -65,7 +63,6 @@
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Termos de uso" message:msg delegate:self cancelButtonTitle:@"Recusar" otherButtonTitles:@"Aceitar", nil];
     [alert show];
-    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -73,30 +70,22 @@
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
     
-    
     if ([title isEqualToString:@"Salvar"]) {
         Materia *materia = [[Materia alloc] initMateria:nomeMateria];
         [materia saveMateria:nomeMateria];
-        [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] insertObject:materia atIndex:0];
-        NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.table insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
-        
-    }else if([title isEqualToString:@"Alterar"]){
-        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
-        
-        materia.nome = [alertView textFieldAtIndex:0].text.capitalizedString;
-        
-        materia.nome = nomeMateria;
-        
+        [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:materia];
         [self.table reloadData];
-        
-    }else if([title isEqualToString:@"Aceitar"]){
+    } else if([title isEqualToString:@"Alterar"]) {
+        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
+        materia.nome = [alertView textFieldAtIndex:0].text.capitalizedString;
+        materia.nome = nomeMateria;
+        [self.table reloadData];
+    } else if([title isEqualToString:@"Aceitar"]) {
         BOOL aceito = YES;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setBool:aceito forKey:@"aceito"];
         [defaults synchronize];
-        
-    }else if([title isEqualToString:@"Recusar"]){
+    } else if([title isEqualToString:@"Recusar"]) {
         exit(0);
     }
 }
@@ -106,9 +95,8 @@
     UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Digite nome da materia" message:@"Ex: calculo" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Salvar", nil];
     alerta.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alerta show];
-    
-    
 }
+
 - (IBAction)adicionaMateria:(id)sender {
     UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Digite nome da materia" message:@"Ex: calculo" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Salvar", nil];
     alerta.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -157,8 +145,8 @@
         view.posicaoMateria = self.posicaoMateria;
     }
 }
-/*Pra apagar uma materia*/
 
+/* Pra apagar uma materia */
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated{
     [super setEditing:editing animated:animated];
     [self.table setEditing:editing animated:animated];
@@ -167,18 +155,22 @@
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
+
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remover do mutable array
+        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+        [materia deleteMateria:(int)indexPath.row];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
+        
         
         [tableView reloadData];
     }
 }
-///
-/*Long press*/
 
+
+/* ALTERAR NOME */
 - (void)longPress:(UILongPressGestureRecognizer *)gesture
 {
     if (gesture.state == UIGestureRecognizerStateBegan)
@@ -186,8 +178,6 @@
         UITableViewCell *cell = (UITableViewCell *)[gesture view];
         NSIndexPath *indexPath = [self.table indexPathForCell:cell];
         // NSString *s = [NSString stringWithFormat: @"row=%1d",indexPath.row];
-        
-        ///
         
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
         

@@ -27,4 +27,9 @@
     [manager.database executeUpdate:@"insert into materia(nome) values(?)",self.nome];
 }
 
+- (void)deleteMateria:(int)posicao {
+    FMDBManager *manager = [[FMDBManager alloc] init];
+    [manager.database executeUpdate:@"delete from materia where idMateria=?",posicao];
+}
+
 @end

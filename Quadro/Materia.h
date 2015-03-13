@@ -15,5 +15,6 @@
 
 -(instancetype)initMateria:(NSString *)nome;
 - (void)saveMateria:(NSString *)nome;
+- (void)deleteMateria:(int) posicao;
 
 @end
