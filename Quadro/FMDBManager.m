@@ -33,10 +33,29 @@
 {
     self = [super init];
     if (self) {
-        self.fileName = @"dbQuadro.db";
-        NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+        NSString *dataName = @"quadro.sqlite";
+        NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
         NSString *docDir = [docPath objectAtIndex:0];
-        self.database = [FMDatabase databaseWithPath:[docDir stringByAppendingPathComponent:self.fileName]];
+        NSString *localdb = [docDir stringByAppendingPathComponent:dataName];
+        BOOL suceess;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        suceess = [fileManager fileExistsAtPath:localdb];
+        
+        NSURL *filePath = [fileManager URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        filePath = [filePath URLByAppendingPathComponent:dataName];
+        
+        NSString *path = [filePath absoluteString];
+        self.database = [FMDatabase databaseWithPath:path];
+        
+        if (![self.database open]) {
+            NSLog(@"NAO ABRIU!!");
+        }
+        [_database executeUpdate:@"CREATE TABLE IF NOT EXISTS materia(idMateria integer primary key, nome text not null);"];
+        
+        if ([_database hadError]) {
+            NSLog(@"ERROR: %@", [_database lastErrorMessage]);
+        }
+       
     }
     return self;
 }

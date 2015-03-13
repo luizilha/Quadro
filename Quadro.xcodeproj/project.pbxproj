@@ -102,7 +102,6 @@
 		72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoTableViewCell.m; sourceTree = "<group>"; };
 		727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
 		727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
-		728493FC1AB22C4400C25566 /* dbQuadro.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dbQuadro.db; sourceTree = "<group>"; };
 		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -289,7 +288,6 @@
 		72766CF51A8BF2CA0064862F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				728493FC1AB22C4400C25566 /* dbQuadro.db */,
 				72766CF61A8BF2CA0064862F /* Info.plist */,
 				72766CF71A8BF2CA0064862F /* main.m */,
 			);
