@@ -51,7 +51,6 @@
             NSLog(@"NAO ABRIU!!");
         }
         [_database executeUpdate:@"CREATE TABLE IF NOT EXISTS materia(idMateria integer primary key, nome text not null);"];
-        
         if ([_database hadError]) {
             NSLog(@"ERROR: %@", [_database lastErrorMessage]);
         }

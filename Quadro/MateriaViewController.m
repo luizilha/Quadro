@@ -76,6 +76,7 @@
     
     if ([title isEqualToString:@"Salvar"]) {
         Materia *materia = [[Materia alloc] initMateria:nomeMateria];
+        [materia saveMateria:nomeMateria];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] insertObject:materia atIndex:0];
         NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.table insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];

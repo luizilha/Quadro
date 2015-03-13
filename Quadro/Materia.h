@@ -14,5 +14,6 @@
 @property (nonatomic) NSMutableArray *assuntos;
 
 -(instancetype)initMateria:(NSString *)nome;
+- (void)saveMateria:(NSString *)nome;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "Materia.h"
+#import "FMDBManager.h"
 
 @implementation Materia
 
@@ -19,6 +20,11 @@
         }
     }
     return self;
+}
+
+- (void)saveMateria:(NSString *)nome {
+    FMDBManager *manager = [[FMDBManager alloc] init];
+    [manager.database executeUpdate:@"insert into materia(nome) values(?)",self.nome];
 }
 
 @end
