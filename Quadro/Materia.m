@@ -7,7 +7,7 @@
 //
 
 #import "Materia.h"
-#import "FMDBManager.h"
+#import "Managerdb.h"
 
 @implementation Materia
 
@@ -23,13 +23,17 @@
 }
 
 - (void)saveMateria:(NSString *)nome {
-    FMDBManager *manager = [[FMDBManager alloc] init];
-    [manager.database executeUpdate:@"insert into materia(nome) values(?)",self.nome];
+    if ([[Managerdb sharedManager] opendb]) {
+        [[[Managerdb sharedManager] database] executeUpdate:@"insert into materia(nome) values(?)",self.nome];
+        [[Managerdb sharedManager] closedb];
+    }
 }
 
 - (void)deleteMateria:(int)posicao {
-    FMDBManager *manager = [[FMDBManager alloc] init];
-    [manager.database executeUpdate:@"delete from materia where idMateria=?",posicao];
+    if ([[Managerdb sharedManager] opendb]) {
+        [[[Managerdb sharedManager] database] executeUpdate:@"delete from materia where idMateria=?",posicao+1];
+        [[Managerdb sharedManager] closedb];
+    }
 }
 
 @end

@@ -6,21 +6,21 @@
 //  Copyright (c) 2015 LUIZ ILHA M MACIEL. All rights reserved.
 //
 
-#import "FMDBManager.h"
+#import "Managerdb.h"
 
-@interface FMDBManager ()
+@interface Managerdb ()
 
 @property (strong, nonatomic) NSString *fileName;
 @property (strong, nonatomic) FMDatabase *database;
 
 @end
 
-@implementation FMDBManager
+@implementation Managerdb
 
 
 + (id)sharedManager
 {
-    static FMDBManager *sharedMyManager = nil;
+    static Managerdb *sharedMyManager = nil;
     @synchronized(self) {
         if (sharedMyManager == nil) {
             sharedMyManager = [[self alloc] init];
@@ -40,39 +40,22 @@
         BOOL suceess;
         NSFileManager *fileManager = [NSFileManager defaultManager];
         suceess = [fileManager fileExistsAtPath:localdb];
-        
         NSURL *filePath = [fileManager URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
         filePath = [filePath URLByAppendingPathComponent:dataName];
         
-        NSString *path = [filePath absoluteString];
-        self.database = [FMDatabase databaseWithPath:path];
-        
-        if (![self.database open]) {
-            NSLog(@"NAO ABRIU!!");
-        }
-        [_database executeUpdate:@"CREATE TABLE IF NOT EXISTS materia(idMateria integer primary key, nome text not null);"];
-        if ([_database hadError]) {
-            NSLog(@"ERROR: %@", [_database lastErrorMessage]);
-        }
-       
+        _fileName = [filePath absoluteString];
     }
     return self;
 }
 
-- (int)open
+- (BOOL)opendb
 {
-    if (![self.database open]) {
-        NSLog(@"BANCO NAO PODE ABRIR!!");
-        return 0;
-    }
-    return 1;
+    self.database = [FMDatabase databaseWithPath:_fileName];
+    return [self.database open];
 }
 
-- (int)close
+- (BOOL)closedb
 {
     return [self.database close];
 }
-
-
-
 @end

@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "FMDB.h"
 
-@interface FMDBManager : NSObject
+@interface Managerdb : NSObject
 @property (readonly, nonatomic) FMDatabase *database;
 
 + (id) sharedManager;
-- (int) open;
-- (int) close;
+- (BOOL)opendb;
+- (BOOL)closedb;
+
 @end

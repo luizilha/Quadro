@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TodasMateriasSingleton.h"
+#import "Managerdb.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,8 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self novoBanco];
     [[TodasMateriasSingleton sharedInstance] loadData];
     return YES;
 }
@@ -42,6 +43,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (void) novoBanco {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL aceito = [defaults boolForKey:@"aceito"];
+    if (!aceito) {
+        if ([[Managerdb sharedManager] opendb]) {
+            [[[Managerdb sharedManager] database] executeUpdate:@"CREATE TABLE IF NOT EXISTS materia(idMateria integer primary key, nome text not null);"];
+            [[Managerdb sharedManager] closedb];
+        }
+        
+    }
 }
 
 #pragma mark - Core Data stack

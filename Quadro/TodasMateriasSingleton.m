@@ -7,7 +7,7 @@
 //
 
 #import "TodasMateriasSingleton.h"
-#import "FMDBManager.h"
+#import "Managerdb.h"
 #import "Materia.h"
 #import "Assunto.h"
 #import "FotoComAnotacao.h"
@@ -43,16 +43,15 @@
 
 -(void)loadData
 {
-    FMDBManager *manager = [[FMDBManager alloc] init];
-    [manager.database executeUpdate:@"CREATE TABLE IF NOT EXISTS materia(idMateria integer primary key, nome text not null);"];
-    
-    
-    FMResultSet *rs = [manager.database executeQuery:@"select * from materia"];
-    while ([rs next]) {
-        [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:[[Materia alloc] initMateria:[rs stringForColumn:@"nome"]]];
+    if ([[Managerdb sharedManager] opendb]) {
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia"];
+        while ([rs next]) {
+          [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:[[Materia alloc] initMateria:[rs stringForColumn:@"nome"]]];
+        }
+        [rs close];
+        [[Managerdb sharedManager] closedb];
     }
-    [rs close];
-    [manager.database beginTransaction];
+//
 }
 
 -(void)saveData

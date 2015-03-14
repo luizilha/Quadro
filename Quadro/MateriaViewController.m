@@ -57,7 +57,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.table reloadData];
 }
--(void) termos{
+
+-(void) termos {
     
     NSString *msg = @"Para o uso deste aplicativo, você assume toda responsabilidade quanto aos direitos autorais do conteúdo passado pelo professor/tutor, antes de usar o mesmo, deverá pedir prévia autorização para tirar fotografias do conteúdo postado, pois o professor e a universidade poderá ter direitos autorais sobre eles, e não nos responsabilizamos por violações";
     
@@ -161,7 +162,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remover do mutable array
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
-        [materia deleteMateria:(int)indexPath.row];
+        [materia deleteMateria:indexPath.row];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
         
         
