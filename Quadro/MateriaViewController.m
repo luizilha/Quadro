@@ -73,12 +73,12 @@
     
     if ([title isEqualToString:@"Salvar"]) {
         Materia *materia = [[Materia alloc] initMateria:nomeMateria];
-        [materia saveMateria:nomeMateria];
+        [materia saveMateria];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:materia];
         [self.table reloadData];
     } else if([title isEqualToString:@"Alterar"]) {
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
-        materia.nome = [alertView textFieldAtIndex:0].text.capitalizedString;
+        [materia alteraMateria:nomeMateria];
         materia.nome = nomeMateria;
         [self.table reloadData];
     } else if([title isEqualToString:@"Aceitar"]) {
@@ -162,7 +162,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remover do mutable array
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
-        [materia deleteMateria:indexPath.row];
+        [materia deleteMateria];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
         
         
