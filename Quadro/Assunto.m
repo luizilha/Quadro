@@ -42,16 +42,16 @@
         int idMateria = 0;
         if ([rs next]) idMateria = [rs intForColumn:@"idMateria"];
         [rs close];
-        [[Managerdb sharedManager] closedb];
-        [[Managerdb sharedManager] opendb];
-        FMResultSet *rs2 = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where idMateria=?",[NSString stringWithFormat:@"%d", idMateria]];
-        while ([rs2 next]) {
-            Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[rs2 dateForColumn:@"dataPublicacao"] comNomeAssunto:[rs2 stringForColumn:@"nome"]];
+        rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where idMateria=?",[NSString stringWithFormat:@"%d", idMateria]];
+        materia.assuntos = [[NSMutableArray alloc] init];
+        while ([rs next]) {
+            Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[rs dateForColumn:@"dataPublicacao"] comNomeAssunto:[rs stringForColumn:@"nome"]];
             [materia.assuntos addObject:assunto];
         }
         [rs close];
-
+        [[Managerdb sharedManager] closedb];
     }
+
 }
 
 
