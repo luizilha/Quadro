@@ -32,6 +32,8 @@
     self.cell.anotacao.delegate = self;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
+    [FotoComAnotacao todasFotos:assunto];
+    
     self.fotosComAnotacao = assunto.listaFotosComAnotacao;
     NSString *titulo = [NSString stringWithFormat:@"%d/%d", (int)self.posicaoFoto+1, (int)self.fotosComAnotacao.count];
     self.title = titulo;

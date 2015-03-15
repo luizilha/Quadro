@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @import UIKit;
+#import "Assunto.h"
 
 @interface FotoComAnotacao : NSObject
 
@@ -16,5 +17,7 @@
 @property (nonatomic) NSString *anotacao;
 
 -(instancetype)initFotoComentada:(UIImage *)foto comComentario:(NSString *) comentario;
+- (void)saveFoto:(Assunto *)assunto;
++ (void)todasFotos:(Assunto *)assunto;
 
 @end
