@@ -27,7 +27,9 @@
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
         if ([rs next]) {
-            [[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idMateria"]]];
+            NSLog(@"NOME: %@",self.nome);
+            BOOL salvo = [[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idMateria"]]];
+            NSLog(@"%d", salvo);
         }
         [rs close];
         [[Managerdb sharedManager] closedb];
@@ -44,7 +46,7 @@
         [[Managerdb sharedManager] opendb];
         FMResultSet *rs2 = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where idMateria=?",[NSString stringWithFormat:@"%d", idMateria]];
         while ([rs2 next]) {
-            Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[rs dateForColumn:@"dataPublicacao"] comNomeAssunto:[rs stringForColumn:@"nome"]];
+            Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[rs2 dateForColumn:@"dataPublicacao"] comNomeAssunto:[rs2 stringForColumn:@"nome"]];
             [materia.assuntos addObject:assunto];
         }
         [rs close];
