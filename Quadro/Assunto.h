@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Materia.h"
 
 @interface Assunto : NSObject
 
@@ -15,5 +16,6 @@
 @property (nonatomic) NSString *nome;
 
 -(instancetype)initAssuntoPorData:(NSDate *)dataPublicacao comNomeAssunto:(NSString *)nomeAssunto;
-
+- (void)saveAssunto:(Materia *)materia;
++ (void)todosAssuntosDaMateria:(Materia *)materia;
 @end

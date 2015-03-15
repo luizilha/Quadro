@@ -46,12 +46,18 @@
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia"];
         while ([rs next]) {
+            NSLog(@"%d",[rs intForColumn:@"idMateria"]);
           [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:[[Materia alloc] initMateria:[rs stringForColumn:@"nome"]]];
         }
         [rs close];
+        rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",@"moschem"];
+//        while ([rs next]) {
+            NSLog(@"ACHO PAI %d",[rs intForColumn:@"idMateria"]);
+//        }
+        [rs close];
         [[Managerdb sharedManager] closedb];
     }
-//
+
 }
 
 -(void)saveData

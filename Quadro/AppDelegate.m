@@ -51,6 +51,7 @@
     if (!aceito) {
         if ([[Managerdb sharedManager] opendb]) {
             [[[Managerdb sharedManager] database] executeUpdate:@"CREATE TABLE IF NOT EXISTS materia(idMateria integer primary key, nome text not null);"];
+            [[[Managerdb sharedManager] database] executeUpdate:@"CREATE TABLE IF NOT EXISTS assunto(idAssunto integer primary key,nome text not null, dataPublicacao date not null, idMateria integer, FOREIGN KEY(idMateria) REFERENCES materia(idMateria));"];
             [[Managerdb sharedManager] closedb];
         }
         

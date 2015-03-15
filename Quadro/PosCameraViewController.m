@@ -39,9 +39,11 @@
     Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
     assunto.listaFotosComAnotacao = self.listaDeFotosComAnotacao;
     
-//    
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    [materia.assuntos addObject:assunto];   
+    [materia.assuntos addObject:assunto];
+    
+    [assunto saveAssunto:materia];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
