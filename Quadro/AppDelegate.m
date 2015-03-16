@@ -28,7 +28,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[TodasMateriasSingleton sharedInstance] saveData];
+//    [[TodasMateriasSingleton sharedInstance] saveData];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

@@ -73,12 +73,12 @@
     
     if ([title isEqualToString:@"Salvar"]) {
         Materia *materia = [[Materia alloc] initMateria:nomeMateria];
-        [materia saveMateria];
+        [materia saveMateriadb];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:materia];
         [self.table reloadData];
     } else if([title isEqualToString:@"Alterar"]) {
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
-        [materia alteraMateria:nomeMateria];
+        [materia alteraMateriadb:nomeMateria];
         materia.nome = nomeMateria;
         [self.table reloadData];
     } else if([title isEqualToString:@"Aceitar"]) {

@@ -41,7 +41,16 @@
     
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [materia.assuntos addObject:assunto];
-    [assunto saveAssunto:materia];
+    [assunto saveAssuntodb:materia];
+    
+    // VAI TER QUE SALVAR AQUI
+    int cont = 1;
+    for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
+        [foto nomeDaFotoAssunto:assunto posicao:cont++];
+        if ([foto saveImage:foto.foto]) {
+            [foto saveFotodb:assunto];
+        }
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

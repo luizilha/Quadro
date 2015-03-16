@@ -14,6 +14,5 @@
 
 + (id)sharedInstance;
 -(void)loadData;
--(void)saveData;
 
 @end

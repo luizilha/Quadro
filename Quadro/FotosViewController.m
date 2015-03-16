@@ -32,7 +32,7 @@
     self.cell.anotacao.delegate = self;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
-    [FotoComAnotacao todasFotos:assunto];
+    [FotoComAnotacao todasFotosdb:assunto];
     
     self.fotosComAnotacao = assunto.listaFotosComAnotacao;
     NSString *titulo = [NSString stringWithFormat:@"%d/%d", (int)self.posicaoFoto+1, (int)self.fotosComAnotacao.count];
@@ -148,6 +148,7 @@
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
     FotoComAnotacao *foto = [assunto.listaFotosComAnotacao objectAtIndex:self.posicaoFoto];
     foto.anotacao = textView.text;
+    [foto mudaAnotacaodb];
 }
 
 /*

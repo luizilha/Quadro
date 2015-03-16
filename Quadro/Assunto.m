@@ -23,20 +23,18 @@
     return self;
 }
 
-- (void)saveAssunto:(Materia *)materia {
+- (void)saveAssuntodb:(Materia *)materia {
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
         if ([rs next]) {
-            NSLog(@"NOME: %@",self.nome);
-            BOOL salvo = [[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idMateria"]]];
-            NSLog(@"%d", salvo);
+            [[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idMateria"]]];
         }
         [rs close];
         [[Managerdb sharedManager] closedb];
     }
 }
 
-+ (void)todosAssuntosDaMateria:(Materia *)materia {
++ (void)todosAssuntosDaMateriadb:(Materia *)materia {
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
         int idMateria = 0;

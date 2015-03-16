@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void)saveFoto:(Assunto *)assunto {
+- (void)saveFotodb:(Assunto *)assunto {
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
         if ([rs next]) {
@@ -33,7 +33,15 @@
     }
 }
 
-+ (void)todasFotos:(Assunto *)assunto {
+- (void) mudaAnotacaodb {
+    if ([[Managerdb sharedManager] opendb]) {
+        [[[Managerdb sharedManager] database] executeUpdate:@"update fotoComAnotacao set anotacao = ? where caminhoDaFoto = ?",self.anotacao,self.caminhoDaFoto];
+    }
+    [[Managerdb sharedManager] closedb];
+}
+
+
++ (void)todasFotosdb:(Assunto *)assunto {
     if (assunto.listaFotosComAnotacao.count == 0) {
 
     if ([[Managerdb sharedManager] opendb]) {
@@ -86,5 +94,16 @@
     return image;
 }
 
+- (void)nomeDaFotoAssunto:(Assunto *)assunto posicao:(int) posicao
+{
+    if ([[Managerdb sharedManager] opendb]) {
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
+        if ([rs next]) {
+            self.caminhoDaFoto = [NSString stringWithFormat:@"%d%d%d", [rs intForColumn:@"idMateria"], [rs intForColumn:@"idAssunto"],posicao];
+        }
+        [rs close];
+        [[Managerdb sharedManager] closedb];
+    }
+}
 
 @end

@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    [Assunto todosAssuntosDaMateria:materia];
+    [Assunto todosAssuntosDaMateriadb:materia];
     
 }
 
@@ -148,8 +148,6 @@
         NSIndexPath *indexPath = [self.table indexPathForCell:cell];
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
         Assunto *a = m.assuntos[indexPath.row];
-    
-       // NSLog(@"%@",a.nomeAssunto);
         
         self.posicaoAlterar = indexPath;
               

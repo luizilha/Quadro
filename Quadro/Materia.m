@@ -24,14 +24,14 @@
     return self;
 }
 
-- (void)saveMateria {
+- (void)saveMateriadb {
     if ([[Managerdb sharedManager] opendb]) {
         [[[Managerdb sharedManager] database] executeUpdate:@"insert into materia(nome) values(?)",self.nome];
         [[Managerdb sharedManager] closedb];
     }
 }
 
-- (void)deleteMateria {
+- (void)deleteMateriadb {
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",self.nome];
         NSString *idMateria = @"0";
@@ -47,7 +47,7 @@
     }
 }
 
-- (void)alteraMateria:(NSString *)novo {
+- (void)alteraMateriadb:(NSString *)novo {
     if ([[Managerdb sharedManager] opendb]) {
         [[[Managerdb sharedManager] database] executeUpdate:@"update materia set nome=? where nome=?",novo,self.nome];
         [[Managerdb sharedManager] closedb];

@@ -54,21 +54,5 @@
     }
 }
 
--(void)saveData
-{
-    for (Materia *materia in self.listaDeMaterias) {
-        for (Assunto *assunto in materia.assuntos) {
-            int cont = 1;
-            for (FotoComAnotacao *foto in assunto.listaFotosComAnotacao) {
-                NSString *nome = [NSString stringWithFormat:@"%@_%@_%d.jpeg",materia.nome,assunto.nome,cont++];
-                foto.caminhoDaFoto = nome;
-                if ([foto saveImage:foto.foto]) {
-                    [foto saveFoto:assunto];
-                }
-            }
-        }
-    }
-}
-
 
 @end
