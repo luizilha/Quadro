@@ -41,9 +41,7 @@
     
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [materia.assuntos addObject:assunto];
-    
     [assunto saveAssunto:materia];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

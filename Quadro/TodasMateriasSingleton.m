@@ -61,16 +61,10 @@
     for (Materia *materia in self.listaDeMaterias) {
         for (Assunto *assunto in materia.assuntos) {
             for (FotoComAnotacao *foto in assunto.listaFotosComAnotacao) {
-                NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
-                NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@_%d.png",materia.nome,assunto.nome,cont++]];
-                foto.caminhoDaFoto = filePath;
-                
+                NSString *nome = [NSString stringWithFormat:@"%@_%@_%d.png",materia.nome,assunto.nome,cont++];
+                foto.caminhoDaFoto = nome;
+                [foto saveImage:foto.foto];
                 [foto saveFoto:assunto];
-                NSData* data = UIImagePNGRepresentation(foto.foto);
-                [data writeToFile:filePath atomically:YES];
-
-                
-//                [UIImagePNGRepresentation(foto.foto) writeToFile:filePath atomically:YES];
             }
         }
     }

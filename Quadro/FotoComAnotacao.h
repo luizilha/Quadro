@@ -19,5 +19,7 @@
 -(instancetype)initFotoComentada:(UIImage *)foto comComentario:(NSString *) comentario;
 - (void)saveFoto:(Assunto *)assunto;
 + (void)todasFotos:(Assunto *)assunto;
+- (void)saveImage: (UIImage*)image;
+- (UIImage*)loadImage;
 
 @end

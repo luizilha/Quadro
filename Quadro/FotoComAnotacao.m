@@ -24,6 +24,7 @@
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
         if ([rs next]) {
+            NSLog(@"%d",[rs intForColumn:@"idAssunto"]);
             BOOL salvo = [[[Managerdb sharedManager] database] executeUpdate:@"insert into fotoComAnotacao(caminhoDaFoto, anotacao, idAssunto) values(?,?,?)",self.caminhoDaFoto, self.anotacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idAssunto"]]];
             NSLog(@"%d", salvo);
         }
@@ -34,8 +35,6 @@
 
 + (void)todasFotos:(Assunto *)assunto {
     if (assunto.listaFotosComAnotacao.count == 0) {
-        
-
 
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
@@ -45,10 +44,9 @@
         rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d", idAssunto]];
         assunto.listaFotosComAnotacao = [[NSMutableArray alloc] init];
         while ([rs next]) {
-            NSLog(@"%@",[rs stringForColumn:@"caminhoDaFoto"]);
-            
-            UIImage* image = [UIImage imageWithContentsOfFile:[rs stringForColumn:@"caminhoDaFoto"]];
-            FotoComAnotacao *foto = [[FotoComAnotacao alloc] initFotoComentada:image comComentario:[rs stringForColumn:@"anotacao"]];
+            FotoComAnotacao *foto = [[FotoComAnotacao alloc] initFotoComentada:nil comComentario:[rs stringForColumn:@"anotacao"]];
+            foto.caminhoDaFoto = [rs stringForColumn:@"caminhoDaFoto"];
+            foto.foto = [foto loadImage];
             [assunto.listaFotosComAnotacao addObject:foto];
         }
         [rs close];
@@ -56,5 +54,36 @@
     }
     }
 }
+
+- (void)saveImage: (UIImage*)image
+{
+    if (image != nil)
+    {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                          [NSString stringWithFormat:@"%@", self.caminhoDaFoto]];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if (![fileManager fileExistsAtPath:path]) {
+            NSLog(@"NAO EXISTE");
+            NSData* data = UIImagePNGRepresentation(image);
+            [data writeToFile:path atomically:YES];
+        }
+        
+    }
+}
+
+- (UIImage*)loadImage
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                      [NSString stringWithFormat:@"%@", self.caminhoDaFoto]];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
+}
+
 
 @end
