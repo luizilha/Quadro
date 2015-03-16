@@ -24,5 +24,5 @@
 - (BOOL)saveImage: (UIImage*)image;
 - (UIImage*)loadImage;
 - (void)nomeDaFotoAssunto:(Assunto *)assunto posicao:(int) posicao;
-
++ (void)removeImage:(Materia *) materia OuAssunto:(Assunto *)assunto;
 @end

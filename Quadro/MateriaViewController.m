@@ -10,6 +10,7 @@
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "AssuntoViewController.h"
+#import "FotoComAnotacao.h"
 
 @interface MateriaViewController ()
 
@@ -25,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
+    self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     //BOTAO EDIT
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -158,18 +159,16 @@
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remover do mutable array
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+        [FotoComAnotacao removeImage:materia OuAssunto:nil];
         [materia deleteMateriadb];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
-        
         
         [tableView reloadData];
     }
 }
-
 
 /* ALTERAR NOME */
 - (void)longPress:(UILongPressGestureRecognizer *)gesture

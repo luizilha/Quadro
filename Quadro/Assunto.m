@@ -34,6 +34,14 @@
     }
 }
 
+- (void)deleteAssuntodb {
+    if ([[Managerdb sharedManager] opendb]) {
+        [[[Managerdb sharedManager] database] executeUpdate:@"delete from assunto where nome = ?", self.nome];
+        [[Managerdb sharedManager] closedb];
+    }
+}
+
+
 + (void)todosAssuntosDaMateriadb:(Materia *)materia {
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
@@ -50,6 +58,5 @@
         [[Managerdb sharedManager] closedb];
     }
 }
-
 
 @end

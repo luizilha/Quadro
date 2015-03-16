@@ -94,6 +94,57 @@
     return image;
 }
 
++ (void)removeImage:(Materia *) materia OuAssunto:(Assunto *)assunto
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    int idMateria = 0;
+    int idAssunto = 0;
+    if (materia != nil) {
+        if ([[Managerdb sharedManager] opendb]) {
+            FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
+            if ([rs next]) {
+                idMateria = [rs intForColumn:@"idMateria"];
+            }
+            [rs close];
+            rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where idMateria=?",[NSString stringWithFormat:@"%d",idMateria]];
+            if ([rs next]) {
+                idAssunto = [rs intForColumn:@"idAssunto"];
+            }
+            [rs close];
+            rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d",idAssunto]];
+            while ([rs next]) {
+                NSError *error;
+                NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                                  [NSString stringWithFormat:@"%@", [rs stringForColumn:@"caminhoDaFoto"]]];
+                BOOL success = [fileManager removeItemAtPath:path error:&error];
+                if (success) {
+                    NSLog(@"REMOVEU FOTO");
+                }
+            }
+            [[Managerdb sharedManager] closedb];
+        }
+    }
+    if (assunto != nil) {
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
+        if ([rs next]) {
+            idAssunto = [rs intForColumn:@"idAssunto"];
+        }
+        rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d",idAssunto]];
+        while ([rs next]) {
+            NSError *error;
+            NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                              [NSString stringWithFormat:@"%@", [rs stringForColumn:@"caminhoDaFoto"]]];
+            BOOL success = [fileManager removeItemAtPath:path error:&error];
+            if (success) {
+                NSLog(@"REMOVEU FOTO");
+            }
+        }
+    }
+}
+
 - (void)nomeDaFotoAssunto:(Assunto *)assunto posicao:(int) posicao
 {
     if ([[Managerdb sharedManager] opendb]) {
@@ -105,5 +156,6 @@
         [[Managerdb sharedManager] closedb];
     }
 }
+
 
 @end

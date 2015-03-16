@@ -33,16 +33,7 @@
 
 - (void)deleteMateriadb {
     if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",self.nome];
-        NSString *idMateria = @"0";
-        if ([rs next]) {
-            idMateria =  [NSString stringWithFormat:@"%d", [rs intForColumn:@"idMateria"]];
-            bool deu = [[[Managerdb sharedManager] database] executeUpdate:@"delete from assunto where idMateria=?",idMateria];
-            NSLog(@"%d", deu);
-            deu = [[[Managerdb sharedManager] database] executeUpdate:@"delete from materia where nome=?",self.nome];
-            NSLog(@"%d", deu);
-        }
-        [rs close];
+            [[[Managerdb sharedManager] database] executeUpdate:@"delete from materia where nome = ?", self.nome];
         [[Managerdb sharedManager] closedb];
     }
 }
@@ -53,4 +44,5 @@
         [[Managerdb sharedManager] closedb];
     }
 }
+
 @end

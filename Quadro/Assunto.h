@@ -18,4 +18,5 @@
 -(instancetype)initAssuntoPorData:(NSDate *)dataPublicacao comNomeAssunto:(NSString *)nomeAssunto;
 - (void)saveAssuntodb:(Materia *)materia;
 + (void)todosAssuntosDaMateriadb:(Materia *)materia;
+- (void)deleteAssuntodb;
 @end

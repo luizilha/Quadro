@@ -14,6 +14,7 @@
 #import "PosCameraViewController.h"
 #import "FotosViewController.h"
 #import "CustomCameraViewController.h"
+#import "FotoComAnotacao.h"
 
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -27,6 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [Assunto todosAssuntosDaMateriadb:materia];
     
@@ -127,12 +129,11 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //remover do mutable array
-        //[[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
-        
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+        Assunto *assunto = [m.assuntos objectAtIndex:indexPath.row];
+        [FotoComAnotacao removeImage:nil OuAssunto:assunto];
         [m.assuntos removeObjectAtIndex:indexPath.row];
-        
+        [assunto deleteAssuntodb];
         [tableView reloadData];
     }
 }
@@ -164,7 +165,6 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
     
