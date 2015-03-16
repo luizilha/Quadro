@@ -52,19 +52,19 @@
         [rs close];
         [[Managerdb sharedManager] closedb];
     }
-
 }
 
 -(void)saveData
 {
-    int cont = 1;
     for (Materia *materia in self.listaDeMaterias) {
         for (Assunto *assunto in materia.assuntos) {
+            int cont = 1;
             for (FotoComAnotacao *foto in assunto.listaFotosComAnotacao) {
-                NSString *nome = [NSString stringWithFormat:@"%@_%@_%d.png",materia.nome,assunto.nome,cont++];
+                NSString *nome = [NSString stringWithFormat:@"%@_%@_%d.jpeg",materia.nome,assunto.nome,cont++];
                 foto.caminhoDaFoto = nome;
-                [foto saveImage:foto.foto];
-                [foto saveFoto:assunto];
+                if ([foto saveImage:foto.foto]) {
+                    [foto saveFoto:assunto];
+                }
             }
         }
     }

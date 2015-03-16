@@ -149,6 +149,7 @@
     FotoComAnotacao *foto = [assunto.listaFotosComAnotacao objectAtIndex:self.posicaoFoto];
     foto.anotacao = textView.text;
 }
+
 /*
 #pragma mark - Navigation
 

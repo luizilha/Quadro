@@ -55,7 +55,7 @@
     }
 }
 
-- (void)saveImage: (UIImage*)image
+- (BOOL)saveImage: (UIImage*)image
 {
     if (image != nil)
     {
@@ -65,13 +65,14 @@
         NSString* path = [documentsDirectory stringByAppendingPathComponent:
                           [NSString stringWithFormat:@"%@", self.caminhoDaFoto]];
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        if (![fileManager fileExistsAtPath:path]) {
-            NSLog(@"NAO EXISTE");
-            NSData* data = UIImagePNGRepresentation(image);
-            [data writeToFile:path atomically:YES];
+        if ([fileManager fileExistsAtPath:path]) {
+            return false;
         }
-        
+        NSData* data =  UIImageJPEGRepresentation(image, 1);
+        [data writeToFile:path atomically:YES];
+        return true;
     }
+    return false;
 }
 
 - (UIImage*)loadImage

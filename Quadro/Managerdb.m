@@ -32,7 +32,8 @@
 - (instancetype)init
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         NSString *dataName = @"quadro.sqlite";
         NSArray *docPath = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
         NSString *docDir = [docPath objectAtIndex:0];

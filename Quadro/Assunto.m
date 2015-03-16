@@ -51,7 +51,6 @@
         [rs close];
         [[Managerdb sharedManager] closedb];
     }
-
 }
 
 
