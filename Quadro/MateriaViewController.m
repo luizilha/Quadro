@@ -162,7 +162,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remover do mutable array
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
-        [materia deleteMateria];
+        [materia deleteMateriadb];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
         
         
