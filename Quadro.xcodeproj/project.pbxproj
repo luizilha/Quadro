@@ -35,7 +35,6 @@
 		72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */; };
 		727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */; };
 		72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */; };
-		72C809831AB7D0E4009D2293 /* MateriaDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C809821AB7D0E4009D2293 /* MateriaDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,8 +103,6 @@
 		727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
 		727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		72C809811AB7D0E4009D2293 /* MateriaDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MateriaDAO.h; sourceTree = "<group>"; };
-		72C809821AB7D0E4009D2293 /* MateriaDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MateriaDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				725F155D1A8CC3F500BD7E26 /* singleton */,
-				72C809841AB7D67D009D2293 /* dao */,
 				725F15591A8CC35A00BD7E26 /* model */,
 				725F155B1A8CC3BE00BD7E26 /* root */,
 				72766D211A8D8BDD0064862F /* cell */,
@@ -316,15 +312,6 @@
 				7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */,
 			);
 			name = cell;
-			sourceTree = "<group>";
-		};
-		72C809841AB7D67D009D2293 /* dao */ = {
-			isa = PBXGroup;
-			children = (
-				72C809811AB7D0E4009D2293 /* MateriaDAO.h */,
-				72C809821AB7D0E4009D2293 /* MateriaDAO.m */,
-			);
-			name = dao;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +428,6 @@
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,
 				721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */,
 				725B42C21AB1CFEE006212BB /* FMDatabaseQueue.m in Sources */,
-				72C809831AB7D0E4009D2293 /* MateriaDAO.m in Sources */,
 				72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */,
 				72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */,
 				725B42AE1AB1CFDC006212BB /* FMDatabase+FTS3.m in Sources */,

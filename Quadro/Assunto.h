@@ -16,7 +16,9 @@
 @property (nonatomic) NSString *nome;
 
 -(instancetype)initAssuntoPorData:(NSDate *)dataPublicacao comNomeAssunto:(NSString *)nomeAssunto;
+
 - (void)saveAssuntodb:(Materia *)materia;
-+ (void)todosAssuntosDaMateriadb:(Materia *)materia;
 - (void)deleteAssuntodb;
++ (void)listadb:(Materia *)materia;
+
 @end

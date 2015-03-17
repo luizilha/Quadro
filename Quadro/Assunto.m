@@ -41,8 +41,7 @@
     }
 }
 
-
-+ (void)todosAssuntosDaMateriadb:(Materia *)materia {
++ (void)listadb:(Materia *)materia {
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
         int idMateria = 0;

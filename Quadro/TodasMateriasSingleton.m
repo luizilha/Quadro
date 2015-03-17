@@ -8,7 +8,6 @@
 
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
-#import "MateriaDAO.h"
 #import "FotoComAnotacao.h"
 
 
@@ -37,7 +36,7 @@
 
 -(void)loadData
 {
-    self.listaDeMaterias = [MateriaDAO lista];
+    self.listaDeMaterias = [Materia listadb];
 }
 
 

@@ -15,7 +15,10 @@
 @property (nonatomic) NSMutableArray *assuntos;
 
 -(instancetype)initMateria:(NSString *)nome;
+
+- (void)saveMateriadb;
 - (void)deleteMateriadb;
 - (void)alteraMateriadb:(NSString *)novo;
++ (NSMutableArray *) listadb;
 
 @end

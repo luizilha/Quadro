@@ -9,7 +9,6 @@
 #import "MateriaViewController.h"
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
-#import "MateriaDAO.h"
 #import "AssuntoViewController.h"
 #import "FotoComAnotacao.h"
 
@@ -75,7 +74,7 @@
     
     if ([title isEqualToString:@"Salvar"]) {
         Materia *materia = [[Materia alloc] initMateria:nomeMateria];
-        [MateriaDAO salva:materia];
+        [materia saveMateriadb];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:materia];
         [self.table reloadData];
     } else if([title isEqualToString:@"Alterar"]) {
@@ -163,7 +162,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //remover do mutable array
         Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
-        [FotoComAnotacao removeImagePorMateria:materia];
         [materia deleteMateriadb];
         [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] removeObjectAtIndex:indexPath.row];
         

@@ -8,7 +8,7 @@
 
 #import "Materia.h"
 #import "Managerdb.h"
-
+#import "FotoComAnotacao.h"
 
 @implementation Materia
 
@@ -26,14 +26,33 @@
 
 - (void)saveMateriadb {
     if ([[Managerdb sharedManager] opendb]) {
+        [[[Managerdb sharedManager] database] beginTransaction];
         [[[Managerdb sharedManager] database] executeUpdate:@"insert into materia(nome) values(?)",self.nome];
+        [[[Managerdb sharedManager] database] commit];
         [[Managerdb sharedManager] closedb];
     }
 }
 
 - (void)deleteMateriadb {
     if ([[Managerdb sharedManager] opendb]) {
-            [[[Managerdb sharedManager] database] executeUpdate:@"delete from materia where nome = ?", self.nome];
+        [[[Managerdb sharedManager] database] beginTransaction];
+            FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome = ?", self.nome];
+        if ([rs next]) {
+            int idMateria = [rs intForColumn:@"idMateria"];
+            [rs close];
+            rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where idMateria = ?",[NSString stringWithFormat:@"%d",idMateria]];
+            while ([rs next]) {
+                int idAssunto = [rs intForColumn:@"idAssunto"];
+                FMResultSet *rs2 = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto = ?",[NSString stringWithFormat:@"%d",idAssunto]];
+                while ([rs2 next]) {
+                    [FotoComAnotacao removeImagemDisco:[rs2 stringForColumn:@"caminhoDaFoto"]];
+                }
+                [[[Managerdb sharedManager] database] executeUpdate:@"delete from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d",idAssunto]];
+                [[[Managerdb sharedManager] database] executeUpdate:@"delete from assunto where idMateria=?",[NSString stringWithFormat:@"%d",idMateria]];
+            }
+            [[[Managerdb sharedManager] database] executeUpdate:@"delete from materia where idMateria=?",[NSString stringWithFormat:@"%d",idMateria] ];
+        }
+        [[[Managerdb sharedManager] database] commit];
         [[Managerdb sharedManager] closedb];
     }
 }
@@ -44,5 +63,21 @@
         [[Managerdb sharedManager] closedb];
     }
 }
+
++ (NSMutableArray *) listadb {
+    NSMutableArray *nova = [[NSMutableArray alloc] init];
+    if ([[Managerdb sharedManager] opendb]) {
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia"];
+        while ([rs next]) {
+            Materia *materia = [[Materia alloc] initMateria:[rs stringForColumn:@"nome"]];
+            materia.idMateria = [rs intForColumn:@"idMateria"];
+            [nova addObject:materia];
+        }
+        [rs close];
+        [[Managerdb sharedManager] closedb];
+    }
+    return nova;
+}
+
 
 @end

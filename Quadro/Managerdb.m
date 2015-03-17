@@ -52,11 +52,14 @@
 - (BOOL)opendb
 {
     self.database = [FMDatabase databaseWithPath:_fileName];
+   // [self.database beginTransaction];
     return [self.database open];
+    
 }
 
 - (BOOL)closedb
 {
+   // [self.database commit];
     return [self.database close];
 }
 @end

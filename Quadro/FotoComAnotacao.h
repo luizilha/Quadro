@@ -24,5 +24,6 @@
 - (UIImage*)loadImage;
 - (void)nomeDaFotoAssunto:(Assunto *)assunto posicao:(int) posicao;
 + (void)todasFotosdb:(Assunto *)assunto;
-+ (void)removeImagePorMateria:(Materia *) materia;
++ (void)removeImagemDisco:(NSString *) caminhoDaFoto;
+
 @end
