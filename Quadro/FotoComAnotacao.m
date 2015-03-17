@@ -40,6 +40,17 @@
     [[Managerdb sharedManager] closedb];
 }
 
+- (void) deletedb {
+    if ([[Managerdb sharedManager] opendb]) {
+           FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where caminhoDaFoto = ?", self.caminhoDaFoto];
+        if ([rs next]) {
+            [FotoComAnotacao removeImagemDisco:self.caminhoDaFoto];
+        }
+        [rs close];
+        [[[Managerdb sharedManager] database] executeUpdate:@"delete from fotoComAnotacao where caminhoDaFoto = ?", self.caminhoDaFoto];
+    }
+    [[Managerdb sharedManager] closedb];
+}
 
 + (void)todasFotosdb:(Assunto *)assunto {
     if (assunto.listaFotosComAnotacao.count == 0) {

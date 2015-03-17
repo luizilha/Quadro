@@ -57,7 +57,12 @@
     NSString *title = [actionSheet buttonTitleAtIndex:buttonIndex];
     
     if ([title isEqualToString:@"Deletar Foto"]) {
+        FotoComAnotacao *ft = [self.fotosComAnotacao objectAtIndex:_posicaoFoto];
+        [ft deletedb];
         [self.fotosComAnotacao removeObjectAtIndex:_posicaoFoto];
+        NSString *titulo = [NSString stringWithFormat:@"%d/%d", (int)_posicaoFoto-1, (int)self.fotosComAnotacao.count];
+        self.title = titulo;
+        
         if (self.fotosComAnotacao.count == 0) {
             Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
             [materia.assuntos removeObjectAtIndex:self.posicaoAssunto];
