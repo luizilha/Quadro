@@ -12,9 +12,7 @@
 #import "AssuntoViewController.h"
 #import "FotoComAnotacao.h"
 #import <GoogleMobileAds/GADBannerView.h>
-#define MY_BANNER_ID "3184510264135408"
-
-
+#define MY_BANNER_ID @"ca-app-pub-3184510264135408/7952980376"
 
 @interface MateriaViewController ()
 
@@ -31,14 +29,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    self.bannerView_.adUnitID = @MY_BANNER_ID;
+    CGPoint point = CGPointMake(0, self.view.frame.size.height * 0.9);
+    self.bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:point];
+    self.bannerView_.backgroundColor = [UIColor whiteColor];
+    self.bannerView_.adUnitID = MY_BANNER_ID;
     
     self.bannerView_.rootViewController = self;
+
+  //  [self.table addSubview:self.bannerView_];
     [self.view addSubview:self.bannerView_];
-    
-    [self.bannerView_ loadRequest:[GADRequest request]];
-    
+    GADRequest * request = [GADRequest request];
+    [self.bannerView_ loadRequest:request];
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     //BOTAO EDIT
