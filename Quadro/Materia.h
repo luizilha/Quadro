@@ -16,9 +16,9 @@
 
 -(instancetype)initMateria:(NSString *)nome;
 
-- (void)saveMateriadb;
-- (void)deleteMateriadb;
-- (void)alteraMateriadb:(NSString *)novo;
+- (void)savedb;
+- (void)deletedb;
+- (void)alteradb:(NSString *)novo;
 + (NSMutableArray *) listadb;
 
 @end

@@ -131,9 +131,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
         Assunto *assunto = [m.assuntos objectAtIndex:indexPath.row];
-//        [FotoComAnotacao removeImagePorMateria:<#(Materia *)#>
+        [assunto deletedb];
         [m.assuntos removeObjectAtIndex:indexPath.row];
-        [assunto deleteAssuntodb];
         [tableView reloadData];
     }
 }
@@ -171,6 +170,7 @@
     if([title isEqualToString:@"Alterar"]){
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
         Assunto *a = m.assuntos[self.posicaoAlterar.row];
+        [a alteradb:nomeMateria];
         a.nome = nomeMateria;
         [self.table reloadData];
         

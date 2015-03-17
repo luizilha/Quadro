@@ -8,6 +8,7 @@
 
 #import "Assunto.h"
 #import "Managerdb.h"
+#import "FotoComAnotacao.h"
 
 @implementation Assunto
 
@@ -23,7 +24,7 @@
     return self;
 }
 
-- (void)saveAssuntodb:(Materia *)materia {
+- (void)savedb:(Materia *)materia {
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
         if ([rs next]) {
@@ -34,9 +35,34 @@
     }
 }
 
-- (void)deleteAssuntodb {
+- (void)deletedb {
+    if ([[Managerdb sharedManager] opendb]) {
+        [[[Managerdb sharedManager] database] beginTransaction];
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome = ?", self.nome];
+        if ([rs next]) {
+            int idAssunto = [rs intForColumn:@"idAssunto"];
+            [rs close];
+            rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto = ?",[NSString stringWithFormat:@"%d", idAssunto]];
+            while ([rs next]) {
+                [FotoComAnotacao removeImagemDisco:[rs stringForColumn:@"caminhoDaFoto"]];
+            }
+            [[[Managerdb sharedManager] database] executeUpdate:@"delete from fotoComAnotacao where idAssunto = ?",[NSString stringWithFormat:@"%d", idAssunto]];
+            [[[Managerdb sharedManager] database] executeUpdate:@"delete from assunto where idAssunto = ?",[NSString stringWithFormat:@"%d", idAssunto]];
+        }
+        [[[Managerdb sharedManager] database] commit];
+        [[Managerdb sharedManager] closedb];
+    }
+    
+    
     if ([[Managerdb sharedManager] opendb]) {
         [[[Managerdb sharedManager] database] executeUpdate:@"delete from assunto where nome = ?", self.nome];
+        [[Managerdb sharedManager] closedb];
+    }
+}
+
+- (void)alteradb:(NSString *)novo {
+    if ([[Managerdb sharedManager] opendb]) {
+        [[[Managerdb sharedManager] database] executeUpdate:@"update assunto set nome=? where nome=?", novo, self.nome];
         [[Managerdb sharedManager] closedb];
     }
 }
@@ -57,5 +83,7 @@
         [[Managerdb sharedManager] closedb];
     }
 }
+
+
 
 @end

@@ -41,7 +41,7 @@
     
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [materia.assuntos addObject:assunto];
-    [assunto saveAssuntodb:materia];
+    [assunto savedb:materia];
     
     // VAI TER QUE SALVAR AQUI
     int cont = 1;
