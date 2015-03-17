@@ -94,8 +94,7 @@
     return image;
 }
 
-+ (void)removeImage:(Materia *) materia OuAssunto:(Assunto *)assunto
-{
++ (void)removeImagePorMateria:(Materia *) materia {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
@@ -127,6 +126,15 @@
             [[Managerdb sharedManager] closedb];
         }
     }
+}
+
++ (void)removeImagePorAssunto:(Assunto *)assunto
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    int idAssunto = 0;
     if (assunto != nil) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
         if ([rs next]) {
@@ -144,6 +152,8 @@
         }
     }
 }
+
+
 
 - (void)nomeDaFotoAssunto:(Assunto *)assunto posicao:(int) posicao
 {

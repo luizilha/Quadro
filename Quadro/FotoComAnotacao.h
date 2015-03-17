@@ -20,9 +20,9 @@
 -(instancetype)initFotoComentada:(UIImage *)foto comComentario:(NSString *) comentario;
 - (void)saveFotodb:(Assunto *)assunto;
 - (void) mudaAnotacaodb;
-+ (void)todasFotosdb:(Assunto *)assunto;
 - (BOOL)saveImage: (UIImage*)image;
 - (UIImage*)loadImage;
 - (void)nomeDaFotoAssunto:(Assunto *)assunto posicao:(int) posicao;
-+ (void)removeImage:(Materia *) materia OuAssunto:(Assunto *)assunto;
++ (void)todasFotosdb:(Assunto *)assunto;
++ (void)removeImagePorMateria:(Materia *) materia;
 @end

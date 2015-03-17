@@ -131,7 +131,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
         Assunto *assunto = [m.assuntos objectAtIndex:indexPath.row];
-        [FotoComAnotacao removeImage:nil OuAssunto:assunto];
+//        [FotoComAnotacao removeImagePorMateria:<#(Materia *)#>
         [m.assuntos removeObjectAtIndex:indexPath.row];
         [assunto deleteAssuntodb];
         [tableView reloadData];

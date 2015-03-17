@@ -7,18 +7,12 @@
 //
 
 #import "TodasMateriasSingleton.h"
-#import "Managerdb.h"
 #import "Materia.h"
-#import "Assunto.h"
+#import "MateriaDAO.h"
 #import "FotoComAnotacao.h"
-#import "Materia.h"
 
 
 @implementation TodasMateriasSingleton
-{
-    NSString *_databasePath;
-    sqlite3 *_db;
-}
 
 +(instancetype) init {
     @throw [NSException exceptionWithName:@"metodo nao permitido" reason:@"utiize [MateriaPorDataSingleton sharedInstance]" userInfo:nil];
@@ -43,15 +37,7 @@
 
 -(void)loadData
 {
-    if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia"];
-        while ([rs next]) {
-            NSLog(@"%d",[rs intForColumn:@"idMateria"]);
-          [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:[[Materia alloc] initMateria:[rs stringForColumn:@"nome"]]];
-        }
-        [rs close];
-        [[Managerdb sharedManager] closedb];
-    }
+    self.listaDeMaterias = [MateriaDAO lista];
 }
 
 

@@ -10,11 +10,12 @@
 
 @interface Materia : NSObject
 
+@property (nonatomic) int idMateria;
 @property (nonatomic) NSString *nome;
 @property (nonatomic) NSMutableArray *assuntos;
 
 -(instancetype)initMateria:(NSString *)nome;
-- (void)saveMateriadb;
 - (void)deleteMateriadb;
 - (void)alteraMateriadb:(NSString *)novo;
+
 @end
