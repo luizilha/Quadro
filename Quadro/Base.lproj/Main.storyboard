@@ -507,22 +507,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFk-zV-MM5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="roR-2R-oYU"/>
-                                    <constraint firstAttribute="height" constant="650" id="xv6-Ym-5Gz"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="roR-2R-oYU"/>
-                                        <exclude reference="xv6-Ym-5Gz"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="roR-2R-oYU"/>
-                                        <exclude reference="xv6-Ym-5Gz"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xSl-dO-fuT">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>

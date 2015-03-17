@@ -11,6 +11,10 @@
 #import "Materia.h"
 #import "AssuntoViewController.h"
 #import "FotoComAnotacao.h"
+#import <GoogleMobileAds/GADBannerView.h>
+#define MY_BANNER_ID "3184510264135408"
+
+
 
 @interface MateriaViewController ()
 
@@ -18,6 +22,8 @@
 @property (nonatomic) NSMutableArray *assuntos;
 @property (nonatomic) NSInteger posicaoMateria;
 @property (nonatomic) NSIndexPath *posicaoAlterar; // posicao para alterar
+@property (nonatomic) GADBannerView *bannerView_;
+
 @end
 // sar
 @implementation MateriaViewController
@@ -25,6 +31,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    self.bannerView_.adUnitID = @MY_BANNER_ID;
+    
+    self.bannerView_.rootViewController = self;
+    [self.view addSubview:self.bannerView_];
+    
+    [self.bannerView_ loadRequest:[GADRequest request]];
     
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -48,7 +61,6 @@
     
     [self.table addSubview: refreshControl];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

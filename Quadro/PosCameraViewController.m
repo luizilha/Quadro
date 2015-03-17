@@ -56,7 +56,7 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     [UIView animateWithDuration:0.5 animations:^{
-        self.alturaFoto.constant -= 150;
+        self.alturaFoto.constant -= 190;
         [self.view layoutIfNeeded];
     }];
     return YES;
@@ -65,7 +65,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.txtMateria.isEditing) {
         [UIView animateWithDuration:0.5 animations:^{
-            self.alturaFoto.constant += 150;
+            self.alturaFoto.constant += 190;
             [self.view layoutIfNeeded];
         }];
         [self.txtMateria endEditing:YES];
