@@ -17,6 +17,7 @@
 		723866921AB8BB6500978D57 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723866911AB8BB6500978D57 /* MessageUI.framework */; };
 		723866941AB8BB6F00978D57 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723866931AB8BB6F00978D57 /* StoreKit.framework */; };
 		723866961AB8BB8200978D57 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723866951AB8BB8200978D57 /* SystemConfiguration.framework */; };
+		723866A51AB9F11000978D57 /* PosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 723866A41AB9F11000978D57 /* PosCollectionViewCell.m */; };
 		7258B3561A97A24700A5B16F /* FotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */; };
 		725B42AE1AB1CFDC006212BB /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42A41AB1CFDC006212BB /* FMDatabase+FTS3.m */; };
 		725B42AF1AB1CFDC006212BB /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42A61AB1CFDC006212BB /* FMTokenizers.m */; };
@@ -78,6 +79,8 @@
 		723866A01AB9E90B00978D57 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		723866A11AB9E90B00978D57 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		723866A21AB9E90B00978D57 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		723866A31AB9F11000978D57 /* PosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosCollectionViewCell.h; sourceTree = "<group>"; };
+		723866A41AB9F11000978D57 /* PosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosCollectionViewCell.m; sourceTree = "<group>"; };
 		7258B3541A97A24700A5B16F /* FotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FotosCollectionViewCell.h; sourceTree = "<group>"; };
 		7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotosCollectionViewCell.m; sourceTree = "<group>"; };
 		725B42A31AB1CFDC006212BB /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
@@ -370,6 +373,8 @@
 				72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */,
 				7258B3541A97A24700A5B16F /* FotosCollectionViewCell.h */,
 				7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */,
+				723866A31AB9F11000978D57 /* PosCollectionViewCell.h */,
+				723866A41AB9F11000978D57 /* PosCollectionViewCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				725B42C01AB1CFEE006212BB /* FMDatabaseAdditions.m in Sources */,
 				722F36771A9658D900B4B826 /* FotosViewController.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
+				723866A51AB9F11000978D57 /* PosCollectionViewCell.m in Sources */,
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,
 				721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */,
 				725B42C21AB1CFEE006212BB /* FMDatabaseQueue.m in Sources */,

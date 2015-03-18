@@ -87,8 +87,6 @@
      initWithTarget:self action:@selector(longPress:)];
     [cell addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
-    
-
     return cell;
 }
 
@@ -176,7 +174,6 @@
         
     }
 }
-
 
 /*
 #pragma mark - Navigation

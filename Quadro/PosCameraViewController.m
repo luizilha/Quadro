@@ -11,6 +11,7 @@
 #import "Materia.h"
 #import "FotoComAnotacao.h"
 #import "Assunto.h"
+#import "PosCollectionViewCell.h"
 
 @interface PosCameraViewController ()
 
@@ -18,16 +19,26 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtMateria;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaFoto;
 @property (weak, nonatomic) IBOutlet UIButton *btnDeConfirma;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *barraDeLoad;
 
 @end
 
 @implementation PosCameraViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.btnDeConfirma.enabled = NO;
+    
+    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    Assunto *assunto = [materia.assuntos objectAtIndex:materia.assuntos.count-1];
+    self.txtMateria.text = assunto.nome;
+    if (self.txtMateria.text.length < 2) {
+        self.btnDeConfirma.enabled = NO;
+    }
     FotoComAnotacao *fotoComAnotacao = [self.listaDeFotosComAnotacao objectAtIndex:self.listaDeFotosComAnotacao.count -1];
     self.imagem.image = fotoComAnotacao.foto;
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -36,20 +47,60 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.listaDeFotosComAnotacao.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"posCell" forIndexPath:indexPath];
+    FotoComAnotacao *foto = [self.listaDeFotosComAnotacao objectAtIndex:indexPath.row];
+    cell.imagem.image = foto.foto;
+    return cell;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 2;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 2;
+}
+
 - (IBAction)terminaEdicao:(id)sender {
-    Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
-    assunto.listaFotosComAnotacao = self.listaDeFotosComAnotacao;
-    
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    [materia.assuntos addObject:assunto];
-    [assunto savedb:materia];
     
-    // VAI TER QUE SALVAR AQUI
-    int cont = 1;
-    for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
-        [foto nomeDaFotoAssunto:assunto posicao:cont++];
-        if ([foto saveImage:foto.foto]) {
-            [foto saveFotodb:assunto];
+    BOOL existe = NO;
+    Assunto *assuntoE;
+    for (Assunto *a in materia.assuntos) {
+        if ([a.nome isEqualToString:self.txtMateria.text]) {
+            assuntoE = a;
+            existe = YES;
+        }
+    }
+    self.barraDeLoad.hidden = NO;
+    if (existe) {
+        [assuntoE.listaFotosComAnotacao addObjectsFromArray:self.listaDeFotosComAnotacao];
+        int cont = 1;
+        for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
+            [foto nomeDaFotoAssunto:assuntoE posicao:cont++];
+            if ([foto saveImage:foto.foto]) {
+                [foto saveFotodb:assuntoE];
+            }
+        }
+    } else {
+        Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
+        assunto.listaFotosComAnotacao = self.listaDeFotosComAnotacao;
+        [materia.assuntos addObject:assunto];
+        [assunto savedb:materia];
+        // VAI TER QUE SALVAR AQUI
+        int cont = 1;
+        for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
+            [foto nomeDaFotoAssunto:assunto posicao:cont++];
+            if ([foto saveImage:foto.foto]) {
+                [foto saveFotodb:assunto];
+            }
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];

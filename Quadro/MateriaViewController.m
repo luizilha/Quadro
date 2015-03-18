@@ -78,15 +78,35 @@
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
     
     if ([title isEqualToString:@"Salvar"]) {
-        Materia *materia = [[Materia alloc] initMateria:nomeMateria];
-        [materia savedb];
-        [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:materia];
-        [self.table reloadData];
+        if ([nomeMateria length] == 0) {
+            Materia *materia = [[Materia alloc] initMateria:nomeMateria];
+            BOOL existe = NO;
+            for (Materia *m in [[TodasMateriasSingleton sharedInstance] listaDeMaterias]) {
+                if ([m.nome isEqualToString:nomeMateria]) {
+                    existe = YES;
+                }
+            }
+            if (!existe) {
+                [materia savedb];
+                [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] addObject:materia];
+                [self.table reloadData];
+            }
+        }
     } else if([title isEqualToString:@"Alterar"]) {
-        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
-        [materia alteradb:nomeMateria];
-        materia.nome = nomeMateria;
-        [self.table reloadData];
+        if ([nomeMateria length] == 0) {
+            Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
+            BOOL existe = NO;
+            for (Materia *m in [[TodasMateriasSingleton sharedInstance] listaDeMaterias]) {
+                if ([m.nome isEqualToString:nomeMateria]) {
+                    existe = YES;
+                }
+            }
+            if (!existe) {
+                [materia alteradb:nomeMateria];
+                materia.nome = nomeMateria;
+                [self.table reloadData];
+            }
+        }
     } else if([title isEqualToString:@"Aceitar"]) {
         BOOL aceito = YES;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

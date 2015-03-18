@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PosCameraViewController : UIViewController <UITextFieldDelegate>
+@interface PosCameraViewController : UIViewController <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic) UIImage *foto;
 @property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
