@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagem;
 @property (weak, nonatomic) IBOutlet UITextField *txtMateria;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaFoto;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *larguraFoto;
 
 @end
 
@@ -56,7 +55,7 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     [UIView animateWithDuration:0.5 animations:^{
-        self.alturaFoto.constant -= 190;
+        self.alturaFoto.constant += 245;
         [self.view layoutIfNeeded];
     }];
     return YES;
@@ -65,7 +64,7 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.txtMateria.isEditing) {
         [UIView animateWithDuration:0.5 animations:^{
-            self.alturaFoto.constant += 190;
+            self.alturaFoto.constant -= 245;
             [self.view layoutIfNeeded];
         }];
         [self.txtMateria endEditing:YES];

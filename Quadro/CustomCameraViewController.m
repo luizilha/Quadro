@@ -59,6 +59,8 @@ AVCaptureStillImageOutput *stillImage;
         
         [rootLayer setMasksToBounds:YES];
         CGRect frame = self.cameraFrame.frame;
+        frame.size.width = [UIScreen mainScreen].bounds.size.width;
+        
         [previewLayer setFrame:frame];
         [rootLayer insertSublayer:previewLayer atIndex:0];
         
@@ -69,15 +71,6 @@ AVCaptureStillImageOutput *stillImage;
         
         [session startRunning];
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    CALayer *rootLayer = [[self cameraFrame] layer];
-    AVCaptureVideoPreviewLayer *previewLayer = [[rootLayer sublayers] lastObject];
-    CGRect frame = self.cameraFrame.frame;
-    [previewLayer setFrame:frame];
-    [rootLayer setMasksToBounds:YES];
 }
 
 - (IBAction)takePhoto:(id)sender {
