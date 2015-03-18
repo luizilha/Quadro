@@ -53,10 +53,6 @@
         
     }
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(adicicionaMateriaRefresh:) forControlEvents:UIControlEventValueChanged];
-    
-    [self.table addSubview: refreshControl];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,13 +95,6 @@
     } else if([title isEqualToString:@"Recusar"]) {
         exit(0);
     }
-}
-
--(void) adicicionaMateriaRefresh:(UIRefreshControl *)ref{
-    [ref endRefreshing];
-    UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Digite nome da materia" message:@"Ex: calculo" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Salvar", nil];
-    alerta.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alerta show];
 }
 
 - (IBAction)adicionaMateria:(id)sender {
