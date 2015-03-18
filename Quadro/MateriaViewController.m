@@ -78,7 +78,7 @@
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
     
     if ([title isEqualToString:@"Salvar"]) {
-        if ([nomeMateria length] == 0) {
+        if ([nomeMateria length] != 0) {
             Materia *materia = [[Materia alloc] initMateria:nomeMateria];
             BOOL existe = NO;
             for (Materia *m in [[TodasMateriasSingleton sharedInstance] listaDeMaterias]) {
@@ -93,7 +93,7 @@
             }
         }
     } else if([title isEqualToString:@"Alterar"]) {
-        if ([nomeMateria length] == 0) {
+        if ([nomeMateria length] != 0) {
             Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
             BOOL existe = NO;
             for (Materia *m in [[TodasMateriasSingleton sharedInstance] listaDeMaterias]) {

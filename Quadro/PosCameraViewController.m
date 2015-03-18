@@ -28,13 +28,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.barraDeLoad.hidden = YES;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    Assunto *assunto = [materia.assuntos objectAtIndex:materia.assuntos.count-1];
-    self.txtMateria.text = assunto.nome;
-    if (self.txtMateria.text.length < 2) {
+    if (materia.assuntos.count != 0) {
+        Assunto *assunto = [materia.assuntos objectAtIndex:materia.assuntos.count-1];
+        self.txtMateria.text = assunto.nome;
+        if (self.txtMateria.text.length < 2) {
+            self.btnDeConfirma.enabled = NO;
+        }
+    } else {
         self.btnDeConfirma.enabled = NO;
     }
+    NSLog(@"%d", materia.assuntos.count-1);
+   
     FotoComAnotacao *fotoComAnotacao = [self.listaDeFotosComAnotacao objectAtIndex:self.listaDeFotosComAnotacao.count -1];
     self.imagem.image = fotoComAnotacao.foto;
     

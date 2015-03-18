@@ -486,7 +486,7 @@
                         <outlet property="alturaCollection" destination="Ep2-i7-sGT" id="oYZ-5e-qmr"/>
                         <outlet property="collectionView" destination="XB2-n9-7Bn" id="mh8-RT-4mG"/>
                         <outlet property="posicaoCollection" destination="ufg-7i-rXF" id="U8V-BE-JU2"/>
-                        <segue destination="pqY-H3-dGp" kind="show" id="h6g-hU-kRp"/>
+                        <segue destination="pqY-H3-dGp" kind="show" identifier="segueZoom" id="h6g-hU-kRp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -607,7 +607,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="PD2-8o-ZvV" kind="show" identifier="seguePosCamera" id="egv-on-eMW"/>
+                                    <segue destination="PD2-8o-ZvV" kind="show" identifier="seguePosCamera" id="OSN-1T-uus"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -858,15 +858,15 @@
                                 <exclude reference="ZEd-1u-dYk"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2Sl-Q5-Bkc"/>
-                                <exclude reference="LgH-Bc-D57"/>
-                                <exclude reference="aDG-nt-CAe"/>
-                                <exclude reference="lsB-Bx-f42"/>
                                 <exclude reference="NIX-oi-ADu"/>
                                 <exclude reference="f12-fw-Q0w"/>
                                 <exclude reference="PJi-Re-8z9"/>
                                 <exclude reference="QVO-CP-TUY"/>
                                 <exclude reference="Yae-rs-rB7"/>
+                                <exclude reference="2Sl-Q5-Bkc"/>
+                                <exclude reference="LgH-Bc-D57"/>
+                                <exclude reference="aDG-nt-CAe"/>
+                                <exclude reference="lsB-Bx-f42"/>
                                 <exclude reference="QWt-dK-O3G"/>
                                 <exclude reference="RsX-jo-jt8"/>
                                 <exclude reference="nzX-Na-z5g"/>
@@ -883,17 +883,17 @@
                                 <include reference="ZEd-1u-dYk"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="NIX-oi-ADu"/>
+                                <include reference="f12-fw-Q0w"/>
+                                <include reference="PJi-Re-8z9"/>
+                                <include reference="QVO-CP-TUY"/>
+                                <include reference="Yae-rs-rB7"/>
                                 <exclude reference="9eU-vJ-oVL"/>
                                 <exclude reference="LZq-Pr-qXh"/>
                                 <include reference="LgH-Bc-D57"/>
                                 <include reference="aDG-nt-CAe"/>
                                 <exclude reference="fwI-0E-uYF"/>
                                 <include reference="lsB-Bx-f42"/>
-                                <include reference="NIX-oi-ADu"/>
-                                <include reference="f12-fw-Q0w"/>
-                                <include reference="PJi-Re-8z9"/>
-                                <include reference="QVO-CP-TUY"/>
-                                <include reference="Yae-rs-rB7"/>
                                 <exclude reference="1ps-EE-Z2r"/>
                                 <exclude reference="6GE-Ut-YE4"/>
                                 <include reference="QWt-dK-O3G"/>
@@ -930,6 +930,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8Q1-cl-dJH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SyD-KW-rSt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8j-Tu-Dsx">
