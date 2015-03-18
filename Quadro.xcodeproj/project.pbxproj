@@ -68,6 +68,16 @@
 		723866911AB8BB6500978D57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		723866931AB8BB6F00978D57 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		723866951AB8BB8200978D57 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		723866991AB9E90B00978D57 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		7238669A1AB9E90B00978D57 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		7238669B1AB9E90B00978D57 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		7238669C1AB9E90B00978D57 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		7238669D1AB9E90B00978D57 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		7238669E1AB9E90B00978D57 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		7238669F1AB9E90B00978D57 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		723866A01AB9E90B00978D57 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		723866A11AB9E90B00978D57 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		723866A21AB9E90B00978D57 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		7258B3541A97A24700A5B16F /* FotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FotosCollectionViewCell.h; sourceTree = "<group>"; };
 		7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotosCollectionViewCell.m; sourceTree = "<group>"; };
 		725B42A31AB1CFDC006212BB /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
@@ -148,6 +158,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723866981AB9E90B00978D57 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				723866991AB9E90B00978D57 /* GAI.h */,
+				7238669A1AB9E90B00978D57 /* GAIDictionaryBuilder.h */,
+				7238669B1AB9E90B00978D57 /* GAIEcommerceFields.h */,
+				7238669C1AB9E90B00978D57 /* GAIEcommerceProduct.h */,
+				7238669D1AB9E90B00978D57 /* GAIEcommerceProductAction.h */,
+				7238669E1AB9E90B00978D57 /* GAIEcommercePromotion.h */,
+				7238669F1AB9E90B00978D57 /* GAIFields.h */,
+				723866A01AB9E90B00978D57 /* GAILogger.h */,
+				723866A11AB9E90B00978D57 /* GAITrackedViewController.h */,
+				723866A21AB9E90B00978D57 /* GAITracker.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		725B42A11AB1CFDC006212BB /* extra */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +322,7 @@
 		72766CF41A8BF2CA0064862F /* Quadro */ = {
 			isa = PBXGroup;
 			children = (
+				723866981AB9E90B00978D57 /* Library */,
 				725F155D1A8CC3F500BD7E26 /* singleton */,
 				725F15591A8CC35A00BD7E26 /* model */,
 				725F155B1A8CC3BE00BD7E26 /* root */,

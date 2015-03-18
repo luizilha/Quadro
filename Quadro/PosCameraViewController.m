@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagem;
 @property (weak, nonatomic) IBOutlet UITextField *txtMateria;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaFoto;
+@property (weak, nonatomic) IBOutlet UIButton *btnDeConfirma;
 
 @end
 
@@ -24,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.btnDeConfirma.enabled = NO;
     FotoComAnotacao *fotoComAnotacao = [self.listaDeFotosComAnotacao objectAtIndex:self.listaDeFotosComAnotacao.count -1];
     self.imagem.image = fotoComAnotacao.foto;
     // Do any additional setup after loading the view.
@@ -69,6 +71,17 @@
         }];
         [self.txtMateria endEditing:YES];
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSLog(@"%@",textField.text);
+    if (textField.text.length < 4) {
+        self.btnDeConfirma.enabled = NO;
+    } else {
+        self.btnDeConfirma.enabled = YES;
+    }
+    return YES;
 }
 
 /*

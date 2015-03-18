@@ -337,7 +337,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tempo" translatesAutoresizingMaskIntoConstraints="NO" id="E07-5o-Odc">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="cheguei estou no paraiso que abundancia meu irmão" translatesAutoresizingMaskIntoConstraints="NO" id="E5Q-2b-5ze">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5Q-2b-5ze">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -359,16 +359,37 @@
                                                         <outlet property="delegate" destination="5nq-wF-5Ad" id="lhn-Zd-r4v"/>
                                                     </connections>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua anotação" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebA-7j-7dS">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="QqF-Sd-kZA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.98039215686274506" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="QqF-Sd-kZA"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="QqF-Sd-kZA"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="ebA-7j-7dS" firstAttribute="top" secondItem="E07-5o-Odc" secondAttribute="bottom" constant="6" id="5mH-dk-Qht"/>
                                             <constraint firstItem="E07-5o-Odc" firstAttribute="leading" secondItem="rwb-Ub-aYp" secondAttribute="leadingMargin" id="7j4-Vx-Te2"/>
                                             <constraint firstItem="E07-5o-Odc" firstAttribute="top" secondItem="rwb-Ub-aYp" secondAttribute="topMargin" id="Osz-NY-4P9"/>
-                                            <constraint firstItem="E5Q-2b-5ze" firstAttribute="top" secondItem="E07-5o-Odc" secondAttribute="bottom" constant="8" id="TUM-Tt-UUh"/>
+                                            <constraint firstItem="E5Q-2b-5ze" firstAttribute="top" secondItem="ebA-7j-7dS" secondAttribute="bottom" constant="3" id="Xic-VY-bOg"/>
                                             <constraint firstItem="E5Q-2b-5ze" firstAttribute="trailing" secondItem="rwb-Ub-aYp" secondAttribute="trailingMargin" id="bxr-LQ-1UW"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="E5Q-2b-5ze" secondAttribute="bottom" constant="60" id="ccV-Kg-EnM"/>
+                                            <constraint firstItem="ebA-7j-7dS" firstAttribute="leading" secondItem="rwb-Ub-aYp" secondAttribute="leadingMargin" id="foi-Y9-e7Y"/>
                                             <constraint firstItem="E5Q-2b-5ze" firstAttribute="leading" secondItem="rwb-Ub-aYp" secondAttribute="leadingMargin" id="hQX-S1-wFG"/>
                                             <constraint firstItem="E07-5o-Odc" firstAttribute="trailing" secondItem="rwb-Ub-aYp" secondAttribute="trailingMargin" id="v9W-FV-rN2"/>
                                         </constraints>
@@ -377,12 +398,15 @@
                                             <mask key="subviews">
                                                 <exclude reference="E07-5o-Odc"/>
                                                 <exclude reference="E5Q-2b-5ze"/>
+                                                <exclude reference="ebA-7j-7dS"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="7j4-Vx-Te2"/>
                                                 <exclude reference="Osz-NY-4P9"/>
                                                 <exclude reference="v9W-FV-rN2"/>
-                                                <exclude reference="TUM-Tt-UUh"/>
+                                                <exclude reference="5mH-dk-Qht"/>
+                                                <exclude reference="foi-Y9-e7Y"/>
+                                                <exclude reference="Xic-VY-bOg"/>
                                                 <exclude reference="bxr-LQ-1UW"/>
                                                 <exclude reference="ccV-Kg-EnM"/>
                                                 <exclude reference="hQX-S1-wFG"/>
@@ -392,12 +416,15 @@
                                             <mask key="subviews">
                                                 <include reference="E07-5o-Odc"/>
                                                 <include reference="E5Q-2b-5ze"/>
+                                                <include reference="ebA-7j-7dS"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="7j4-Vx-Te2"/>
                                                 <include reference="Osz-NY-4P9"/>
                                                 <include reference="v9W-FV-rN2"/>
-                                                <include reference="TUM-Tt-UUh"/>
+                                                <include reference="5mH-dk-Qht"/>
+                                                <include reference="foi-Y9-e7Y"/>
+                                                <include reference="Xic-VY-bOg"/>
                                                 <include reference="bxr-LQ-1UW"/>
                                                 <include reference="ccV-Kg-EnM"/>
                                                 <include reference="hQX-S1-wFG"/>
@@ -798,6 +825,7 @@
                     </view>
                     <connections>
                         <outlet property="alturaFoto" destination="Tq0-BH-yD0" id="AZd-LW-AEr"/>
+                        <outlet property="btnDeConfirma" destination="xow-GF-fZb" id="5Uv-09-cV5"/>
                         <outlet property="imagem" destination="zqa-5V-J9l" id="f23-cN-l00"/>
                         <outlet property="txtMateria" destination="ltV-hH-J0g" id="TO8-62-hf5"/>
                     </connections>
