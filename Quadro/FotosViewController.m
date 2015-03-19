@@ -12,6 +12,8 @@
 #import "Assunto.h"
 #import "FotosCollectionViewCell.h"
 #import "FotoComAnotacao.h"
+#import "ZoomImageViewController.h"
+
 @interface FotosViewController ()
 @property FotosCollectionViewCell *cell;
 
@@ -21,10 +23,12 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaCollection;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *posicaoCollection;
+@property (nonatomic) UIImage *imagem;
 
 @end
 
 @implementation FotosViewController
+
 
 
 - (void)viewDidLoad {
@@ -42,6 +46,7 @@
     
     //self.collectionView.contentSize = CGSizeMake((self.view.frame.size.width * self.fotosComAnotacao.count), self.view.frame.size.height);
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -145,6 +150,11 @@
         }];
         [self.cell.anotacao endEditing:YES];
     }
+//    FotosCollectionViewCell *cell = [[collectionView visibleCells] objectAtIndex:0];
+    FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
+    self.imagem = fotoComAnotacao.foto;
+    [self performSegueWithIdentifier:@"zoomSegue" sender:self];
+    
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
@@ -156,14 +166,12 @@
     [foto mudaAnotacaodb];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier  isEqual: @"zoomSegue"]) {
+        ZoomImageViewController *view = [segue destinationViewController];
+        view.imagemAux = self.imagem;
+    }
+
 }
-*/
 
 @end

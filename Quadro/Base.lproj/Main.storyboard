@@ -486,7 +486,7 @@
                         <outlet property="alturaCollection" destination="Ep2-i7-sGT" id="oYZ-5e-qmr"/>
                         <outlet property="collectionView" destination="XB2-n9-7Bn" id="mh8-RT-4mG"/>
                         <outlet property="posicaoCollection" destination="ufg-7i-rXF" id="U8V-BE-JU2"/>
-                        <segue destination="pqY-H3-dGp" kind="show" identifier="segueZoom" id="h6g-hU-kRp"/>
+                        <segue destination="Ibi-dY-tTs" kind="show" identifier="zoomSegue" id="cjs-Rs-Vjw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -935,15 +935,32 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPj-5S-VOw">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-8G-FJf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-8G-FJf">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                        <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="530" id="hbR-yB-6kV"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="hbR-yB-6kV"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="hbR-yB-6kV"/>
+                                            </mask>
                                         </variation>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="dh3-8G-FJf" firstAttribute="centerX" secondItem="gPj-5S-VOw" secondAttribute="centerX" id="3aU-hA-4oE"/>
+                                    <constraint firstAttribute="trailing" secondItem="dh3-8G-FJf" secondAttribute="trailing" id="5OK-dC-tRk"/>
+                                    <constraint firstItem="dh3-8G-FJf" firstAttribute="top" secondItem="gPj-5S-VOw" secondAttribute="top" constant="64" id="fqA-Bz-hur"/>
+                                    <constraint firstAttribute="bottom" secondItem="dh3-8G-FJf" secondAttribute="bottom" constant="206" id="kDV-YZ-94c"/>
                                     <constraint firstAttribute="height" constant="800" id="pmD-j6-yI8"/>
+                                    <constraint firstItem="dh3-8G-FJf" firstAttribute="leading" secondItem="gPj-5S-VOw" secondAttribute="leading" id="szK-PE-zh6"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -951,6 +968,11 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="pmD-j6-yI8"/>
+                                        <exclude reference="3aU-hA-4oE"/>
+                                        <exclude reference="5OK-dC-tRk"/>
+                                        <exclude reference="fqA-Bz-hur"/>
+                                        <exclude reference="kDV-YZ-94c"/>
+                                        <exclude reference="szK-PE-zh6"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -959,6 +981,11 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="pmD-j6-yI8"/>
+                                        <include reference="3aU-hA-4oE"/>
+                                        <include reference="5OK-dC-tRk"/>
+                                        <include reference="fqA-Bz-hur"/>
+                                        <include reference="kDV-YZ-94c"/>
+                                        <include reference="szK-PE-zh6"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -966,7 +993,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gPj-5S-VOw" firstAttribute="top" secondItem="5h0-ds-KzQ" secondAttribute="topMargin" id="bfv-4t-jB1"/>
                             <constraint firstItem="gPj-5S-VOw" firstAttribute="leading" secondItem="5h0-ds-KzQ" secondAttribute="leadingMargin" constant="-16" id="eIg-BG-2Xd"/>
@@ -1000,86 +1027,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4t-6i-Zkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2970" y="80.25"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="RvH-qJ-qSw">
-            <objects>
-                <viewController id="pqY-H3-dGp" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xvb-2O-p6s"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Q1-cl-dJH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SyD-KW-rSt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8j-Tu-Dsx">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8C7-0O-jH4">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="476"/>
-                                        </variation>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="736" id="iEn-Gs-6Rt"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="8C7-0O-jH4"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="iEn-Gs-6Rt"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="8C7-0O-jH4"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="iEn-Gs-6Rt"/>
-                                    </mask>
-                                </variation>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="w8j-Tu-Dsx" firstAttribute="leading" secondItem="SyD-KW-rSt" secondAttribute="leadingMargin" constant="-16" id="ha7-M9-Yu4"/>
-                            <constraint firstItem="w8j-Tu-Dsx" firstAttribute="top" secondItem="xvb-2O-p6s" secondAttribute="bottom" id="sCO-jo-7YJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="w8j-Tu-Dsx" secondAttribute="trailing" constant="-16" id="yOz-vJ-cmw"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="w8j-Tu-Dsx"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="ha7-M9-Yu4"/>
-                                <exclude reference="sCO-jo-7YJ"/>
-                                <exclude reference="yOz-vJ-cmw"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="w8j-Tu-Dsx"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="ha7-M9-Yu4"/>
-                                <include reference="sCO-jo-7YJ"/>
-                                <include reference="yOz-vJ-cmw"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <segue destination="Ibi-dY-tTs" kind="show" identifier="zoomSegue" id="7RK-p9-9fI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7vg-0F-lIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2244" y="80.25"/>
+            <point key="canvasLocation" x="2166" y="80.25"/>
         </scene>
     </scenes>
     <resources>
