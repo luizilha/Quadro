@@ -30,7 +30,6 @@
     [super viewDidLoad];
     self.barraDeLoad.hidden = YES;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    NSLog(@"%d",materia.assuntos.count);
     if (materia.assuntos.count != 0) {
         Assunto *assunto = [materia.assuntos objectAtIndex:materia.assuntos.count-1];
         self.txtMateria.text = assunto.nome;
@@ -40,8 +39,6 @@
     } else {
         self.btnDeConfirma.enabled = NO;
     }
-    NSLog(@"%d", materia.assuntos.count-1);
-   
     FotoComAnotacao *fotoComAnotacao = [self.listaDeFotosComAnotacao objectAtIndex:self.listaDeFotosComAnotacao.count -1];
     self.imagem.image = fotoComAnotacao.foto;
     
@@ -82,20 +79,18 @@
     Assunto *assuntoE;
     for (Assunto *a in materia.assuntos) {
         if ([a.nome isEqualToString:self.txtMateria.text]) {
-            NSLog(@"%d",a.listaFotosComAnotacao.count);
             assuntoE = a;
             existe = YES;
         }
     }
     self.barraDeLoad.hidden = NO;
     if (existe) {
-        int cont = assuntoE.listaFotosComAnotacao.count+1;
+        int cont = (int) assuntoE.listaFotosComAnotacao.count+1;
         [assuntoE.listaFotosComAnotacao addObjectsFromArray:self.listaDeFotosComAnotacao];
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
             [foto nomeDaFotoAssunto:assuntoE posicao:cont++];
-            if ([foto saveImage:foto.foto]) {
-                [foto saveFotodb:assuntoE];
-            }
+            [self performSelector:@selector(gravaFoto:doAssunto:) withObject:foto withObject:assuntoE];
+//            [self gravaFoto:foto doAssunto:assuntoE];
         }
     } else {
         Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
@@ -106,12 +101,16 @@
         int cont = 1;
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
             [foto nomeDaFotoAssunto:assunto posicao:cont++];
-            if ([foto saveImage:foto.foto]) {
-                [foto saveFotodb:assunto];
-            }
+            [self performSelector:@selector(gravaFoto:doAssunto:) withObject:foto withObject:assuntoE];
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) gravaFoto: (FotoComAnotacao *) foto doAssunto: (Assunto *) assunto {
+    if ([foto saveImage:foto.foto]) {
+        [foto saveFotodb:assunto];
+    }
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
