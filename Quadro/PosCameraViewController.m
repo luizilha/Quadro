@@ -30,6 +30,7 @@
     [super viewDidLoad];
     self.barraDeLoad.hidden = YES;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    NSLog(@"%d",materia.assuntos.count);
     if (materia.assuntos.count != 0) {
         Assunto *assunto = [materia.assuntos objectAtIndex:materia.assuntos.count-1];
         self.txtMateria.text = assunto.nome;
@@ -81,14 +82,15 @@
     Assunto *assuntoE;
     for (Assunto *a in materia.assuntos) {
         if ([a.nome isEqualToString:self.txtMateria.text]) {
+            NSLog(@"%d",a.listaFotosComAnotacao.count);
             assuntoE = a;
             existe = YES;
         }
     }
     self.barraDeLoad.hidden = NO;
     if (existe) {
+        int cont = assuntoE.listaFotosComAnotacao.count+1;
         [assuntoE.listaFotosComAnotacao addObjectsFromArray:self.listaDeFotosComAnotacao];
-        int cont = 1;
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
             [foto nomeDaFotoAssunto:assuntoE posicao:cont++];
             if ([foto saveImage:foto.foto]) {

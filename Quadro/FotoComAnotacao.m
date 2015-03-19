@@ -24,9 +24,7 @@
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
         if ([rs next]) {
-            NSLog(@"%d",[rs intForColumn:@"idAssunto"]);
             BOOL salvo = [[[Managerdb sharedManager] database] executeUpdate:@"insert into fotoComAnotacao(caminhoDaFoto, anotacao, idAssunto) values(?,?,?)",self.caminhoDaFoto, self.anotacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idAssunto"]]];
-            NSLog(@"%d", salvo);
         }
         [rs close];
         [[Managerdb sharedManager] closedb];
