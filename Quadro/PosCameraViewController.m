@@ -84,13 +84,13 @@
         }
     }
     self.barraDeLoad.hidden = NO;
+    [self.barraDeLoad startAnimating];
     if (existe) {
         int cont = (int) assuntoE.listaFotosComAnotacao.count+1;
         [assuntoE.listaFotosComAnotacao addObjectsFromArray:self.listaDeFotosComAnotacao];
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
             [foto nomeDaFotoAssunto:assuntoE posicao:cont++];
-            [self performSelector:@selector(gravaFoto:doAssunto:) withObject:foto withObject:assuntoE];
-//            [self gravaFoto:foto doAssunto:assuntoE];
+            [self gravaFoto:foto doAssunto:assuntoE];
         }
     } else {
         Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
@@ -101,7 +101,7 @@
         int cont = 1;
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
             [foto nomeDaFotoAssunto:assunto posicao:cont++];
-            [self performSelector:@selector(gravaFoto:doAssunto:) withObject:foto withObject:assuntoE];
+            [self gravaFoto:foto doAssunto:assunto];
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];

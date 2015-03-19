@@ -43,6 +43,7 @@
 		72766D151A8BF2CA0064862F /* QuadroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D141A8BF2CA0064862F /* QuadroTests.m */; };
 		72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */; };
 		727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */; };
+		7282062C1ABB56B000E99E3C /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7282062B1ABB56B000E99E3C /* ZoomImageViewController.m */; };
 		72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,8 @@
 		72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoTableViewCell.m; sourceTree = "<group>"; };
 		727B20501A9CFCA0005BA527 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
 		727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
+		7282062A1ABB56B000E99E3C /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageViewController.h; sourceTree = "<group>"; };
+		7282062B1ABB56B000E99E3C /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageViewController.m; sourceTree = "<group>"; };
 		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -280,6 +283,8 @@
 				727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */,
 				721ABFB41A8E263A0075377F /* PosCameraViewController.h */,
 				721ABFB51A8E26440075377F /* PosCameraViewController.m */,
+				7282062A1ABB56B000E99E3C /* ZoomImageViewController.h */,
+				7282062B1ABB56B000E99E3C /* ZoomImageViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				7258B3561A97A24700A5B16F /* FotosCollectionViewCell.m in Sources */,
 				725B42BF1AB1CFEE006212BB /* FMDatabase.m in Sources */,
 				725B42B01AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
+				7282062C1ABB56B000E99E3C /* ZoomImageViewController.m in Sources */,
 				725B42C11AB1CFEE006212BB /* FMDatabasePool.m in Sources */,
 				725B42C31AB1CFEE006212BB /* FMResultSet.m in Sources */,
 				725B42C01AB1CFEE006212BB /* FMDatabaseAdditions.m in Sources */,

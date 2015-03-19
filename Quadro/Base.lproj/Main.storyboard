@@ -841,12 +841,12 @@
                             <constraint firstItem="IAm-5E-L5f" firstAttribute="top" secondItem="ltV-hH-J0g" secondAttribute="bottom" constant="20" id="Tq0-BH-yD0"/>
                             <constraint firstItem="ixv-mB-96N" firstAttribute="leading" secondItem="aHt-xa-VXB" secondAttribute="leading" id="Yae-rs-rB7"/>
                             <constraint firstItem="zqa-5V-J9l" firstAttribute="top" secondItem="K5X-no-5Up" secondAttribute="bottom" id="aDG-nt-CAe"/>
-                            <constraint firstAttribute="centerY" secondItem="ZEd-1u-dYk" secondAttribute="centerY" id="f12-fw-Q0w"/>
                             <constraint firstItem="zqa-5V-J9l" firstAttribute="top" secondItem="K5X-no-5Up" secondAttribute="bottom" id="fwI-0E-uYF"/>
                             <constraint firstItem="xow-GF-fZb" firstAttribute="top" secondItem="zqa-5V-J9l" secondAttribute="bottom" constant="7" id="jmW-0a-arI">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="zqa-5V-J9l" secondAttribute="trailing" constant="-16" id="lsB-Bx-f42"/>
+                            <constraint firstAttribute="centerY" secondItem="ZEd-1u-dYk" secondAttribute="centerY" constant="50" id="mGx-2a-DLd"/>
                             <constraint firstItem="ltV-hH-J0g" firstAttribute="trailing" secondItem="aHt-xa-VXB" secondAttribute="trailingMargin" id="nzX-Na-z5g"/>
                             <constraint firstItem="IAm-5E-L5f" firstAttribute="top" secondItem="xow-GF-fZb" secondAttribute="bottom" constant="20" id="qUH-Rt-Ik6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ltV-hH-J0g" secondAttribute="trailing" constant="60" id="t1O-VZ-vjr"/>
@@ -858,15 +858,15 @@
                                 <exclude reference="ZEd-1u-dYk"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="NIX-oi-ADu"/>
-                                <exclude reference="f12-fw-Q0w"/>
-                                <exclude reference="PJi-Re-8z9"/>
-                                <exclude reference="QVO-CP-TUY"/>
-                                <exclude reference="Yae-rs-rB7"/>
                                 <exclude reference="2Sl-Q5-Bkc"/>
                                 <exclude reference="LgH-Bc-D57"/>
                                 <exclude reference="aDG-nt-CAe"/>
                                 <exclude reference="lsB-Bx-f42"/>
+                                <exclude reference="NIX-oi-ADu"/>
+                                <exclude reference="mGx-2a-DLd"/>
+                                <exclude reference="PJi-Re-8z9"/>
+                                <exclude reference="QVO-CP-TUY"/>
+                                <exclude reference="Yae-rs-rB7"/>
                                 <exclude reference="QWt-dK-O3G"/>
                                 <exclude reference="RsX-jo-jt8"/>
                                 <exclude reference="nzX-Na-z5g"/>
@@ -883,17 +883,17 @@
                                 <include reference="ZEd-1u-dYk"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="NIX-oi-ADu"/>
-                                <include reference="f12-fw-Q0w"/>
-                                <include reference="PJi-Re-8z9"/>
-                                <include reference="QVO-CP-TUY"/>
-                                <include reference="Yae-rs-rB7"/>
                                 <exclude reference="9eU-vJ-oVL"/>
                                 <exclude reference="LZq-Pr-qXh"/>
                                 <include reference="LgH-Bc-D57"/>
                                 <include reference="aDG-nt-CAe"/>
                                 <exclude reference="fwI-0E-uYF"/>
                                 <include reference="lsB-Bx-f42"/>
+                                <include reference="NIX-oi-ADu"/>
+                                <include reference="mGx-2a-DLd"/>
+                                <include reference="PJi-Re-8z9"/>
+                                <include reference="QVO-CP-TUY"/>
+                                <include reference="Yae-rs-rB7"/>
                                 <exclude reference="1ps-EE-Z2r"/>
                                 <exclude reference="6GE-Ut-YE4"/>
                                 <include reference="QWt-dK-O3G"/>
@@ -920,6 +920,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yf4-NO-Htt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="864" y="945"/>
+        </scene>
+        <!--Zoom Image View Controller-->
+        <scene sceneID="AR9-LI-GLB">
+            <objects>
+                <viewController id="Ibi-dY-tTs" customClass="ZoomImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8lp-OX-hNU"/>
+                        <viewControllerLayoutGuide type="bottom" id="MdC-Ps-4a2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5h0-ds-KzQ">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPj-5S-VOw">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dh3-8G-FJf">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="800" id="pmD-j6-yI8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="dh3-8G-FJf"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="pmD-j6-yI8"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="dh3-8G-FJf"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="pmD-j6-yI8"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="Ibi-dY-tTs" id="aXv-rk-8xA"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gPj-5S-VOw" firstAttribute="top" secondItem="5h0-ds-KzQ" secondAttribute="topMargin" id="bfv-4t-jB1"/>
+                            <constraint firstItem="gPj-5S-VOw" firstAttribute="leading" secondItem="5h0-ds-KzQ" secondAttribute="leadingMargin" constant="-16" id="eIg-BG-2Xd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gPj-5S-VOw" secondAttribute="trailing" constant="-16" id="kFx-Co-63E"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gPj-5S-VOw"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="bfv-4t-jB1"/>
+                                <exclude reference="eIg-BG-2Xd"/>
+                                <exclude reference="kFx-Co-63E"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="gPj-5S-VOw"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="bfv-4t-jB1"/>
+                                <include reference="eIg-BG-2Xd"/>
+                                <include reference="kFx-Co-63E"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imagem" destination="dh3-8G-FJf" id="b6g-bl-n7p"/>
+                        <outlet property="scrollImagem" destination="gPj-5S-VOw" id="SO4-4M-ufy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4t-6i-Zkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2970" y="80.25"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RvH-qJ-qSw">
@@ -992,6 +1073,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <segue destination="Ibi-dY-tTs" kind="show" identifier="zoomSegue" id="7RK-p9-9fI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vg-0F-lIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
