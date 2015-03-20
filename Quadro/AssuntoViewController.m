@@ -127,7 +127,7 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
         Assunto *assunto = [m.assuntos objectAtIndex:indexPath.row];
         [assunto deletedb];
         [m.assuntos removeObjectAtIndex:indexPath.row];
@@ -144,14 +144,12 @@
     {
         UITableViewCell *cell = (UITableViewCell *)[gesture view];
         NSIndexPath *indexPath = [self.table indexPathForCell:cell];
-        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
         Assunto *a = m.assuntos[indexPath.row];
         
         self.posicaoAlterar = indexPath;
               
         NSString *titulo = [[NSString alloc]initWithFormat:@"Deseja renomear a materia %@?",a.nome];
-        
-        
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:titulo message:nil delegate:self  cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Alterar", nil];
         alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -168,10 +166,18 @@
     if([title isEqualToString:@"Alterar"]){
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
         Assunto *a = m.assuntos[self.posicaoAlterar.row];
-        [a alteradb:nomeMateria];
-        a.nome = nomeMateria;
-        [self.table reloadData];
         
+        BOOL existe = NO;
+        for (Assunto *assunto in m.assuntos) {
+            if ([assunto.nome isEqualToString:nomeMateria]) {
+                existe = YES;
+            }
+        }
+        if (!existe) {
+            [a alteradb:nomeMateria];
+            a.nome = nomeMateria;
+        }
+        [self.table reloadData];
     }
 }
 
