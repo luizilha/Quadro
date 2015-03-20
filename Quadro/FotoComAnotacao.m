@@ -33,7 +33,9 @@
 
 - (void) mudaAnotacaodb {
     if ([[Managerdb sharedManager] opendb]) {
-        [[[Managerdb sharedManager] database] executeUpdate:@"update fotoComAnotacao set anotacao = ? where caminhoDaFoto = ?",self.anotacao,self.caminhoDaFoto];
+        if ([[[Managerdb sharedManager] database] executeUpdate:@"update fotoComAnotacao set anotacao = ? where caminhoDaFoto = ?",self.anotacao,self.caminhoDaFoto]) {
+            NSLog(@"SALVO!");
+        }
     }
     [[Managerdb sharedManager] closedb];
 }

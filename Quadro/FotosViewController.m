@@ -91,9 +91,9 @@
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     self.cell = cell;
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
-//    cell.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     cell.foto.image = fotoComAnotacao.foto;
 //    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
+    cell.anotacao.text = fotoComAnotacao.anotacao;
     cell.anotacao.delegate = self;
     return cell;
 }
