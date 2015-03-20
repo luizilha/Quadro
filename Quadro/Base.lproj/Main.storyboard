@@ -153,7 +153,8 @@
                                                             <exclude reference="BWe-ob-lQ1"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="187.5" y="14.5" width="91.5" height="21"/>
                                                         <mask key="constraints">
                                                             <exclude reference="4sO-H6-EQ2"/>
                                                             <include reference="5dW-gt-SBn"/>
@@ -173,7 +174,8 @@
                                                             <exclude reference="f3t-el-rss"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="169.5" y="20" width="10" height="10"/>
                                                         <mask key="constraints">
                                                             <include reference="EeY-rb-clo"/>
                                                             <include reference="f3t-el-rss"/>
@@ -858,15 +860,15 @@
                                 <exclude reference="ZEd-1u-dYk"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2Sl-Q5-Bkc"/>
-                                <exclude reference="LgH-Bc-D57"/>
-                                <exclude reference="aDG-nt-CAe"/>
-                                <exclude reference="lsB-Bx-f42"/>
                                 <exclude reference="NIX-oi-ADu"/>
                                 <exclude reference="mGx-2a-DLd"/>
                                 <exclude reference="PJi-Re-8z9"/>
                                 <exclude reference="QVO-CP-TUY"/>
                                 <exclude reference="Yae-rs-rB7"/>
+                                <exclude reference="2Sl-Q5-Bkc"/>
+                                <exclude reference="LgH-Bc-D57"/>
+                                <exclude reference="aDG-nt-CAe"/>
+                                <exclude reference="lsB-Bx-f42"/>
                                 <exclude reference="QWt-dK-O3G"/>
                                 <exclude reference="RsX-jo-jt8"/>
                                 <exclude reference="nzX-Na-z5g"/>
@@ -883,17 +885,17 @@
                                 <include reference="ZEd-1u-dYk"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="NIX-oi-ADu"/>
+                                <include reference="mGx-2a-DLd"/>
+                                <include reference="PJi-Re-8z9"/>
+                                <include reference="QVO-CP-TUY"/>
+                                <include reference="Yae-rs-rB7"/>
                                 <exclude reference="9eU-vJ-oVL"/>
                                 <exclude reference="LZq-Pr-qXh"/>
                                 <include reference="LgH-Bc-D57"/>
                                 <include reference="aDG-nt-CAe"/>
                                 <exclude reference="fwI-0E-uYF"/>
                                 <include reference="lsB-Bx-f42"/>
-                                <include reference="NIX-oi-ADu"/>
-                                <include reference="mGx-2a-DLd"/>
-                                <include reference="PJi-Re-8z9"/>
-                                <include reference="QVO-CP-TUY"/>
-                                <include reference="Yae-rs-rB7"/>
                                 <exclude reference="1ps-EE-Z2r"/>
                                 <exclude reference="6GE-Ut-YE4"/>
                                 <include reference="QWt-dK-O3G"/>
@@ -930,6 +932,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MdC-Ps-4a2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5h0-ds-KzQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPj-5S-VOw">

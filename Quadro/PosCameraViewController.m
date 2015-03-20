@@ -83,7 +83,7 @@
             existe = YES;
         }
     }
-    self.barraDeLoad.hidden = NO;
+//    self.barraDeLoad.hidden = NO;
     [self.barraDeLoad startAnimating];
     if (existe) {
         int cont = (int) assuntoE.listaFotosComAnotacao.count+1;

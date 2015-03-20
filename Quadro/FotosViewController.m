@@ -149,11 +149,11 @@
             [self.view layoutIfNeeded];
         }];
         [self.cell.anotacao endEditing:YES];
+    } else {
+        FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
+        self.imagem = fotoComAnotacao.foto;
+        [self performSegueWithIdentifier:@"zoomSegue" sender:self];
     }
-//    FotosCollectionViewCell *cell = [[collectionView visibleCells] objectAtIndex:0];
-    FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
-    self.imagem = fotoComAnotacao.foto;
-    [self performSegueWithIdentifier:@"zoomSegue" sender:self];
     
 }
 
