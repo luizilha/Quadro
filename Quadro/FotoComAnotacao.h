@@ -18,7 +18,7 @@
 @property (nonatomic) NSString *anotacao;
 
 -(instancetype)initFotoComentada:(UIImage *)foto comComentario:(NSString *) comentario;
-- (void)saveFotodb:(Assunto *)assunto;
+- (void)saveFotodb:(Assunto *)assunto comIdMateria:(int)idMateria;
 - (void) deletedb;
 - (void) mudaAnotacaodb;
 - (BOOL)saveImage: (UIImage*)image;

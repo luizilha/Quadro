@@ -29,8 +29,6 @@
 
 @implementation FotosViewController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.cell.anotacao.delegate = self;
@@ -43,8 +41,6 @@
     self.title = titulo;
     
     [self.collectionView reloadData];
-    
-    //self.collectionView.contentSize = CGSizeMake((self.view.frame.size.width * self.fotosComAnotacao.count), self.view.frame.size.height);
 }
 
 

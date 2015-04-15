@@ -31,7 +31,6 @@
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [Assunto listadb:materia];
-    
 }
 
 

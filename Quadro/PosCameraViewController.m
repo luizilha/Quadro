@@ -90,7 +90,7 @@
         [assuntoE.listaFotosComAnotacao addObjectsFromArray:self.listaDeFotosComAnotacao];
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
             [foto nomeDaFotoAssunto:assuntoE posicao:cont++];
-            [self gravaFoto:foto doAssunto:assuntoE];
+            [self gravaFoto:foto doAssunto:assuntoE comIdMateria:self.posicaoMateria];
         }
     } else {
         Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
@@ -101,15 +101,15 @@
         int cont = 1;
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
             [foto nomeDaFotoAssunto:assunto posicao:cont++];
-            [self gravaFoto:foto doAssunto:assunto];
+            [self gravaFoto:foto doAssunto:assunto comIdMateria:self.posicaoMateria];
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void) gravaFoto: (FotoComAnotacao *) foto doAssunto: (Assunto *) assunto {
+- (void) gravaFoto: (FotoComAnotacao *) foto doAssunto: (Assunto *) assunto comIdMateria: (int) idMateria {
     if ([foto saveImage:foto.foto]) {
-        [foto saveFotodb:assunto];
+        [foto saveFotodb:assunto comIdMateria:idMateria];
     }
 }
 

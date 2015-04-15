@@ -20,11 +20,12 @@
     return self;
 }
 
-- (void)saveFotodb:(Assunto *)assunto {
+- (void)saveFotodb:(Assunto *)assunto comIdMateria: (int) idMateria {
     if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where idMateria = ? and nome = ?", [NSString stringWithFormat:@"%d",idMateria+1 ], assunto.nome]; // ERRO TA AQUI
         if ([rs next]) {
-            [[[Managerdb sharedManager] database] executeUpdate:@"insert into fotoComAnotacao(caminhoDaFoto, anotacao, idAssunto) values(?,?,?)",self.caminhoDaFoto, self.anotacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idAssunto"]]];
+            int idAssunto = [rs intForColumn:@"idAssunto"];
+            [[[Managerdb sharedManager] database] executeUpdate:@"insert into fotoComAnotacao(caminhoDaFoto, anotacao, idAssunto) values(?,?,?)",self.caminhoDaFoto, self.anotacao,[NSString stringWithFormat:@"%d",idAssunto]];
         }
         [rs close];
         [[Managerdb sharedManager] closedb];
@@ -55,22 +56,22 @@
 + (void)todasFotosdb:(Assunto *)assunto {
     if (assunto.listaFotosComAnotacao.count == 0) {
 
-    if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
-        int idAssunto = 0;
-        if ([rs next]) idAssunto = [rs intForColumn:@"idAssunto"];
-        [rs close];
-        rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d", idAssunto]];
-        assunto.listaFotosComAnotacao = [[NSMutableArray alloc] init];
-        while ([rs next]) {
-            FotoComAnotacao *foto = [[FotoComAnotacao alloc] initFotoComentada:nil comComentario:[rs stringForColumn:@"anotacao"]];
-            foto.caminhoDaFoto = [rs stringForColumn:@"caminhoDaFoto"];
-            foto.foto = [foto loadImage];
-            [assunto.listaFotosComAnotacao addObject:foto];
+        if ([[Managerdb sharedManager] opendb]) {
+            FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
+            int idAssunto = 0;
+            if ([rs next]) idAssunto = [rs intForColumn:@"idAssunto"];
+                [rs close];
+            rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d", idAssunto]];
+            assunto.listaFotosComAnotacao = [[NSMutableArray alloc] init];
+            while ([rs next]) {
+                FotoComAnotacao *foto = [[FotoComAnotacao alloc] initFotoComentada:nil comComentario:[rs stringForColumn:@"anotacao"]];
+                foto.caminhoDaFoto = [rs stringForColumn:@"caminhoDaFoto"];
+                foto.foto = [foto loadImage];
+                [assunto.listaFotosComAnotacao addObject:foto];
+            }
+            [rs close];
+            [[Managerdb sharedManager] closedb];
         }
-        [rs close];
-        [[Managerdb sharedManager] closedb];
-    }
     }
 }
 
