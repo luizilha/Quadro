@@ -89,7 +89,7 @@
         int cont = (int) assuntoE.listaFotosComAnotacao.count+1;
         [assuntoE.listaFotosComAnotacao addObjectsFromArray:self.listaDeFotosComAnotacao];
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
-            [foto nomeDaFotoAssunto:assuntoE posicao:cont++];
+            [foto nomeDaFotoAssunto:assuntoE posicaoFoto:cont++ idMateria:self.posicaoMateria];
             [self gravaFoto:foto doAssunto:assuntoE comIdMateria:self.posicaoMateria];
         }
     } else {
@@ -100,7 +100,7 @@
         // VAI TER QUE SALVAR AQUI
         int cont = 1;
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
-            [foto nomeDaFotoAssunto:assunto posicao:cont++];
+            [foto nomeDaFotoAssunto:assunto posicaoFoto:cont++ idMateria:self.posicaoMateria];
             [self gravaFoto:foto doAssunto:assunto comIdMateria:self.posicaoMateria];
         }
     }

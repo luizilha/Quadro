@@ -53,11 +53,11 @@
     [[Managerdb sharedManager] closedb];
 }
 
-+ (void)todasFotosdb:(Assunto *)assunto {
++ (void)todasFotosdb:(Assunto *)assunto comIdMateria: (int) idMateria { // VAI DAR ERRO
     if (assunto.listaFotosComAnotacao.count == 0) {
 
         if ([[Managerdb sharedManager] opendb]) {
-            FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
+            FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=? and idMateria=?",assunto.nome, [NSString stringWithFormat:@"%d", idMateria+1]];
             int idAssunto = 0;
             if ([rs next]) idAssunto = [rs intForColumn:@"idAssunto"];
                 [rs close];
@@ -120,10 +120,11 @@
     }
 }
 
-- (void)nomeDaFotoAssunto:(Assunto *)assunto posicao:(int) posicao
+// TEM QUE COLOCAR POSICAO DA MATERIA PRA PEGAR O ID
+- (void)nomeDaFotoAssunto:(Assunto *)assunto posicaoFoto:(int) posicao idMateria:(int) idMateria
 {
     if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?",assunto.nome];
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=? and idMateria=? ",assunto.nome, [NSString stringWithFormat:@"%d",idMateria+1]];
         if ([rs next]) {
             self.caminhoDaFoto = [NSString stringWithFormat:@"%d%d%d", [rs intForColumn:@"idMateria"], [rs intForColumn:@"idAssunto"],posicao];
         }
