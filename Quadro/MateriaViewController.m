@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
     CGPoint point = CGPointMake(0, self.view.frame.size.height * 0.9);
     self.bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:point];
@@ -61,7 +62,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Materia";
     [self.table reloadData];
+
 }
 
 -(void) termos {
@@ -129,7 +133,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identificador];
     }
+    
+    
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
     cell.textLabel.text = materia.nome;
     cell.textLabel.textColor = [UIColor colorWithRed:0.0 green:250.0/255 blue:180.0/255  alpha:1.0];
     /// long press

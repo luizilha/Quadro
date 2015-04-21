@@ -32,9 +32,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.cell.anotacao.delegate = self;
+        self.automaticallyAdjustsScrollViewInsets = NO;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
-    [FotoComAnotacao todasFotosdb:assunto comIdMateria:self.posicaoMateria];
+    [FotoComAnotacao todasFotosdb:assunto comIdMateria:(int) self.posicaoMateria];
     
     self.fotosComAnotacao = assunto.listaFotosComAnotacao;
     NSString *titulo = [NSString stringWithFormat:@"%d/%d", (int)self.posicaoFoto+1, (int)self.fotosComAnotacao.count];

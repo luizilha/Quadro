@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface AssuntoViewController : UIViewController
+@interface AssuntoViewController : GAITrackedViewController
 <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) NSInteger posicaoMateria;

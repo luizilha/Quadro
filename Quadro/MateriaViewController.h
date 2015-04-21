@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface MateriaViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface MateriaViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 
 @end

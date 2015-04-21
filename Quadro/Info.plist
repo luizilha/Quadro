@@ -22,6 +22,12 @@
 	<string>6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-Semibold.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>axis.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TodasMateriasSingleton.h"
 #import "Managerdb.h"
+#import "GAI.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:1 green:1 blue:1 alpha:1],
+                                                           NSForegroundColorAttributeName,
+                                                           [UIFont fontWithName:@"Axis" size:21.0], NSFontAttributeName, nil]];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-60907316-2"];
+    [GAI sharedInstance].defaultTracker = tracker;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self novoBanco];
     [[TodasMateriasSingleton sharedInstance] loadData];
