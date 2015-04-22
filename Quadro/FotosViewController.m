@@ -87,9 +87,9 @@
     self.posicaoFoto = (long) indexPath.row;
     FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     self.cell = cell;
+    cell.informacaoDaNota.font = [UIFont fontWithName:@"OpenSans-Semibold" size:12];
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];
     cell.foto.image = fotoComAnotacao.foto;
-//    cell.anotacao.text = fotoComAnotacao.anotacao !=nil ? fotoComAnotacao.anotacao : @"Nao tem anotacao";
     cell.anotacao.text = fotoComAnotacao.anotacao;
     cell.anotacao.delegate = self;
     return cell;

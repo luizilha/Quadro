@@ -132,7 +132,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
         Assunto *assunto = [m.assuntos objectAtIndex:indexPath.row];
-        [assunto deletedb];
+        [assunto deletedb:(int)self.posicaoMateria];
         [m.assuntos removeObjectAtIndex:indexPath.row];
         [tableView reloadData];
     }
@@ -177,7 +177,7 @@
             }
         }
         if (!existe) {
-            [a alteradb:nomeMateria];
+            [a alteradb:nomeMateria eIdMateria:(int)self.posicaoMateria];
             a.nome = nomeMateria;
         }
         [self.table reloadData];

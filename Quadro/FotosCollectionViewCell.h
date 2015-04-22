@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
 @property (weak, nonatomic) IBOutlet UITextView *anotacao;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaDoTexto;
+@property (weak, nonatomic) IBOutlet UILabel *informacaoDaNota;
 
 @end

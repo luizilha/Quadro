@@ -351,19 +351,19 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insira sua anotação" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebA-7j-7dS">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="efz-ll-NJj"/>
+                                                        <constraint firstAttribute="height" constant="21" id="H8n-7q-zUc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.98039215686274506" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="efz-ll-NJj"/>
+                                                            <exclude reference="H8n-7q-zUc"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="efz-ll-NJj"/>
+                                                            <include reference="H8n-7q-zUc"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -376,12 +376,12 @@
                                             <constraint firstItem="E5Q-2b-5ze" firstAttribute="trailing" secondItem="rwb-Ub-aYp" secondAttribute="trailingMargin" id="1G6-cm-Tw0"/>
                                             <constraint firstItem="E5Q-2b-5ze" firstAttribute="top" secondItem="E07-5o-Odc" secondAttribute="bottom" constant="27" id="2xh-DD-arl"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="E5Q-2b-5ze" secondAttribute="bottom" constant="48" id="9jb-xE-nu5"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="ebA-7j-7dS" secondAttribute="bottom" constant="105" id="CpH-pK-gni"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="ebA-7j-7dS" secondAttribute="bottom" constant="107" id="Adg-6P-lND"/>
                                             <constraint firstItem="E07-5o-Odc" firstAttribute="top" secondItem="rwb-Ub-aYp" secondAttribute="topMargin" id="WmJ-5f-siZ"/>
                                             <constraint firstItem="E07-5o-Odc" firstAttribute="trailing" secondItem="rwb-Ub-aYp" secondAttribute="trailingMargin" id="hzh-9N-3me"/>
-                                            <constraint firstItem="ebA-7j-7dS" firstAttribute="top" secondItem="E07-5o-Odc" secondAttribute="bottom" constant="8" id="lqB-hv-6fv"/>
-                                            <constraint firstItem="ebA-7j-7dS" firstAttribute="leading" secondItem="rwb-Ub-aYp" secondAttribute="leadingMargin" id="qaC-KJ-WY1"/>
+                                            <constraint firstAttribute="centerX" secondItem="ebA-7j-7dS" secondAttribute="centerX" id="mhc-ue-Ddi"/>
                                             <constraint firstItem="E5Q-2b-5ze" firstAttribute="leading" secondItem="rwb-Ub-aYp" secondAttribute="leadingMargin" id="sdo-Md-eds"/>
+                                            <constraint firstItem="ebA-7j-7dS" firstAttribute="top" secondItem="E07-5o-Odc" secondAttribute="bottom" constant="6" id="zvQ-ZD-7i4"/>
                                         </constraints>
                                         <size key="customSize" width="400" height="370"/>
                                         <variation key="default">
@@ -391,9 +391,6 @@
                                                 <exclude reference="ebA-7j-7dS"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="CpH-pK-gni"/>
-                                                <exclude reference="lqB-hv-6fv"/>
-                                                <exclude reference="qaC-KJ-WY1"/>
                                                 <exclude reference="1Dq-sy-FNh"/>
                                                 <exclude reference="WmJ-5f-siZ"/>
                                                 <exclude reference="hzh-9N-3me"/>
@@ -401,6 +398,9 @@
                                                 <exclude reference="2xh-DD-arl"/>
                                                 <exclude reference="9jb-xE-nu5"/>
                                                 <exclude reference="sdo-Md-eds"/>
+                                                <exclude reference="Adg-6P-lND"/>
+                                                <exclude reference="mhc-ue-Ddi"/>
+                                                <exclude reference="zvQ-ZD-7i4"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -410,9 +410,6 @@
                                                 <include reference="ebA-7j-7dS"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="CpH-pK-gni"/>
-                                                <include reference="lqB-hv-6fv"/>
-                                                <include reference="qaC-KJ-WY1"/>
                                                 <include reference="1Dq-sy-FNh"/>
                                                 <include reference="WmJ-5f-siZ"/>
                                                 <include reference="hzh-9N-3me"/>
@@ -420,11 +417,15 @@
                                                 <include reference="2xh-DD-arl"/>
                                                 <include reference="9jb-xE-nu5"/>
                                                 <include reference="sdo-Md-eds"/>
+                                                <include reference="Adg-6P-lND"/>
+                                                <include reference="mhc-ue-Ddi"/>
+                                                <include reference="zvQ-ZD-7i4"/>
                                             </mask>
                                         </variation>
                                         <connections>
                                             <outlet property="anotacao" destination="E5Q-2b-5ze" id="DS8-Gf-TaL"/>
                                             <outlet property="foto" destination="E07-5o-Odc" id="pn1-pC-wXi"/>
+                                            <outlet property="informacaoDaNota" destination="ebA-7j-7dS" id="JgG-7H-ati"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

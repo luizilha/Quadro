@@ -35,10 +35,11 @@
     }
 }
 
-- (void)deletedb {
+- (void)deletedb:(int) posicaoMateria {
     if ([[Managerdb sharedManager] opendb]) {
         [[[Managerdb sharedManager] database] beginTransaction];
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome = ?", self.nome];
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome = ? and idMateria = ?", self.nome,
+                           [NSString stringWithFormat:@"%d",posicaoMateria+1]];
         if ([rs next]) {
             int idAssunto = [rs intForColumn:@"idAssunto"];
             [rs close];
@@ -55,14 +56,14 @@
     
     
     if ([[Managerdb sharedManager] opendb]) {
-        [[[Managerdb sharedManager] database] executeUpdate:@"delete from assunto where nome = ?", self.nome];
+        [[[Managerdb sharedManager] database] executeUpdate:@"delete from assunto where nome = ? and idMateria = ?", self.nome, [NSString stringWithFormat:@"%d",posicaoMateria+1]];
         [[Managerdb sharedManager] closedb];
     }
 }
 
-- (void)alteradb:(NSString *)novo {
+- (void)alteradb:(NSString *)novo eIdMateria:(int)idMateria {
     if ([[Managerdb sharedManager] opendb]) {
-        [[[Managerdb sharedManager] database] executeUpdate:@"update assunto set nome=? where nome=?", novo, self.nome];
+        [[[Managerdb sharedManager] database] executeUpdate:@"update assunto set nome=? where nome=? and idMateria=?", novo, self.nome, [NSString stringWithFormat:@"%d",idMateria+1]];
         [[Managerdb sharedManager] closedb];
     }
 }
