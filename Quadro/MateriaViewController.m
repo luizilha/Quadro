@@ -67,10 +67,9 @@
 }
 
 -(void) termos {
+    NSString *msg = NSLocalizedString(@"TERMOS", nil);
     
-    NSString *msg = @"Para o uso deste aplicativo, você assume toda responsabilidade quanto aos direitos autorais do conteúdo passado pelo professor/tutor, antes de usar o mesmo, deverá pedir prévia autorização para tirar fotografias do conteúdo postado, pois o professor e a universidade poderá ter direitos autorais sobre eles, e não nos responsabilizamos por violações";
-    
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Termos de uso" message:msg delegate:self cancelButtonTitle:@"Recusar" otherButtonTitles:@"Aceitar", nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"TERMOS_T", nil) message:msg delegate:self cancelButtonTitle:NSLocalizedString(@"RECUSAR", nil) otherButtonTitles:NSLocalizedString(@"ACEITAR", nil), nil];
     [alert show];
 }
 
@@ -79,7 +78,7 @@
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
     
-    if ([title isEqualToString:@"Salvar"]) {
+    if ([title isEqualToString:NSLocalizedString(@"SALVAR", nil)]) {
         if ([nomeMateria length] != 0) {
             Materia *materia = [[Materia alloc] initMateria:nomeMateria];
             BOOL existe = NO;
@@ -109,18 +108,18 @@
                 [self.table reloadData];
             }
         }
-    } else if([title isEqualToString:@"Aceitar"]) {
+    } else if([title isEqualToString:NSLocalizedString(@"ACEITAR", nil)]) {
         BOOL aceito = YES;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setBool:aceito forKey:@"aceito"];
         [defaults synchronize];
-    } else if([title isEqualToString:@"Recusar"]) {
+    } else if([title isEqualToString:NSLocalizedString(@"RECUSAR", nil)]) {
         exit(0);
     }
 }
 
 - (IBAction)adicionaMateria:(id)sender {
-    UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Digite nome da materia" message:@"Ex: calculo" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Salvar", nil];
+    UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"MSG_ADD_MATERIA", nil) message:NSLocalizedString(@"MSG_EX_ADD_MATERIA", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCELAR", nil) otherButtonTitles:NSLocalizedString(@"SALVAR", nil), nil];
     alerta.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alerta show];
 }

@@ -5,4 +5,13 @@
   Created by Luiz Ilha on 4/24/15.
   Copyright (c) 2015 LUIZ ILHA M MACIEL. All rights reserved.
 */
-"Materia" = "Matter";
+
+"TERMOS" = "To use this app, you assume all responsibility for the copyright of the past content by the teacher / tutor, before using it, you should ask permission to take pictures of the content posted, because the teacher and the university may have copyright them, and are not responsible for violations";
+"TERMOS_T" = "Terms of use";
+"ACEITAR" = "Accept";
+"RECUSAR" = "Refuse";
+"MSG_ADD_MATERIA" = "Enter name of matter";
+"MSG_EX_ADD_MATERIA" = "Ex: Calculation";
+"CANCELAR" = "Cancel";
+"SALVAR" = "Save";
+"DATA" = "MM/dd";

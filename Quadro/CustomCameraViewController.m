@@ -104,7 +104,7 @@ AVCaptureStillImageOutput *stillImage;
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"seguePosCamera"]) {
-        if ([self.botaoConfirma.titleLabel.text  isEqual: @"Cancelar"]) {
+        if ([self.botaoConfirma.titleLabel.text  isEqual: NSLocalizedString(@"CANCELAR", nil)]) {
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             PosCameraViewController *poscamera = [segue destinationViewController];

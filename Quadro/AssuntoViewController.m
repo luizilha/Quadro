@@ -80,7 +80,7 @@
     cell.assunto.text = assunto.nome;
     cell.assunto.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateFormat = @" dd/MM";
+    df.dateFormat = NSLocalizedString(@"DATA", nil);
     cell.data.text =  [df stringFromDate:assunto.dataPublicacao];
     cell.data.font = [UIFont fontWithName:@"OpenSans-Light" size:15];
     
@@ -137,9 +137,6 @@
         [tableView reloadData];
     }
 }
-///
-
-/*Long press*/
 
 - (void)longPress:(UILongPressGestureRecognizer *)gesture
 {

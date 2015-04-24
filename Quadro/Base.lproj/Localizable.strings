@@ -5,4 +5,13 @@
   Created by Luiz Ilha on 4/24/15.
   Copyright (c) 2015 LUIZ ILHA M MACIEL. All rights reserved.
 */
-"Materia" = "Matter";
+
+"TERMOS" = "Para o uso deste aplicativo, você assume toda responsabilidade quanto aos direitos autorais do conteúdo passado pelo professor/tutor, antes de usar o mesmo, deverá pedir prévia autorização para tirar fotografias do conteúdo postado, pois o professor e a universidade poderá ter direitos autorais sobre eles, e não nos responsabilizamos por violações";
+"TERMOS_T" = "Termos de uso";
+"ACEITAR" = "Aceitar";
+"RECUSAR" = "Recusar";
+"MSG_ADD_MATERIA" = "Digite nome da materia";
+"MSG_EX_ADD_MATERIA" = "Ex: calculo";
+"CANCELAR" = "Cancelar";
+"SALVAR" = "Salvar";
+"DATA" = "dd/MM";
