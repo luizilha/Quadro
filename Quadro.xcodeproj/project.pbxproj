@@ -47,6 +47,7 @@
 		72797B951ADFFF04006807F4 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72797B941ADFFF04006807F4 /* libGoogleAnalyticsServices.a */; };
 		727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */; };
 		7282062C1ABB56B000E99E3C /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7282062B1ABB56B000E99E3C /* ZoomImageViewController.m */; };
+		72838CF41AEA919C00BA07A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72838CF61AEA919C00BA07A0 /* Localizable.strings */; };
 		72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */; };
 		72DD9C651AE5B253004A86F2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */; };
 		72DD9C671AE5B283004A86F2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */; };
@@ -143,6 +144,12 @@
 		727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 		7282062A1ABB56B000E99E3C /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageViewController.h; sourceTree = "<group>"; };
 		7282062B1ABB56B000E99E3C /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageViewController.m; sourceTree = "<group>"; };
+		72838CF21AEA917900BA07A0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		72838CF31AEA917900BA07A0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		72838CF51AEA919C00BA07A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72838CF71AEA91A500BA07A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72838CF81AEA91A600BA07A0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72838CFA1AEA930B00BA07A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -255,6 +262,7 @@
 			children = (
 				72766D021A8BF2CA0064862F /* Main.storyboard */,
 				72766D071A8BF2CA0064862F /* LaunchScreen.xib */,
+				72838CF61AEA919C00BA07A0 /* Localizable.strings */,
 			);
 			name = interface;
 			sourceTree = "<group>";
@@ -461,6 +469,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pt,
 			);
 			mainGroup = 72766CE91A8BF2CA0064862F;
 			productRefGroup = 72766CF31A8BF2CA0064862F /* Products */;
@@ -481,6 +490,7 @@
 				72DD9C651AE5B253004A86F2 /* OpenSans-Semibold.ttf in Resources */,
 				72766D041A8BF2CA0064862F /* Main.storyboard in Resources */,
 				72766D091A8BF2CA0064862F /* LaunchScreen.xib in Resources */,
+				72838CF41AEA919C00BA07A0 /* Localizable.strings in Resources */,
 				72DD9C671AE5B283004A86F2 /* OpenSans-Light.ttf in Resources */,
 				72DD9C691AE5B2EE004A86F2 /* axis.otf in Resources */,
 				72766D061A8BF2CA0064862F /* Images.xcassets in Resources */,
@@ -552,6 +562,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				72766D031A8BF2CA0064862F /* Base */,
+				72838CF21AEA917900BA07A0 /* pt */,
+				72838CFA1AEA930B00BA07A0 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -560,8 +572,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				72766D081A8BF2CA0064862F /* Base */,
+				72838CF31AEA917900BA07A0 /* pt */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		72838CF61AEA919C00BA07A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72838CF51AEA919C00BA07A0 /* Base */,
+				72838CF71AEA91A500BA07A0 /* en */,
+				72838CF81AEA91A600BA07A0 /* pt */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -42,9 +42,7 @@
     [self.bannerView_ loadRequest:request];
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    //BOTAO EDIT
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.editButtonItem.title = @"Editar";
+
     
     // TERMOS DE USO
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -63,7 +61,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.screenName = @"Materia";
+    self.screenName = NSLocalizedString(@"Materia", nil);
     [self.table reloadData];
 
 }

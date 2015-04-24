@@ -1,0 +1,30 @@
+
+/* Class = "UIViewController"; title = "Fotos"; ObjectID = "5nq-wF-5Ad"; */
+"5nq-wF-5Ad.title" = "Fotos";
+
+/* Class = "UILabel"; text = "10:10 07/07/99"; ObjectID = "Cde-MJ-mQn"; */
+"Cde-MJ-mQn.text" = "10:10 07/07/99";
+
+/* Class = "UILabel"; text = "Assunto"; ObjectID = "Iz9-o8-xQ7"; */
+"Iz9-o8-xQ7.text" = "Subject";
+
+/* Class = "UINavigationItem"; title = "Fotos"; ObjectID = "OMq-Tz-Md4"; */
+"OMq-Tz-Md4.title" = "Fotos";
+
+/* Class = "UINavigationItem"; title = "Assunto"; ObjectID = "dSY-22-JGg"; */
+"dSY-22-JGg.title" = "Subject";
+
+/* Class = "UILabel"; text = "Insira sua anotação"; ObjectID = "ebA-7j-7dS"; */
+"ebA-7j-7dS.text" = "Enter your note";
+
+/* Class = "UIButton"; normalTitle = "Cancelar"; ObjectID = "lmW-mU-zQL"; */
+"lmW-mU-zQL.normalTitle" = "Cancel";
+
+/* Class = "UITextField"; placeholder = "Adicionar um assunto..."; ObjectID = "ltV-hH-J0g"; */
+"ltV-hH-J0g.placeholder" = "Add a Subject...";
+
+/* Class = "UINavigationItem"; title = "Materia"; ObjectID = "v9h-iC-jT4"; */
+"v9h-iC-jT4.title" = "Mattter";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "xow-GF-fZb"; */
+"xow-GF-fZb.normalTitle" = "OK";

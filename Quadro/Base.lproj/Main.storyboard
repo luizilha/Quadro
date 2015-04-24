@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wEh-OD-zok">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wEh-OD-zok">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -391,6 +391,9 @@
                                                 <exclude reference="ebA-7j-7dS"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <exclude reference="Adg-6P-lND"/>
+                                                <exclude reference="mhc-ue-Ddi"/>
+                                                <exclude reference="zvQ-ZD-7i4"/>
                                                 <exclude reference="1Dq-sy-FNh"/>
                                                 <exclude reference="WmJ-5f-siZ"/>
                                                 <exclude reference="hzh-9N-3me"/>
@@ -398,9 +401,6 @@
                                                 <exclude reference="2xh-DD-arl"/>
                                                 <exclude reference="9jb-xE-nu5"/>
                                                 <exclude reference="sdo-Md-eds"/>
-                                                <exclude reference="Adg-6P-lND"/>
-                                                <exclude reference="mhc-ue-Ddi"/>
-                                                <exclude reference="zvQ-ZD-7i4"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -410,6 +410,9 @@
                                                 <include reference="ebA-7j-7dS"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <include reference="Adg-6P-lND"/>
+                                                <include reference="mhc-ue-Ddi"/>
+                                                <include reference="zvQ-ZD-7i4"/>
                                                 <include reference="1Dq-sy-FNh"/>
                                                 <include reference="WmJ-5f-siZ"/>
                                                 <include reference="hzh-9N-3me"/>
@@ -417,9 +420,6 @@
                                                 <include reference="2xh-DD-arl"/>
                                                 <include reference="9jb-xE-nu5"/>
                                                 <include reference="sdo-Md-eds"/>
-                                                <include reference="Adg-6P-lND"/>
-                                                <include reference="mhc-ue-Ddi"/>
-                                                <include reference="zvQ-ZD-7i4"/>
                                             </mask>
                                         </variation>
                                         <connections>
