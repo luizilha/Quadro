@@ -21,6 +21,7 @@
 @property (nonatomic) NSInteger posicaoMateria;
 @property (nonatomic) NSIndexPath *posicaoAlterar; // posicao para alterar
 @property (nonatomic) GADBannerView *bannerView_;
+@property (weak, nonatomic) IBOutlet UIButton *btnAdicionar;
 
 @end
 // sar
@@ -30,10 +31,10 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
-    CGPoint point = CGPointMake(0, self.view.frame.size.height * 0.9);
-    self.bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:point];
+//    CGPoint point = CGPointMake(0, self.view.frame.size.height * 0.9);
+//    self.bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:point];
 //    self.bannerView_.backgroundColor = [UIColor whiteColor];
-    self.bannerView_.adUnitID = MY_BANNER_ID;
+//    self.bannerView_.adUnitID = MY_BANNER_ID;
     
     self.bannerView_.rootViewController = self;
 
@@ -41,7 +42,7 @@
     GADRequest * request = [GADRequest request];
     [self.bannerView_ loadRequest:request];
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    self.btnAdicionar.titleLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
 
     
     // TERMOS DE USO

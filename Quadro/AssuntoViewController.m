@@ -15,11 +15,13 @@
 #import "FotosViewController.h"
 #import "CustomCameraViewController.h"
 #import "FotoComAnotacao.h"
+#import "SWRevealViewController.h"
 
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property NSInteger posicaoAssunto;
 @property NSIndexPath *posicaoAlterar; // posicao para alterar
+
 @end
 
 @implementation AssuntoViewController
@@ -27,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _barBtn.target = self.revealViewController;
+    _barBtn.action = @selector(revealToggle:);
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
@@ -83,7 +88,7 @@
     df.dateFormat = NSLocalizedString(@"DATA", nil);
     cell.data.text =  [df stringFromDate:assunto.dataPublicacao];
     cell.data.font = [UIFont fontWithName:@"OpenSans-Light" size:15];
-    
+    cell.materia.font = [UIFont fontWithName:@"OpenSans-Semibold" size:9];
     /// long press
     UILongPressGestureRecognizer *longPressGesture =
     [[UILongPressGestureRecognizer alloc]

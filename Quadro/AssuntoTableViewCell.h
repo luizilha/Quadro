@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *assunto;
 @property (weak, nonatomic) IBOutlet UILabel *data;
+@property (weak, nonatomic) IBOutlet UILabel *materia;
+
 
 @end

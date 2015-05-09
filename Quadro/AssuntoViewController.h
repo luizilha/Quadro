@@ -13,5 +13,6 @@
 <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) NSInteger posicaoMateria;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barBtn;
 
 @end
