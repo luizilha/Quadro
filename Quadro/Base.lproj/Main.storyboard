@@ -383,6 +383,9 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="94" width="400" height="662"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="5nq-wF-5Ad" id="JMu-RT-zaF"/>
                                     <outlet property="delegate" destination="5nq-wF-5Ad" id="PzW-Hk-U3o"/>
@@ -593,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6eh-eQ-UfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="163.5" y="945"/>
+            <point key="canvasLocation" x="511.5" y="945"/>
         </scene>
         <!--Pos Camera View Controller-->
         <scene sceneID="nxw-72-QzB">
@@ -838,7 +841,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yf4-NO-Htt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864" y="945"/>
+            <point key="canvasLocation" x="1168.5" y="945"/>
         </scene>
         <!--Zoom Image View Controller-->
         <scene sceneID="AR9-LI-GLB">
@@ -958,6 +961,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lNp-4J-5VW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7oC-7z-LDy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -979,6 +983,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8Sv-yQ-gbP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KGR-wH-A5c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="vce-kw-evs">
@@ -987,7 +992,7 @@
                                 <color key="separatorColor" red="0.0" green="0.98039215690000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hdh-kl-Wa1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="materiaCell" id="hdh-kl-Wa1">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hdh-kl-Wa1" id="rIk-zS-x0n">
@@ -1042,13 +1047,13 @@
                                 <exclude reference="X8T-4m-f37"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="PHe-pZ-tU5"/>
-                                <exclude reference="ivE-p8-Vnb"/>
-                                <exclude reference="zba-6S-uEK"/>
+                                <exclude reference="WQA-RU-huu"/>
                                 <exclude reference="Oqu-bp-CA0"/>
                                 <exclude reference="Tbi-BB-Hqu"/>
                                 <exclude reference="niB-np-gC8"/>
-                                <exclude reference="WQA-RU-huu"/>
+                                <exclude reference="PHe-pZ-tU5"/>
+                                <exclude reference="ivE-p8-Vnb"/>
+                                <exclude reference="zba-6S-uEK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1057,24 +1062,25 @@
                                 <include reference="X8T-4m-f37"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="PHe-pZ-tU5"/>
-                                <include reference="ivE-p8-Vnb"/>
-                                <include reference="zba-6S-uEK"/>
+                                <include reference="WQA-RU-huu"/>
                                 <include reference="Oqu-bp-CA0"/>
                                 <include reference="Tbi-BB-Hqu"/>
                                 <include reference="niB-np-gC8"/>
-                                <include reference="WQA-RU-huu"/>
+                                <include reference="PHe-pZ-tU5"/>
+                                <include reference="ivE-p8-Vnb"/>
+                                <include reference="zba-6S-uEK"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="btnAdicionar" destination="X8T-4m-f37" id="OC1-Xt-S5s"/>
                         <outlet property="table" destination="vce-kw-evs" id="HYc-Yi-Zsb"/>
+                        <segue destination="hnX-ZI-xAs" kind="custom" identifier="segueAssunto" customClass="SWRevealViewControllerSegue" id="Bhm-Ep-zYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duT-hu-eu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="511.5" y="-334.5"/>
+            <point key="canvasLocation" x="511.5" y="-384.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DIi-1w-IL2">
@@ -1104,4 +1110,7 @@
         <image name="camera" width="66" height="66"/>
         <image name="tempo" width="15" height="15"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Bhm-Ep-zYA"/>
+    </inferredMetricsTieBreakers>
 </document>

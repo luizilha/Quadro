@@ -11,7 +11,9 @@
 #import "Materia.h"
 #import "AssuntoViewController.h"
 #import "FotoComAnotacao.h"
+#import "SWRevealViewController.h"
 #import <GoogleMobileAds/GADBannerView.h>
+
 #define MY_BANNER_ID @"ca-app-pub-3184510264135408/7952980376"
 
 @interface MateriaViewController ()
@@ -160,16 +162,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.posicaoMateria = indexPath.row;
+    
     [self performSegueWithIdentifier:@"segueAssunto" sender:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier  isEqual: @"segueAssunto"]) {
-        AssuntoViewController *view = [segue destinationViewController];
-        view.posicaoMateria = self.posicaoMateria;
-    }
-}
 
 /* Pra apagar uma materia */
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated{
@@ -214,6 +210,25 @@
 
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue isKindOfClass:[SWRevealViewControllerSegue class]]) {
+        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
+        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController *svc, UIViewController *dvc) {
+            UINavigationController *navController = (UINavigationController *)self.revealViewController.frontViewController;
+            [navController setViewControllers:@[dvc] animated:NO];
+            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:YES];
+            
+        };
+    }
+    if ([segue.identifier  isEqual: @"segueAssunto"]) {
+        AssuntoViewController *view = [segue destinationViewController];
+        view.posicaoMateria = self.posicaoMateria;
+    }
+}
+
 
 
 
