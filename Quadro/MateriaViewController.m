@@ -40,9 +40,9 @@
     
     self.bannerView_.rootViewController = self;
 
-    [self.view addSubview:self.bannerView_];
-    GADRequest * request = [GADRequest request];
-    [self.bannerView_ loadRequest:request];
+//    [self.view addSubview:self.bannerView_];
+//    GADRequest * request = [GADRequest request];
+//    [self.bannerView_ loadRequest:request];
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.btnAdicionar.titleLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
 
@@ -213,20 +213,23 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    if ([segue isKindOfClass:[SWRevealViewControllerSegue class]]) {
-        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
-        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController *svc, UIViewController *dvc) {
-            UINavigationController *navController = (UINavigationController *)self.revealViewController.frontViewController;
-            [navController setViewControllers:@[dvc] animated:NO];
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:YES];
-            
-        };
+
+    if ([sender isKindOfClass:[SWRevealViewController class]]) {
+        
     }
-    if ([segue.identifier  isEqual: @"segueAssunto"]) {
-        AssuntoViewController *view = [segue destinationViewController];
-        view.posicaoMateria = self.posicaoMateria;
-    }
+//    if ([segue isKindOfClass:[SWRevealViewController class]]) {
+//        SWRevealViewController *swSegue = (SWRevealViewController*) segue;
+//        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController *svc, UIViewController *dvc) {
+//            UINavigationController *navController = (UINavigationController *)self.revealViewController.frontViewController;
+//            [navController setViewControllers:@[dvc] animated:NO];
+//            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:YES];
+//            
+//        };
+//    }
+//    if ([segue.identifier  isEqual: @"segueAssunto"]) {
+//        AssuntoViewController *view = [segue destinationViewController];
+//        view.posicaoMateria = self.posicaoMateria;
+//    }
 }
 
 

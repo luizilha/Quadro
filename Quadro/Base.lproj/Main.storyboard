@@ -242,8 +242,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Assunto" id="dSY-22-JGg">
-                        <barButtonItem key="leftBarButtonItem" title="|||||||" id="ufQ-pd-57X">
-                            <color key="tintColor" red="0.0" green="0.98039215690000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="ufQ-pd-57X">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="PXn-ef-A4j">
                             <connections>
@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LX4-HG-9Of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168.5" y="301.5"/>
+            <point key="canvasLocation" x="1480.5" y="114.75"/>
         </scene>
         <!--Fotos-->
         <scene sceneID="gaE-xt-ph4">
@@ -384,7 +384,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="94" width="400" height="662"/>
+                                    <rect key="frame" x="0.0" y="50" width="400" height="706"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="5nq-wF-5Ad" id="JMu-RT-zaF"/>
@@ -440,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="301.5"/>
+            <point key="canvasLocation" x="2047.5" y="200.25"/>
         </scene>
         <!--Custom Camera View Controller-->
         <scene sceneID="myv-8n-duK">
@@ -950,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4t-6i-Zkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2511" y="301.5"/>
+            <point key="canvasLocation" x="2737.5" y="200.25"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="YhC-xt-sn9">
@@ -966,8 +966,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="5GG-c0-wcp" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="wLH-fU-joA"/>
-                        <segue destination="ulQ-kT-i0B" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="45e-jo-M2A"/>
+                        <segue destination="ulQ-kT-i0B" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="Wiq-Ae-cAr"/>
+                        <segue destination="5GG-c0-wcp" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="eUx-6F-Nsz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmq-AX-KlO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1075,12 +1075,12 @@
                     <connections>
                         <outlet property="btnAdicionar" destination="X8T-4m-f37" id="OC1-Xt-S5s"/>
                         <outlet property="table" destination="vce-kw-evs" id="HYc-Yi-Zsb"/>
-                        <segue destination="hnX-ZI-xAs" kind="custom" identifier="segueAssunto" customClass="SWRevealViewControllerSegue" id="Bhm-Ep-zYA"/>
+                        <segue destination="5GG-c0-wcp" kind="custom" identifier="segueAssunto" customClass="SWRevealViewControllerSeguePushController" id="rIL-w3-a7j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duT-hu-eu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="511.5" y="-384.75"/>
+            <point key="canvasLocation" x="489" y="-489.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DIi-1w-IL2">
@@ -1103,14 +1103,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1d-So-Hnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="511.5" y="301.5"/>
+            <point key="canvasLocation" x="1408.5" y="-105"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera" width="66" height="66"/>
+        <image name="reveal-icon" width="22" height="17"/>
         <image name="tempo" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bhm-Ep-zYA"/>
+        <segue reference="rIL-w3-a7j"/>
     </inferredMetricsTieBreakers>
 </document>

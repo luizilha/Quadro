@@ -33,6 +33,8 @@
     _barBtn.target = self.revealViewController;
     _barBtn.action = @selector(revealToggle:);
     self.automaticallyAdjustsScrollViewInsets = NO;
+//    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     [Assunto listadb:materia];

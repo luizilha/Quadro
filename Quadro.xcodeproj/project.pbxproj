@@ -48,7 +48,7 @@
 		727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727B20511A9CFCA0005BA527 /* CustomCameraViewController.m */; };
 		7282062C1ABB56B000E99E3C /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7282062B1ABB56B000E99E3C /* ZoomImageViewController.m */; };
 		72838CF41AEA919C00BA07A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72838CF61AEA919C00BA07A0 /* Localizable.strings */; };
-		7294A0F21AFEBDBC0000ED10 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7294A0F11AFEBDBC0000ED10 /* SWRevealViewController.m */; };
+		7294A0FB1AFF904C0000ED10 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7294A0FA1AFF904C0000ED10 /* SWRevealViewController.m */; };
 		72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */; };
 		72DD9C651AE5B253004A86F2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */; };
 		72DD9C671AE5B283004A86F2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */; };
@@ -151,8 +151,8 @@
 		72838CF71AEA91A500BA07A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		72838CF81AEA91A600BA07A0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		72838CFA1AEA930B00BA07A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		7294A0F01AFEBDBC0000ED10 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		7294A0F11AFEBDBC0000ED10 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		7294A0F91AFF904C0000ED10 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		7294A0FA1AFF904C0000ED10 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -358,8 +358,8 @@
 		72766CF51A8BF2CA0064862F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7294A0F01AFEBDBC0000ED10 /* SWRevealViewController.h */,
-				7294A0F11AFEBDBC0000ED10 /* SWRevealViewController.m */,
+				7294A0F91AFF904C0000ED10 /* SWRevealViewController.h */,
+				7294A0FA1AFF904C0000ED10 /* SWRevealViewController.m */,
 				72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */,
 				72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */,
 				72DD9C681AE5B2EE004A86F2 /* axis.otf */,
@@ -529,7 +529,7 @@
 				722F36771A9658D900B4B826 /* FotosViewController.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
 				723866A51AB9F11000978D57 /* PosCollectionViewCell.m in Sources */,
-				7294A0F21AFEBDBC0000ED10 /* SWRevealViewController.m in Sources */,
+				7294A0FB1AFF904C0000ED10 /* SWRevealViewController.m in Sources */,
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,
 				721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */,
 				725B42C21AB1CFEE006212BB /* FMDatabaseQueue.m in Sources */,
