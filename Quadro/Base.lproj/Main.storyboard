@@ -259,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LX4-HG-9Of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1480.5" y="114.75"/>
+            <point key="canvasLocation" x="1917" y="128.25"/>
         </scene>
         <!--Fotos-->
         <scene sceneID="gaE-xt-ph4">
@@ -383,9 +383,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="50" width="400" height="706"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="5nq-wF-5Ad" id="JMu-RT-zaF"/>
                                     <outlet property="delegate" destination="5nq-wF-5Ad" id="PzW-Hk-U3o"/>
@@ -440,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047.5" y="200.25"/>
+            <point key="canvasLocation" x="2577" y="128.25"/>
         </scene>
         <!--Custom Camera View Controller-->
         <scene sceneID="myv-8n-duK">
@@ -950,7 +947,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4t-6i-Zkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2737.5" y="200.25"/>
+            <point key="canvasLocation" x="2938.5" y="128.25"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="YhC-xt-sn9">
@@ -1075,7 +1072,7 @@
                     <connections>
                         <outlet property="btnAdicionar" destination="X8T-4m-f37" id="OC1-Xt-S5s"/>
                         <outlet property="table" destination="vce-kw-evs" id="HYc-Yi-Zsb"/>
-                        <segue destination="5GG-c0-wcp" kind="custom" identifier="segueAssunto" customClass="SWRevealViewControllerSeguePushController" id="rIL-w3-a7j"/>
+                        <segue destination="5GG-c0-wcp" kind="custom" identifier="segueAssunto" customClass="SWRevealViewControllerSeguePushController" id="KcV-UW-ugC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duT-hu-eu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1103,7 +1100,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1d-So-Hnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408.5" y="-105"/>
+            <point key="canvasLocation" x="1209" y="-147"/>
         </scene>
     </scenes>
     <resources>
@@ -1112,6 +1109,6 @@
         <image name="tempo" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rIL-w3-a7j"/>
+        <segue reference="KcV-UW-ugC"/>
     </inferredMetricsTieBreakers>
 </document>

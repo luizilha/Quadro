@@ -162,7 +162,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.posicaoMateria = indexPath.row;
-    
     [self performSegueWithIdentifier:@"segueAssunto" sender:self];
 }
 
@@ -213,23 +212,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
-    if ([sender isKindOfClass:[SWRevealViewController class]]) {
+    if ([segue.identifier isEqualToString:@"segueAssunto"]) {
+        UINavigationController *navController = (UINavigationController *) segue.destinationViewController;
+        AssuntoViewController *assunto =  navController.viewControllers[0];
+        assunto.posicaoMateria = self.posicaoMateria;
         
     }
-//    if ([segue isKindOfClass:[SWRevealViewController class]]) {
-//        SWRevealViewController *swSegue = (SWRevealViewController*) segue;
-//        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController *svc, UIViewController *dvc) {
-//            UINavigationController *navController = (UINavigationController *)self.revealViewController.frontViewController;
-//            [navController setViewControllers:@[dvc] animated:NO];
-//            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated:YES];
-//            
-//        };
-//    }
-//    if ([segue.identifier  isEqual: @"segueAssunto"]) {
-//        AssuntoViewController *view = [segue destinationViewController];
-//        view.posicaoMateria = self.posicaoMateria;
-//    }
 }
 
 
