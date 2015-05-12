@@ -17,8 +17,6 @@
 		723866921AB8BB6500978D57 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723866911AB8BB6500978D57 /* MessageUI.framework */; };
 		723866941AB8BB6F00978D57 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723866931AB8BB6F00978D57 /* StoreKit.framework */; };
 		723866961AB8BB8200978D57 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723866951AB8BB8200978D57 /* SystemConfiguration.framework */; };
-		723866A51AB9F11000978D57 /* PosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 723866A41AB9F11000978D57 /* PosCollectionViewCell.m */; };
-		7258B3561A97A24700A5B16F /* FotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */; };
 		725B42AE1AB1CFDC006212BB /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42A41AB1CFDC006212BB /* FMDatabase+FTS3.m */; };
 		725B42AF1AB1CFDC006212BB /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42A61AB1CFDC006212BB /* FMTokenizers.m */; };
 		725B42B01AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42AA1AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m */; };
@@ -41,7 +39,6 @@
 		72766D061A8BF2CA0064862F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72766D051A8BF2CA0064862F /* Images.xcassets */; };
 		72766D091A8BF2CA0064862F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72766D071A8BF2CA0064862F /* LaunchScreen.xib */; };
 		72766D151A8BF2CA0064862F /* QuadroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D141A8BF2CA0064862F /* QuadroTests.m */; };
-		72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */; };
 		72797B811ADFF96C006807F4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72797B801ADFF96C006807F4 /* CoreData.framework */; };
 		72797B911ADFFD26006807F4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72797B901ADFFD26006807F4 /* libz.dylib */; };
 		72797B951ADFFF04006807F4 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 72797B941ADFFF04006807F4 /* libGoogleAnalyticsServices.a */; };
@@ -53,6 +50,9 @@
 		72DD9C651AE5B253004A86F2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */; };
 		72DD9C671AE5B283004A86F2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */; };
 		72DD9C691AE5B2EE004A86F2 /* axis.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C681AE5B2EE004A86F2 /* axis.otf */; };
+		72F26D951B01935300B14D4A /* AssuntoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F26D941B01935300B14D4A /* AssuntoCell.swift */; };
+		72F26D971B019EC700B14D4A /* FotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F26D961B019EC700B14D4A /* FotosCell.swift */; };
+		72F26D991B01A16800B14D4A /* PosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F26D981B01A16800B14D4A /* PosCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,10 +78,6 @@
 		723866911AB8BB6500978D57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		723866931AB8BB6F00978D57 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		723866951AB8BB8200978D57 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		723866A31AB9F11000978D57 /* PosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosCollectionViewCell.h; sourceTree = "<group>"; };
-		723866A41AB9F11000978D57 /* PosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosCollectionViewCell.m; sourceTree = "<group>"; };
-		7258B3541A97A24700A5B16F /* FotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FotosCollectionViewCell.h; sourceTree = "<group>"; };
-		7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotosCollectionViewCell.m; sourceTree = "<group>"; };
 		725B42A31AB1CFDC006212BB /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		725B42A41AB1CFDC006212BB /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+FTS3.m"; sourceTree = "<group>"; };
 		725B42A51AB1CFDC006212BB /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMTokenizers.h; sourceTree = "<group>"; };
@@ -126,8 +122,6 @@
 		72766D0E1A8BF2CA0064862F /* QuadroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuadroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72766D131A8BF2CA0064862F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72766D141A8BF2CA0064862F /* QuadroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadroTests.m; sourceTree = "<group>"; };
-		72766D1E1A8D8BD20064862F /* AssuntoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssuntoTableViewCell.h; sourceTree = "<group>"; };
-		72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoTableViewCell.m; sourceTree = "<group>"; };
 		72797B801ADFF96C006807F4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		72797B841ADFFB74006807F4 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Library/GAI.h; sourceTree = "<group>"; };
 		72797B851ADFFB74006807F4 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -157,6 +151,10 @@
 		72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		72DD9C681AE5B2EE004A86F2 /* axis.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = axis.otf; path = ../axis.otf; sourceTree = "<group>"; };
+		72F26D911B01923200B14D4A /* Quadro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quadro-Bridging-Header.h"; sourceTree = "<group>"; };
+		72F26D941B01935300B14D4A /* AssuntoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssuntoCell.swift; sourceTree = "<group>"; };
+		72F26D961B019EC700B14D4A /* FotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotosCell.swift; sourceTree = "<group>"; };
+		72F26D981B01A16800B14D4A /* PosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +339,7 @@
 		72766CF41A8BF2CA0064862F /* Quadro */ = {
 			isa = PBXGroup;
 			children = (
+				72F26D911B01923200B14D4A /* Quadro-Bridging-Header.h */,
 				725F155D1A8CC3F500BD7E26 /* singleton */,
 				725F15591A8CC35A00BD7E26 /* model */,
 				725F155B1A8CC3BE00BD7E26 /* root */,
@@ -400,12 +399,9 @@
 		72766D211A8D8BDD0064862F /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				72766D1E1A8D8BD20064862F /* AssuntoTableViewCell.h */,
-				72766D1F1A8D8BD20064862F /* AssuntoTableViewCell.m */,
-				7258B3541A97A24700A5B16F /* FotosCollectionViewCell.h */,
-				7258B3551A97A24700A5B16F /* FotosCollectionViewCell.m */,
-				723866A31AB9F11000978D57 /* PosCollectionViewCell.h */,
-				723866A41AB9F11000978D57 /* PosCollectionViewCell.m */,
+				72F26D941B01935300B14D4A /* AssuntoCell.swift */,
+				72F26D961B019EC700B14D4A /* FotosCell.swift */,
+				72F26D981B01A16800B14D4A /* PosCell.swift */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -517,9 +513,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */,
-				72766D201A8D8BD20064862F /* AssuntoTableViewCell.m in Sources */,
 				725B42C71AB1D138006212BB /* Managerdb.m in Sources */,
-				7258B3561A97A24700A5B16F /* FotosCollectionViewCell.m in Sources */,
+				72F26D971B019EC700B14D4A /* FotosCell.swift in Sources */,
 				725B42BF1AB1CFEE006212BB /* FMDatabase.m in Sources */,
 				725B42B01AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				7282062C1ABB56B000E99E3C /* ZoomImageViewController.m in Sources */,
@@ -528,8 +523,9 @@
 				725B42C01AB1CFEE006212BB /* FMDatabaseAdditions.m in Sources */,
 				722F36771A9658D900B4B826 /* FotosViewController.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
-				723866A51AB9F11000978D57 /* PosCollectionViewCell.m in Sources */,
+				72F26D991B01A16800B14D4A /* PosCell.swift in Sources */,
 				7294A0FB1AFF904C0000ED10 /* SWRevealViewController.m in Sources */,
+				72F26D951B01935300B14D4A /* AssuntoCell.swift in Sources */,
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,
 				721ABFB61A8E26440075377F /* PosCameraViewController.m in Sources */,
 				725B42C21AB1CFEE006212BB /* FMDatabaseQueue.m in Sources */,
@@ -698,6 +694,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Quadro/Quadro-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -725,6 +722,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Quadro/Quadro-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

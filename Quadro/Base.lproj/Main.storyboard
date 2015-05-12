@@ -27,7 +27,7 @@
                                 <color key="separatorColor" red="0.0" green="0.98039215690000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="assuntoCell" rowHeight="60" id="VJI-lS-vW2" customClass="AssuntoTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="assuntoCell" rowHeight="60" id="VJI-lS-vW2" customClass="AssuntoCell" customModule="Quadro">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VJI-lS-vW2" id="Kqd-Zp-kl1">
@@ -187,9 +187,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="assunto" destination="Iz9-o8-xQ7" id="Pdc-OM-Mfa"/>
-                                            <outlet property="data" destination="Cde-MJ-mQn" id="Uvz-Kd-vhh"/>
-                                            <outlet property="materia" destination="cOE-Qb-Rw2" id="9Lo-xa-FMO"/>
+                                            <outlet property="assunto" destination="Iz9-o8-xQ7" id="UKs-8c-SfZ"/>
+                                            <outlet property="data" destination="Cde-MJ-mQn" id="9CF-EI-t1l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -259,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LX4-HG-9Of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1917" y="128.25"/>
+            <point key="canvasLocation" x="1230" y="210"/>
         </scene>
         <!--Fotos-->
         <scene sceneID="gaE-xt-ph4">
@@ -283,7 +282,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="fotoAnotacao" id="rwb-Ub-aYp" customClass="FotosCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="fotoAnotacao" id="rwb-Ub-aYp" customClass="FotosCell" customModule="Quadro">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -377,9 +376,9 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="anotacao" destination="E5Q-2b-5ze" id="DS8-Gf-TaL"/>
-                                            <outlet property="foto" destination="E07-5o-Odc" id="pn1-pC-wXi"/>
-                                            <outlet property="informacaoDaNota" destination="ebA-7j-7dS" id="JgG-7H-ati"/>
+                                            <outlet property="anotacao" destination="E5Q-2b-5ze" id="iGc-gm-NAm"/>
+                                            <outlet property="foto" destination="E07-5o-Odc" id="XF5-Ls-Lo8"/>
+                                            <outlet property="informacaoDaNota" destination="ebA-7j-7dS" id="ZSj-Pz-I3E"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -437,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rz5-Ra-j3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2577" y="128.25"/>
+            <point key="canvasLocation" x="1941" y="210"/>
         </scene>
         <!--Custom Camera View Controller-->
         <scene sceneID="myv-8n-duK">
@@ -689,7 +688,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="posCell" id="ywT-kd-Hst" customClass="PosCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="posCell" id="ywT-kd-Hst" customClass="PosCell" customModule="Quadro">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -716,7 +715,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="imagem" destination="Dnh-MQ-dkH" id="1bR-UU-seY"/>
+                                            <outlet property="imagem" destination="Dnh-MQ-dkH" id="lAb-t2-iV8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -947,7 +946,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4t-6i-Zkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2938.5" y="128.25"/>
+            <point key="canvasLocation" x="2647.5" y="210"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="YhC-xt-sn9">
@@ -1011,7 +1010,7 @@
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.98039215690000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Nova Materia">
-                                    <color key="titleColor" red="0.0" green="0.98039215690000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1100,7 +1099,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1d-So-Hnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="-147"/>
+            <point key="canvasLocation" x="489" y="189"/>
         </scene>
     </scenes>
     <resources>

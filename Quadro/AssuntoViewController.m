@@ -8,7 +8,6 @@
 
 #import "AssuntoViewController.h"
 #import "Assunto.h"
-#import "AssuntoTableViewCell.h"
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "PosCameraViewController.h"
@@ -16,6 +15,7 @@
 #import "CustomCameraViewController.h"
 #import "FotoComAnotacao.h"
 #import "SWRevealViewController.h"
+#import "Quadro-Swift.h"
 
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -29,7 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     _barBtn.target = self.revealViewController;
     _barBtn.action = @selector(revealToggle:);
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -77,10 +76,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identificador = @"assuntoCell";
     
-    AssuntoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador forIndexPath:indexPath];
+    
+    AssuntoCell *cell = [tableView dequeueReusableCellWithIdentifier:identificador forIndexPath:indexPath];
 
     if (cell == nil) {
-        cell = [[AssuntoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identificador];
+        cell = [[AssuntoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identificador];
     }
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     Assunto *assunto = [materia.assuntos objectAtIndex:indexPath.row];
@@ -90,7 +90,6 @@
     df.dateFormat = NSLocalizedString(@"DATA", nil);
     cell.data.text =  [df stringFromDate:assunto.dataPublicacao];
     cell.data.font = [UIFont fontWithName:@"OpenSans-Light" size:15];
-    cell.materia.font = [UIFont fontWithName:@"OpenSans-Semibold" size:9];
     /// long press
     UILongPressGestureRecognizer *longPressGesture =
     [[UILongPressGestureRecognizer alloc]

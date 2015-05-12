@@ -10,13 +10,13 @@
 #import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "Assunto.h"
-#import "FotosCollectionViewCell.h"
 #import "FotoComAnotacao.h"
 #import "ZoomImageViewController.h"
+#import "Quadro-Swift.h"
 
 @interface FotosViewController ()
-@property FotosCollectionViewCell *cell;
 
+@property FotosCell *cell;
 @property UIPageViewController *pageViewController;
 @property NSMutableArray *fotosComAnotacao;
 @property NSInteger posicaoFoto;
@@ -85,7 +85,7 @@
         [self.cell.anotacao endEditing:YES];
     }
     self.posicaoFoto = (long) indexPath.row;
-    FotosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
+    FotosCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"fotoAnotacao" forIndexPath:indexPath];
     self.cell = cell;
     cell.informacaoDaNota.font = [UIFont fontWithName:@"OpenSans-Semibold" size:12];
     FotoComAnotacao *fotoComAnotacao = self.fotosComAnotacao[indexPath.row];

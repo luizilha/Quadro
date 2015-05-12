@@ -11,7 +11,7 @@
 #import "Materia.h"
 #import "FotoComAnotacao.h"
 #import "Assunto.h"
-#import "PosCollectionViewCell.h"
+#import "Quadro-Swift.h"
 
 @interface PosCameraViewController ()
 
@@ -58,7 +58,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PosCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"posCell" forIndexPath:indexPath];
+    PosCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"posCell" forIndexPath:indexPath];
     FotoComAnotacao *foto = [self.listaDeFotosComAnotacao objectAtIndex:indexPath.row];
     cell.imagem.image = foto.foto;
     return cell;
