@@ -52,7 +52,6 @@
     BOOL aceito = [defaults boolForKey:@"aceito"];
     if (!aceito) {
         [self termos];
-        
     }
     
 }

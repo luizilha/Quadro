@@ -53,6 +53,7 @@
 		72F26D951B01935300B14D4A /* AssuntoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F26D941B01935300B14D4A /* AssuntoCell.swift */; };
 		72F26D971B019EC700B14D4A /* FotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F26D961B019EC700B14D4A /* FotosCell.swift */; };
 		72F26D991B01A16800B14D4A /* PosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F26D981B01A16800B14D4A /* PosCell.swift */; };
+		72F26D9B1B01A49900B14D4A /* MateriaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F26D9A1B01A49900B14D4A /* MateriaVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		72F26D941B01935300B14D4A /* AssuntoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssuntoCell.swift; sourceTree = "<group>"; };
 		72F26D961B019EC700B14D4A /* FotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotosCell.swift; sourceTree = "<group>"; };
 		72F26D981B01A16800B14D4A /* PosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosCell.swift; sourceTree = "<group>"; };
+		72F26D9A1B01A49900B14D4A /* MateriaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateriaVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 		725F155C1A8CC3DA00BD7E26 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				72F26D9A1B01A49900B14D4A /* MateriaVC.swift */,
 				72766CFF1A8BF2CA0064862F /* MateriaViewController.h */,
 				72766D001A8BF2CA0064862F /* MateriaViewController.m */,
 				725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */,
@@ -524,6 +527,7 @@
 				722F36771A9658D900B4B826 /* FotosViewController.m in Sources */,
 				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
 				72F26D991B01A16800B14D4A /* PosCell.swift in Sources */,
+				72F26D9B1B01A49900B14D4A /* MateriaVC.swift in Sources */,
 				7294A0FB1AFF904C0000ED10 /* SWRevealViewController.m in Sources */,
 				72F26D951B01935300B14D4A /* AssuntoCell.swift in Sources */,
 				725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */,

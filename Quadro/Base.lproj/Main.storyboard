@@ -970,10 +970,10 @@
             </objects>
             <point key="canvasLocation" x="-265.5" y="-179.25"/>
         </scene>
-        <!--Materia View Controller-->
+        <!--MateriaVC-->
         <scene sceneID="b7e-H7-Uej">
             <objects>
-                <viewController id="ulQ-kT-i0B" customClass="MateriaViewController" sceneMemberID="viewController">
+                <viewController id="ulQ-kT-i0B" customClass="MateriaVC" customModule="Quadro" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f2V-dW-chC"/>
                         <viewControllerLayoutGuide type="bottom" id="8Sv-yQ-gbP"/>
@@ -1024,6 +1024,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="adicionaMateria:" destination="ulQ-kT-i0B" eventType="touchUpInside" id="WDA-tf-oX0"/>
+                                    <action selector="adicionarMateria:" destination="ulQ-kT-i0B" eventType="touchUpInside" id="ELM-wS-3HT"/>
                                 </connections>
                             </button>
                         </subviews>
