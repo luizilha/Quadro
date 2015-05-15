@@ -86,9 +86,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     }
     
     @IBAction func adicionarMateria(sender: UIButton) {
-        let alerta = UIAlertView(title: NSLocalizedString("MSG_ADD_MATERIA" ,comment: ""), message: NSLocalizedString("MSG_EX_ADD_MATERIA" ,comment: ""), delegate: self, cancelButtonTitle: "title")
-
-//        alerta.addButtonWithTitle(NSLocalizedString("SALVAR" ,comment: ""))
+        let alerta = UIAlertView(title: NSLocalizedString("MSG_ADD_MATERIA" ,comment: ""), message: NSLocalizedString("MSG_EX_ADD_MATERIA" ,comment: ""), delegate: self, cancelButtonTitle: NSLocalizedString("CANCELAR" ,comment: ""), otherButtonTitles: NSLocalizedString("SALVAR" ,comment: ""))
         alerta.alertViewStyle = UIAlertViewStyle.PlainTextInput
         alerta.show()
     }
