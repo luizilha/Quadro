@@ -32,13 +32,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     }
     
     func termos() {
-        let cancel: String! = NSLocalizedString("RECUSAR", comment: "")
-        
-        let alert = UIAlertView()
-        alert.title = NSLocalizedString("TERMOS_T", comment: "")
-        alert.message = NSLocalizedString("TERMOS", comment: "")
-        alert.delegate = self
-        alert.addButtonWithTitle(NSLocalizedString("ACEITAR", comment: ""))
+        let alert = UIAlertView(title: NSLocalizedString("TERMOS_T" ,comment: ""), message: NSLocalizedString("TERMOS" ,comment: ""), delegate: self, cancelButtonTitle: NSLocalizedString("RECUSAR" ,comment: ""), otherButtonTitles: NSLocalizedString("ACEITAR" ,comment: ""))
         alert.show()
     }
     

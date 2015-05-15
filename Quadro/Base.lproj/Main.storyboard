@@ -1029,13 +1029,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="X8T-4m-f37" firstAttribute="top" secondItem="vce-kw-evs" secondAttribute="bottom" constant="8" id="Oqu-bp-CA0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vce-kw-evs" secondAttribute="trailing" constant="-16" id="PHe-pZ-tU5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vce-kw-evs" secondAttribute="trailing" constant="34" id="FvJ-cy-odp"/>
+                            <constraint firstItem="vce-kw-evs" firstAttribute="leading" secondItem="KGR-wH-A5c" secondAttribute="leadingMargin" constant="-16" id="Oet-V8-osF"/>
                             <constraint firstItem="X8T-4m-f37" firstAttribute="trailing" secondItem="KGR-wH-A5c" secondAttribute="trailingMargin" id="Tbi-BB-Hqu"/>
                             <constraint firstItem="8Sv-yQ-gbP" firstAttribute="top" secondItem="X8T-4m-f37" secondAttribute="bottom" constant="8" id="WQA-RU-huu"/>
-                            <constraint firstItem="vce-kw-evs" firstAttribute="leading" secondItem="KGR-wH-A5c" secondAttribute="leadingMargin" constant="-16" id="ivE-p8-Vnb"/>
+                            <constraint firstItem="vce-kw-evs" firstAttribute="top" secondItem="f2V-dW-chC" secondAttribute="bottom" id="jEh-yP-e3u"/>
+                            <constraint firstItem="X8T-4m-f37" firstAttribute="top" secondItem="vce-kw-evs" secondAttribute="bottom" constant="8" id="n09-wq-yba"/>
                             <constraint firstItem="X8T-4m-f37" firstAttribute="leading" secondItem="KGR-wH-A5c" secondAttribute="leadingMargin" id="niB-np-gC8"/>
-                            <constraint firstItem="vce-kw-evs" firstAttribute="top" secondItem="f2V-dW-chC" secondAttribute="bottom" id="zba-6S-uEK"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -1043,13 +1043,13 @@
                                 <exclude reference="X8T-4m-f37"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="WQA-RU-huu"/>
-                                <exclude reference="Oqu-bp-CA0"/>
+                                <exclude reference="FvJ-cy-odp"/>
+                                <exclude reference="Oet-V8-osF"/>
+                                <exclude reference="jEh-yP-e3u"/>
                                 <exclude reference="Tbi-BB-Hqu"/>
+                                <exclude reference="n09-wq-yba"/>
                                 <exclude reference="niB-np-gC8"/>
-                                <exclude reference="PHe-pZ-tU5"/>
-                                <exclude reference="ivE-p8-Vnb"/>
-                                <exclude reference="zba-6S-uEK"/>
+                                <exclude reference="WQA-RU-huu"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1058,13 +1058,13 @@
                                 <include reference="X8T-4m-f37"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="WQA-RU-huu"/>
-                                <include reference="Oqu-bp-CA0"/>
+                                <include reference="FvJ-cy-odp"/>
+                                <include reference="Oet-V8-osF"/>
+                                <include reference="jEh-yP-e3u"/>
                                 <include reference="Tbi-BB-Hqu"/>
+                                <include reference="n09-wq-yba"/>
                                 <include reference="niB-np-gC8"/>
-                                <include reference="PHe-pZ-tU5"/>
-                                <include reference="ivE-p8-Vnb"/>
-                                <include reference="zba-6S-uEK"/>
+                                <include reference="WQA-RU-huu"/>
                             </mask>
                         </variation>
                     </view>
