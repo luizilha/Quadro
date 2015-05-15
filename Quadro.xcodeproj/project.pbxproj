@@ -34,7 +34,6 @@
 		72766CF81A8BF2CA0064862F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CF71A8BF2CA0064862F /* main.m */; };
 		72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CFA1A8BF2CA0064862F /* AppDelegate.m */; };
 		72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72766CFC1A8BF2CA0064862F /* Quadro.xcdatamodeld */; };
-		72766D011A8BF2CA0064862F /* MateriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766D001A8BF2CA0064862F /* MateriaViewController.m */; };
 		72766D041A8BF2CA0064862F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72766D021A8BF2CA0064862F /* Main.storyboard */; };
 		72766D061A8BF2CA0064862F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72766D051A8BF2CA0064862F /* Images.xcassets */; };
 		72766D091A8BF2CA0064862F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72766D071A8BF2CA0064862F /* LaunchScreen.xib */; };
@@ -115,8 +114,6 @@
 		72766CF91A8BF2CA0064862F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72766CFA1A8BF2CA0064862F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		72766CFD1A8BF2CA0064862F /* Quadro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quadro.xcdatamodel; sourceTree = "<group>"; };
-		72766CFF1A8BF2CA0064862F /* MateriaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MateriaViewController.h; sourceTree = "<group>"; };
-		72766D001A8BF2CA0064862F /* MateriaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MateriaViewController.m; sourceTree = "<group>"; };
 		72766D031A8BF2CA0064862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72766D051A8BF2CA0064862F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		72766D081A8BF2CA0064862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -283,8 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				72F26D9A1B01A49900B14D4A /* MateriaVC.swift */,
-				72766CFF1A8BF2CA0064862F /* MateriaViewController.h */,
-				72766D001A8BF2CA0064862F /* MateriaViewController.m */,
 				725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */,
 				725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */,
 				722F36751A9658D900B4B826 /* FotosViewController.h */,
@@ -537,7 +532,6 @@
 				72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */,
 				725B42AE1AB1CFDC006212BB /* FMDatabase+FTS3.m in Sources */,
 				725B42AF1AB1CFDC006212BB /* FMTokenizers.m in Sources */,
-				72766D011A8BF2CA0064862F /* MateriaViewController.m in Sources */,
 				725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */,
 				72766CF81A8BF2CA0064862F /* main.m in Sources */,
 				727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */,

@@ -1023,7 +1023,6 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="adicionaMateria:" destination="ulQ-kT-i0B" eventType="touchUpInside" id="WDA-tf-oX0"/>
                                     <action selector="adicionarMateria:" destination="ulQ-kT-i0B" eventType="touchUpInside" id="ELM-wS-3HT"/>
                                 </connections>
                             </button>
