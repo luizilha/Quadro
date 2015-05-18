@@ -25,9 +25,13 @@
 @end
 
 @implementation AssuntoViewController
+NSMutableArray *todosAssuntos;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.posicaoMateria == 0)
+        todosAssuntos = [Assunto listadb];
+    
     // Do any additional setup after loading the view.
     _barBtn.target = self.revealViewController;
     _barBtn.action = @selector(revealToggle:);
@@ -35,8 +39,8 @@
 //    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    [Assunto listadb:materia];
+    //Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+    //[Assunto listadb:materia];
 }
 
 
@@ -82,8 +86,15 @@
     if (cell == nil) {
         cell = [[AssuntoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identificador];
     }
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    Assunto *assunto = [materia.assuntos objectAtIndex:indexPath.row];
+    Assunto *assunto;
+    
+    if (self.posicaoMateria == -1) {
+        assunto = todosAssuntos[indexPath.row];
+    }
+    else {
+        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
+        assunto = [materia.assuntos objectAtIndex:indexPath.row];
+    }
     cell.assunto.text = assunto.nome;
     cell.assunto.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -100,6 +111,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.posicaoMateria == 0)
+        return todosAssuntos.count;
     Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
     return materia.assuntos.count;
 }

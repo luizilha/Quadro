@@ -21,5 +21,5 @@
 - (void)deletedb:(int) posicaoMateria;
 - (void)alteradb:(NSString *)novo eIdMateria:(int)idMateria;
 + (void)listadb:(Materia *)materia;
-
++ (NSMutableArray *)listadb;
 @end

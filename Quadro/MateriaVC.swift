@@ -14,8 +14,13 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     var assuntos: NSMutableArray!
     var posicaoMateria: NSInteger!
     var posicaoAlterar: NSIndexPath!
+    var todasMaterias: NSMutableArray!
     
     override func viewDidLoad() {
+        todasMaterias = TodasMateriasSingleton.sharedInstance().listaDeMaterias
+        var materia = Materia(materia: "Todas Materias")
+        todasMaterias.insertObject(materia, atIndex: 0)
+        
         self.table.tableFooterView = UIView(frame: CGRect.zeroRect)
         self.btnAdicionar.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 17)
         
@@ -91,15 +96,11 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
         cell.textLabel?.font = UIFont(name: "OpenSans-Semibold", size: 17)
         cell.textLabel?.text = materia.nome
         cell.textLabel?.textColor = UIColor(red: 0.0, green: 250.0/255, blue: 180.0/255, alpha: 1.0)
-        // long press
-        var longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("longPress:"))
-        cell.addGestureRecognizer(longPressGesture)
-        longPressGesture.minimumPressDuration = 1
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TodasMateriasSingleton.sharedInstance().listaDeMaterias!.count
+        return todasMaterias.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -122,23 +123,6 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
-    func longPress(gesture: UILongPressGestureRecognizer) {
-        if gesture.state == UIGestureRecognizerState.Began {
-            var cell = gesture.view as! UITableViewCell
-            var indexPath: NSIndexPath = self.table.indexPathForCell(cell)!
-            var materia = TodasMateriasSingleton.sharedInstance().listaDeMaterias!.objectAtIndex(indexPath.row) as! Materia
-            var titulo = "Deseja renomear a materia \(materia.nome.capitalizedString)?"
-            var alert = UIAlertView()
-            alert.title = titulo
-            alert.message = ""
-            alert.delegate = self
-            alert.addButtonWithTitle("Alterar")
-            alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
-            self.posicaoAlterar = indexPath
-            alert.show()
-        }
-    }
-    
     // Para apagar uma materia
     override func setEditing(editing: Bool, animated: Bool) {
         self.table.setEditing(editing, animated: animated)
@@ -148,7 +132,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
         if segue.identifier == "segueAssunto" {
             var navController = segue.destinationViewController as! UINavigationController
             var assunto = navController.viewControllers[0] as! AssuntoViewController
-            assunto.posicaoMateria = self.posicaoMateria
+            assunto.posicaoMateria = self.posicaoMateria;
         }
         
     }

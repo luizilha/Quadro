@@ -85,6 +85,20 @@
     }
 }
 
++ (NSMutableArray *)listadb {
+    NSMutableArray *todosAssuntos = [[NSMutableArray alloc] init];
+    if ([[Managerdb sharedManager] opendb]) {
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto"];
+        while ([rs next]) {
+            Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[rs dateForColumn:@"dataPublicacao"] comNomeAssunto:[rs stringForColumn:@"nome"]];
+            [todosAssuntos addObject:assunto];
+        }
+        [rs close];
+        [[Managerdb sharedManager] closedb];
+    }
+    return todosAssuntos;
+}
+
 
 
 
