@@ -10,7 +10,7 @@
 #import "GAITrackedViewController.h"
 
 @interface AssuntoViewController : GAITrackedViewController
-<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic) NSInteger posicaoMateria;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barBtn;

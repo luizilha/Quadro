@@ -31,6 +31,14 @@ NSMutableArray *todosAssuntos;
     [super viewDidLoad];
     if (self.posicaoMateria == 0)
         todosAssuntos = [Assunto listadb];
+
+    
+    // termos de uso
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL aceito = [defaults boolForKey:@"aceito"];
+    if (!aceito) {
+        [self termos];
+    }
     
     // Do any additional setup after loading the view.
     _barBtn.target = self.revealViewController;
@@ -43,6 +51,10 @@ NSMutableArray *todosAssuntos;
     //[Assunto listadb:materia];
 }
 
+- (void)termos {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"TERMOS_T", nil) message:NSLocalizedString(@"TERMOS", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"RECUSAR", nil) otherButtonTitles:NSLocalizedString(@"ACEITAR", nil), nil];
+    [alert show];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -197,7 +209,15 @@ NSMutableArray *todosAssuntos;
             a.nome = nomeMateria;
         }
         [self.table reloadData];
+    } else if ([title isEqualToString:NSLocalizedString(@"ACEITAR", nil)]) {
+        BOOL aceito = YES;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:aceito forKey:@"aceito"];
+        [defaults synchronize];
+    } else if ([title isEqualToString:NSLocalizedString(@"RECUSAR", comment: "")]) {
+        exit(0);
     }
+    
 }
 
 /*

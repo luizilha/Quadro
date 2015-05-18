@@ -18,27 +18,15 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     
     override func viewDidLoad() {
         todasMaterias = TodasMateriasSingleton.sharedInstance().listaDeMaterias
-        var materia = Materia(materia: "Todas Materias")
+        var materia = Materia(materia: "Todos Assuntos")
         todasMaterias.insertObject(materia, atIndex: 0)
         
         self.table.tableFooterView = UIView(frame: CGRect.zeroRect)
         self.btnAdicionar.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 17)
-        
-        // TERMOS DE USO
-        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var aceito: Bool = defaults.boolForKey("aceito")
-        if !aceito {
-            self.termos()
-        }        
     }
     
     override func viewWillAppear(animated: Bool) {
         self.screenName = NSLocalizedString("Materia", comment: "")
-    }
-    
-    func termos() {
-        let alert = UIAlertView(title: NSLocalizedString("TERMOS_T" ,comment: ""), message: NSLocalizedString("TERMOS" ,comment: ""), delegate: self, cancelButtonTitle: NSLocalizedString("RECUSAR" ,comment: ""), otherButtonTitles: NSLocalizedString("ACEITAR" ,comment: ""))
-        alert.show()
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
@@ -74,13 +62,6 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
                     self.table.reloadData()
                 }
             }
-        } else if title == NSLocalizedString("ACEITAR", comment: "") {
-            var aceito = true
-            var defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setBool(aceito, forKey: "aceito")
-            defaults.synchronize()
-        } else if title == NSLocalizedString("RECUSAR", comment: "") {
-            exit(0)
         }
     }
     
