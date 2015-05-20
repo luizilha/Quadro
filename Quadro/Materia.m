@@ -79,5 +79,16 @@
     return nova;
 }
 
++ (int) posicaodb:(Materia *) materia {
+    int posicao = 0;
+    if ([[Managerdb sharedManager] opendb]) {
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?", materia.nome];
+        if ([rs next])
+            return [rs intForColumn:@"idMateria"];
+        [rs close];
+        [[Managerdb sharedManager] closedb];
+    }
+    return posicao;
+}
 
 @end

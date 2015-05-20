@@ -24,7 +24,7 @@
     return self;
 }
 
-- (void)savedb:(Materia *)materia {
+- (void)savedb:(Materia *)materia { // VOLTA AQUI
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
         if ([rs next]) {
@@ -98,9 +98,6 @@
     }
     return todosAssuntos;
 }
-
-
-
 
 
 @end

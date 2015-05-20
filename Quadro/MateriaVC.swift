@@ -12,9 +12,10 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var btnAdicionar: UIButton!
     var assuntos: NSMutableArray!
-    var posicaoMateria: NSInteger!
     var posicaoAlterar: NSIndexPath!
     var todasMaterias: NSMutableArray!
+    var posicaoMateria = 0
+    
     
     override func viewDidLoad() {
         todasMaterias = TodasMateriasSingleton.sharedInstance().listaDeMaterias
@@ -84,12 +85,6 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
         return todasMaterias.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.posicaoMateria = indexPath.row;
-        self.performSegueWithIdentifier("segueAssunto", sender: self)
-        self.table.reloadData()
-    }
-    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -104,18 +99,19 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
         }
     }
     
-    // Para apagar uma materia
-    override func setEditing(editing: Bool, animated: Bool) {
-        self.table.setEditing(editing, animated: animated)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var materia = TodasMateriasSingleton.sharedInstance().listaDeMaterias![indexPath.row] as! Materia
+        self.posicaoMateria =  Int(Materia.posicaodb(materia))
+        self.performSegueWithIdentifier("segueAssunto", sender: self)
+        self.table.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueAssunto" {
             var navController = segue.destinationViewController as! UINavigationController
             var assunto = navController.viewControllers[0] as! AssuntoViewController
-            assunto.posicaoMateria = self.posicaoMateria;
+            assunto.posicaoMateria = Int32(self.posicaoMateria)
         }
-        
     }
     
 }

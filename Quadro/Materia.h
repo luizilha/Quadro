@@ -20,5 +20,6 @@
 - (void)deletedb;
 - (void)alteradb:(NSString *)novo;
 + (NSMutableArray *) listadb;
++ (int) posicaodb:(Materia *) materia;
 
 @end

@@ -12,7 +12,7 @@
 @interface AssuntoViewController : GAITrackedViewController
 <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
-@property (nonatomic) NSInteger posicaoMateria;
+@property (nonatomic) int posicaoMateria;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barBtn;
 
 @end
