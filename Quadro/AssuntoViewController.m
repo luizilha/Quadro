@@ -8,7 +8,6 @@
 
 #import "AssuntoViewController.h"
 #import "Assunto.h"
-#import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "PosCameraViewController.h"
 #import "FotosViewController.h"
@@ -20,17 +19,15 @@
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property NSInteger posicaoAssunto;
-@property NSIndexPath *posicaoAlterar; // posicao para alterar
-
+@property NSIndexPath *posicaoAlterar;
+@property NSMutableArray *todosAssuntos;
 @end
 
 @implementation AssuntoViewController
-NSMutableArray *todosAssuntos;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (self.posicaoMateria == 0)
-        todosAssuntos = [Assunto listadb];
+    self.todosAssuntos = [Assunto listadb:_posicaoMateria];
     // termos de uso
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     BOOL aceito = [defaults boolForKey:@"aceito"];
@@ -49,11 +46,10 @@ NSMutableArray *todosAssuntos;
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
     
     if([title isEqualToString:@"Alterar"]){
-        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoAlterar.row];
-        Assunto *a = m.assuntos[self.posicaoAlterar.row];
+        Assunto *a = self.todosAssuntos[self.posicaoAlterar.row];
         
         BOOL existe = NO;
-        for (Assunto *assunto in m.assuntos) {
+        for (Assunto *assunto in self.todosAssuntos) {
             if ([assunto.nome isEqualToString:nomeMateria]) {
                 existe = YES;
             }
@@ -92,10 +88,8 @@ NSMutableArray *todosAssuntos;
 - (IBAction)camera:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CustomCameraViewController *camera = [sb instantiateViewControllerWithIdentifier:@"Camera"];
-    camera.posicaoAssunto = self.posicaoAssunto;
     camera.posicaoMateria = self.posicaoMateria;
     [self presentViewController:camera animated:YES completion:nil];
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -117,14 +111,7 @@ NSMutableArray *todosAssuntos;
     if (cell == nil) {
         cell = [[AssuntoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identificador];
     }
-    Assunto *assunto;
-    
-    if (self.posicaoMateria == 0)
-        assunto = todosAssuntos[indexPath.row];
-    else {
-        Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-        assunto = [materia.assuntos objectAtIndex:indexPath.row];
-    }
+    Assunto *assunto = self.todosAssuntos[indexPath.row];
     cell.assunto.text = assunto.nome;
     cell.assunto.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -135,14 +122,7 @@ NSMutableArray *todosAssuntos;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.posicaoMateria == 0)
-        return todosAssuntos.count;
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria-1];
-    return materia.assuntos.count;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+        return self.todosAssuntos.count;
 }
 
 /*Pra apagar uma materia*/
@@ -157,17 +137,17 @@ NSMutableArray *todosAssuntos;
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Materia *m = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-        Assunto *assunto = [m.assuntos objectAtIndex:indexPath.row];
+        Assunto *assunto = [self.todosAssuntos objectAtIndex:indexPath.row];
         [assunto deletedb:(int)self.posicaoMateria];
-        [m.assuntos removeObjectAtIndex:indexPath.row];
+        [self.todosAssuntos removeObjectAtIndex:indexPath.row];
         [tableView reloadData];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.posicaoAssunto = indexPath.row;
+    Assunto *assunto = [self.todosAssuntos objectAtIndex:indexPath.row];
+    self.posicaoAssunto = [Assunto posicaodb:assunto];
     [self performSegueWithIdentifier:@"segueListaFotos" sender:self];
 }
 
@@ -176,7 +156,7 @@ NSMutableArray *todosAssuntos;
     if ([segue.identifier  isEqual: @"segueListaFotos"]) {
         FotosViewController *view = [segue destinationViewController];
         view.posicaoMateria = self.posicaoMateria;
-        view.posicaoAssunto = self.posicaoAssunto-1;
+        view.posicaoAssunto = self.posicaoAssunto;
     }
 }
 

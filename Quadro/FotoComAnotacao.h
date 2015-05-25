@@ -26,5 +26,6 @@
 - (void)nomeDaFotoAssunto:(Assunto *)assunto posicaoFoto:(int) posicao idMateria:(int) idMateria;
 + (void)todasFotosdb:(Assunto *)assunto comIdMateria: (int) idMateria;
 + (void)removeImagemDisco:(NSString *) caminhoDaFoto;
++ (NSMutableArray *)todasFotosdb:(int)idAssunto;
 
 @end

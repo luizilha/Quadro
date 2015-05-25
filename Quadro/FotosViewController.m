@@ -7,7 +7,6 @@
 //
 
 #import "FotosViewController.h"
-#import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "Assunto.h"
 #import "FotoComAnotacao.h"
@@ -24,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alturaCollection;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *posicaoCollection;
 @property (nonatomic) UIImage *imagem;
-
 @end
 
 @implementation FotosViewController
@@ -33,11 +31,7 @@
     [super viewDidLoad];
     self.cell.anotacao.delegate = self;
         self.automaticallyAdjustsScrollViewInsets = NO;
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
-    [FotoComAnotacao todasFotosdb:assunto comIdMateria:(int) self.posicaoMateria];
-    
-    self.fotosComAnotacao = assunto.listaFotosComAnotacao;
+    self.fotosComAnotacao = [FotoComAnotacao todasFotosdb:self.posicaoAssunto];
     NSString *titulo = [NSString stringWithFormat:@"%d/%d", (int)self.posicaoFoto+1, (int)self.fotosComAnotacao.count];
     self.title = titulo;
     
@@ -66,8 +60,7 @@
         self.title = titulo;
         
         if (self.fotosComAnotacao.count == 0) {
-            Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-            [materia.assuntos removeObjectAtIndex:self.posicaoAssunto];
+            [self.fotosComAnotacao removeObjectAtIndex:self.posicaoAssunto];
             [self.navigationController popViewControllerAnimated:YES];
         }
         [self.collectionView reloadData];
@@ -156,9 +149,7 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    Assunto *assunto = [materia.assuntos objectAtIndex:self.posicaoAssunto];
-    FotoComAnotacao *foto = [assunto.listaFotosComAnotacao objectAtIndex:self.posicaoFoto];
+    FotoComAnotacao *foto = [self.fotosComAnotacao objectAtIndex:self.posicaoFoto];
     foto.anotacao = textView.text;
     [foto mudaAnotacaodb];
 }

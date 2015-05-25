@@ -7,7 +7,6 @@
 //
 
 #import "PosCameraViewController.h"
-#import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "FotoComAnotacao.h"
 #import "Assunto.h"
@@ -29,9 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.barraDeLoad.hidden = YES;
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    if (materia.assuntos.count != 0) {
-        Assunto *assunto = [materia.assuntos objectAtIndex:materia.assuntos.count-1];
+    NSMutableArray *assuntos = [Assunto listadb:(int)self.posicaoMateria];
+    if (assuntos.count != 0) {
+        Assunto *assunto = [assuntos lastObject];
         self.txtMateria.text = assunto.nome;
         if (self.txtMateria.text.length < 2) {
             self.btnDeConfirma.enabled = NO;
@@ -73,11 +72,10 @@
 }
 
 - (IBAction)terminaEdicao:(id)sender {
-    Materia *materia = [[[TodasMateriasSingleton sharedInstance] listaDeMaterias] objectAtIndex:self.posicaoMateria];
-    
+    NSMutableArray *assuntos = [Assunto listadb:(int)self.posicaoMateria];
     BOOL existe = NO;
     Assunto *assuntoE;
-    for (Assunto *a in materia.assuntos) {
+    for (Assunto *a in assuntos) {
         if ([a.nome isEqualToString:self.txtMateria.text]) {
             assuntoE = a;
             existe = YES;
@@ -95,8 +93,7 @@
     } else {
         Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
         assunto.listaFotosComAnotacao = self.listaDeFotosComAnotacao;
-        [materia.assuntos addObject:assunto];
-        [assunto savedb:materia];
+        [assunto savedb:self.posicaoMateria];
         // VAI TER QUE SALVAR AQUI
         int cont = 1;
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {

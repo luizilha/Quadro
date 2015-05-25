@@ -28,7 +28,6 @@
 		725B42C71AB1D138006212BB /* Managerdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42C61AB1D138006212BB /* Managerdb.m */; };
 		725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15541A8CC2E200BD7E26 /* Assunto.m */; };
 		725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */; };
-		725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */; };
 		725F15631A8CC72B00BD7E26 /* Materia.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15621A8CC72B00BD7E26 /* Materia.m */; };
 		725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */; };
 		72766CF81A8BF2CA0064862F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CF71A8BF2CA0064862F /* main.m */; };
@@ -102,8 +101,6 @@
 		725F15541A8CC2E200BD7E26 /* Assunto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assunto.m; sourceTree = "<group>"; };
 		725F15561A8CC2EE00BD7E26 /* FotoComAnotacao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FotoComAnotacao.h; sourceTree = "<group>"; };
 		725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotoComAnotacao.m; sourceTree = "<group>"; };
-		725F155E1A8CC42F00BD7E26 /* TodasMateriasSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodasMateriasSingleton.h; sourceTree = "<group>"; };
-		725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodasMateriasSingleton.m; sourceTree = "<group>"; };
 		725F15611A8CC72B00BD7E26 /* Materia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Materia.h; sourceTree = "<group>"; };
 		725F15621A8CC72B00BD7E26 /* Materia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Materia.m; sourceTree = "<group>"; };
 		725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssuntoViewController.h; sourceTree = "<group>"; };
@@ -299,8 +296,6 @@
 			children = (
 				725B42C51AB1D138006212BB /* Managerdb.h */,
 				725B42C61AB1D138006212BB /* Managerdb.m */,
-				725F155E1A8CC42F00BD7E26 /* TodasMateriasSingleton.h */,
-				725F155F1A8CC43700BD7E26 /* TodasMateriasSingleton.m */,
 			);
 			name = singleton;
 			sourceTree = "<group>";
@@ -520,7 +515,6 @@
 				725B42C31AB1CFEE006212BB /* FMResultSet.m in Sources */,
 				725B42C01AB1CFEE006212BB /* FMDatabaseAdditions.m in Sources */,
 				722F36771A9658D900B4B826 /* FotosViewController.m in Sources */,
-				725F15601A8CC43700BD7E26 /* TodasMateriasSingleton.m in Sources */,
 				72F26D991B01A16800B14D4A /* PosCell.swift in Sources */,
 				72F26D9B1B01A49900B14D4A /* MateriaVC.swift in Sources */,
 				7294A0FB1AFF904C0000ED10 /* SWRevealViewController.m in Sources */,

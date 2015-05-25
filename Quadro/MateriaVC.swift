@@ -18,7 +18,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     
     
     override func viewDidLoad() {
-        todasMaterias = TodasMateriasSingleton.sharedInstance().listaDeMaterias
+        todasMaterias = Materia.listadb()!
         var materia = Materia(materia: "Todos Assuntos")
         todasMaterias.insertObject(materia, atIndex: 0)
         
@@ -37,22 +37,22 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
             if count(nomeMateria) != 0 {
                 let materia = Materia(materia: nomeMateria)
                 var existe = false
-                for m in TodasMateriasSingleton.sharedInstance().listaDeMaterias! {
+                for m in self.todasMaterias! {
                     if m.nome == nomeMateria {
                         existe = true
                     }
                 }
                 if !existe {
                     materia.savedb()
-                    TodasMateriasSingleton.sharedInstance().listaDeMaterias!.addObject(materia)
+                    self.todasMaterias!.addObject(materia)
                     self.table.reloadData()
                 }
             }
         } else if title == "Alterar" {
             if count(nomeMateria) != 0 {
-                var materia = TodasMateriasSingleton.sharedInstance().listaDeMaterias![self.posicaoAlterar.row] as! Materia
+                var materia = self.todasMaterias![self.posicaoAlterar.row] as! Materia
                 var existe = false
-                for m in TodasMateriasSingleton.sharedInstance().listaDeMaterias! {
+                for m in self.todasMaterias! {
                     if m.nome == nomeMateria {
                         existe = true
                     }
@@ -74,7 +74,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("materiaCell") as! UITableViewCell
-        var materia = TodasMateriasSingleton.sharedInstance().listaDeMaterias![indexPath.row] as! Materia
+        var materia = self.todasMaterias[indexPath.row] as! Materia
         cell.textLabel?.font = UIFont(name: "OpenSans-Semibold", size: 17)
         cell.textLabel?.text = materia.nome
         cell.textLabel?.textColor = UIColor(red: 0.0, green: 250.0/255, blue: 180.0/255, alpha: 1.0)
@@ -92,15 +92,15 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             //remover do mutable array
-            var materia = TodasMateriasSingleton.sharedInstance().listaDeMaterias!.objectAtIndex(indexPath.row) as! Materia
+            var materia = self.todasMaterias!.objectAtIndex(indexPath.row) as! Materia
             materia.deletedb()
-            TodasMateriasSingleton.sharedInstance().listaDeMaterias!.removeObjectAtIndex(indexPath.row)
+            self.todasMaterias!.removeObjectAtIndex(indexPath.row)
             tableView.reloadData()
         }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var materia = TodasMateriasSingleton.sharedInstance().listaDeMaterias![indexPath.row] as! Materia
+        var materia = self.todasMaterias![indexPath.row] as! Materia
         self.posicaoMateria =  Int(Materia.posicaodb(materia))
         self.performSegueWithIdentifier("segueAssunto", sender: self)
         self.table.reloadData()

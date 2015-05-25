@@ -10,6 +10,6 @@
 
 @interface FotosViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate, UITextViewDelegate>
 
-@property (nonatomic) NSInteger posicaoMateria, posicaoAssunto;
+@property (nonatomic) int posicaoMateria, posicaoAssunto;
 
 @end

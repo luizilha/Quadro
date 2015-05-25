@@ -24,13 +24,9 @@
     return self;
 }
 
-- (void)savedb:(Materia *)materia { // VOLTA AQUI
+- (void)savedb:(int)idMateria { // VOLTA AQUI
     if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
-        if ([rs next]) {
-            [[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",[rs intForColumn:@"idMateria"]]];
-        }
-        [rs close];
+        [[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",idMateria]];
         [[Managerdb sharedManager] closedb];
     }
 }
@@ -68,35 +64,31 @@
     }
 }
 
-+ (void)listadb:(Materia *)materia {
++ (NSMutableArray *)listadb:(int)idMateria {
+    NSMutableArray *assuntos = [[NSMutableArray alloc] init];
+    NSString *query = idMateria == 0 ? @"select * from assunto" : @"select * from assunto where idMateria=?";
     if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from materia where nome=?",materia.nome];
-        int idMateria = 0;
-        if ([rs next]) idMateria = [rs intForColumn:@"idMateria"];
-        [rs close];
-        rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where idMateria=?",[NSString stringWithFormat:@"%d", idMateria]];
-        materia.assuntos = [[NSMutableArray alloc] init];
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery: query, [NSString stringWithFormat:@"%d",idMateria]];
         while ([rs next]) {
             Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[rs dateForColumn:@"dataPublicacao"] comNomeAssunto:[rs stringForColumn:@"nome"]];
-            [materia.assuntos addObject:assunto];
+            [assuntos addObject:assunto];
         }
         [rs close];
         [[Managerdb sharedManager] closedb];
     }
+    return assuntos;
 }
 
-+ (NSMutableArray *)listadb {
-    NSMutableArray *todosAssuntos = [[NSMutableArray alloc] init];
++ (int) posicaodb:(Assunto *) assunto {
+    int posicao = 0;
     if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto"];
-        while ([rs next]) {
-            Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[rs dateForColumn:@"dataPublicacao"] comNomeAssunto:[rs stringForColumn:@"nome"]];
-            [todosAssuntos addObject:assunto];
-        }
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?", assunto.nome];
+        if ([rs next])
+            return [rs intForColumn:@"idMateria"];
         [rs close];
         [[Managerdb sharedManager] closedb];
     }
-    return todosAssuntos;
+    return posicao;
 }
 
 

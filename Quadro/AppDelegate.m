@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TodasMateriasSingleton.h"
 #import "Managerdb.h"
 #import "GAI.h"
 
@@ -32,7 +31,6 @@
     [GAI sharedInstance].defaultTracker = tracker;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self novoBanco];
-    [[TodasMateriasSingleton sharedInstance] loadData];
     return YES;
 }
 

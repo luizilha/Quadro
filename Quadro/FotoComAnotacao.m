@@ -75,6 +75,22 @@
     }
 }
 
++ (NSMutableArray *)todasFotosdb:(int)idAssunto {
+    NSMutableArray *listafotos = [[NSMutableArray alloc] init];
+    if ([[Managerdb sharedManager] opendb]) {
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d", idAssunto]];
+        while ([rs next]) {
+            FotoComAnotacao *foto = [[FotoComAnotacao alloc] initFotoComentada:nil comComentario:[rs stringForColumn:@"anotacao"]];
+            foto.caminhoDaFoto = [rs stringForColumn:@"caminhoDaFoto"];
+            foto.foto = [foto loadImage];
+            [listafotos addObject:foto];
+        }
+        [rs close];
+        [[Managerdb sharedManager] closedb];
+    }
+    return listafotos;
+}
+
 - (BOOL)saveImage: (UIImage*)image
 {
     if (image != nil)

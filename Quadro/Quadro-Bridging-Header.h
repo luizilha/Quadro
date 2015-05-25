@@ -3,7 +3,6 @@
 //
 
 #import "GAITrackedViewController.h"
-#import "TodasMateriasSingleton.h"
 #import "Materia.h"
 #import "AssuntoViewController.h"
 #import "FotoComAnotacao.h"
