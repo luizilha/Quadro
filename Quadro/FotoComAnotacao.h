@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 #import "Assunto.h"
-#import "Materia.h"
 
 @interface FotoComAnotacao : NSObject
 

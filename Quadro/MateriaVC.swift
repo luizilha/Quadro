@@ -18,7 +18,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     
     
     override func viewDidLoad() {
-        todasMaterias = Materia.listadb()!
+        todasMaterias = Materia.listadb()
         var materia = Materia(materia: "Todos Assuntos")
         todasMaterias.insertObject(materia, atIndex: 0)
         

@@ -78,7 +78,7 @@
 + (NSMutableArray *)todasFotosdb:(int)idAssunto {
     NSMutableArray *listafotos = [[NSMutableArray alloc] init];
     if ([[Managerdb sharedManager] opendb]) {
-        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto=?",[NSString stringWithFormat:@"%d", idAssunto]];
+        FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from fotoComAnotacao where idAssunto = ?",[NSString stringWithFormat:@"%d", idAssunto]];
         while ([rs next]) {
             FotoComAnotacao *foto = [[FotoComAnotacao alloc] initFotoComentada:nil comComentario:[rs stringForColumn:@"anotacao"]];
             foto.caminhoDaFoto = [rs stringForColumn:@"caminhoDaFoto"];
@@ -102,10 +102,12 @@
                           [NSString stringWithFormat:@"%@", self.caminhoDaFoto]];
         NSFileManager *fileManager = [NSFileManager defaultManager];
         if ([fileManager fileExistsAtPath:path]) {
+            NSLog(@"NAO SALVO - IMG!!");
             return false;
         }
         NSData* data =  UIImageJPEGRepresentation(image, 1);
         [data writeToFile:path atomically:YES];
+        NSLog(@"SALVO - IMG!!");
         return true;
     }
     return false;

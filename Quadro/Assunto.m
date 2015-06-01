@@ -26,7 +26,9 @@
 
 - (void)savedb:(int)idMateria { // VOLTA AQUI
     if ([[Managerdb sharedManager] opendb]) {
-        [[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",idMateria]];
+        if ([[[Managerdb sharedManager] database] executeUpdate:@"insert into assunto(nome, dataPublicacao, idMateria) values(?,?,?)",self.nome, self.dataPublicacao,[NSString stringWithFormat:@"%d",idMateria]]) {
+            NSLog(@"SALVO assunto!");
+        }
         [[Managerdb sharedManager] closedb];
     }
 }

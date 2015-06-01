@@ -7,7 +7,6 @@
 //
 
 #import "PosCameraViewController.h"
-#import "Materia.h"
 #import "FotoComAnotacao.h"
 #import "Assunto.h"
 #import "Quadro-Swift.h"

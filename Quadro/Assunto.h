@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Materia.h"
 
 @interface Assunto : NSObject
 

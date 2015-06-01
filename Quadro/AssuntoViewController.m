@@ -8,7 +8,6 @@
 
 #import "AssuntoViewController.h"
 #import "Assunto.h"
-#import "Materia.h"
 #import "PosCameraViewController.h"
 #import "FotosViewController.h"
 #import "CustomCameraViewController.h"
