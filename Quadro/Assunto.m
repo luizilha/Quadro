@@ -86,7 +86,7 @@
     if ([[Managerdb sharedManager] opendb]) {
         FMResultSet *rs = [[[Managerdb sharedManager] database] executeQuery:@"select * from assunto where nome=?", assunto.nome];
         if ([rs next])
-            return [rs intForColumn:@"idMateria"];
+            return [rs intForColumn:@"idAssunto"];
         [rs close];
         [[Managerdb sharedManager] closedb];
     }

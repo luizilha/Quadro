@@ -40,6 +40,13 @@
     self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Assunto";
+    self.todosAssuntos = [Assunto listadb:_posicaoMateria];
+    [_table reloadData];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     NSString *nomeMateria = [alertView textFieldAtIndex:0].text;
@@ -76,12 +83,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.screenName = @"Assunto";
-    [_table reloadData];
 }
 
 - (IBAction)camera:(id)sender {
@@ -133,6 +134,7 @@
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     return YES;
 }
+
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
