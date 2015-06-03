@@ -7,7 +7,6 @@
 //
 
 #import "FotosViewController.h"
-#import "FotoComAnotacao.h"
 #import "ZoomImageViewController.h"
 
 @interface FotosViewController ()

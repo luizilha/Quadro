@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Quadro-Swift.h"
 
 @interface CustomCameraViewController : UIViewController
 

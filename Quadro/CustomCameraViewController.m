@@ -7,8 +7,6 @@
 //
 
 #import "CustomCameraViewController.h"
-#import "Assunto.h"
-#import "FotoComAnotacao.h"
 #import "PosCameraViewController.h"
 
 @interface CustomCameraViewController ()

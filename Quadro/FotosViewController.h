@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Quadro-Swift.h"
 
 @interface FotosViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate, UITextViewDelegate>
 

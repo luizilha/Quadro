@@ -7,7 +7,6 @@
 //
 
 #import "PosCameraViewController.h"
-#import "FotoComAnotacao.h"
 #import "Quadro-Swift.h"
 
 @interface PosCameraViewController ()
@@ -85,17 +84,17 @@
         int cont = (int) assuntoE.listaFotosComAnotacao.count+1;
         [assuntoE.listaFotosComAnotacao addObjectsFromArray:self.listaDeFotosComAnotacao];
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
-            [foto nomeDaFotoAssunto:assuntoE posicaoFoto:cont++ idMateria:(int)self.posicaoMateria];
+            [foto nomeDaFotoAssunto:assuntoE posicao:cont++ idMateria:self.posicaoMateria];
             [self gravaFoto:foto doAssunto:assuntoE comIdMateria:(int)self.posicaoMateria];
         }
     } else {
-        Assunto *assunto = [[Assunto alloc] initAssuntoPorData:[NSDate date] comNomeAssunto:self.txtMateria.text];
+        Assunto *assunto = [[Assunto alloc] initWithDataPublicacao:[NSDate date] nomeAssunto:self.txtMateria.text];
         assunto.listaFotosComAnotacao = self.listaDeFotosComAnotacao;
         [assunto savedb:self.posicaoMateria];
         // VAI TER QUE SALVAR AQUI
         int cont = 1;
         for (FotoComAnotacao *foto in self.listaDeFotosComAnotacao) {
-            [foto nomeDaFotoAssunto:assunto posicaoFoto:cont++ idMateria:(int)self.posicaoMateria];
+            [foto nomeDaFotoAssunto:assunto posicao:cont++ idMateria:self.posicaoMateria];
             [self gravaFoto:foto doAssunto:assunto comIdMateria:(int)self.posicaoMateria];
         }
     }
@@ -104,7 +103,7 @@
 
 - (void) gravaFoto: (FotoComAnotacao *) foto doAssunto: (Assunto *) assunto comIdMateria: (int) idMateria {
     if ([foto saveImage:foto.foto]) {
-        [foto saveFotodb:assunto comIdMateria:idMateria];
+        [foto saveFotodb:assunto idMateria:idMateria];
     }
 }
 

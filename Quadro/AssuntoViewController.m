@@ -10,7 +10,6 @@
 #import "PosCameraViewController.h"
 #import "FotosViewController.h"
 #import "CustomCameraViewController.h"
-#import "FotoComAnotacao.h"
 #import "SWRevealViewController.h"
 
 @interface AssuntoViewController ()
