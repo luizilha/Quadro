@@ -8,7 +8,6 @@
 
 #import "PosCameraViewController.h"
 #import "FotoComAnotacao.h"
-#import "Assunto.h"
 #import "Quadro-Swift.h"
 
 @interface PosCameraViewController ()

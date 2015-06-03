@@ -26,8 +26,6 @@
 		725B42C21AB1CFEE006212BB /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42BB1AB1CFEE006212BB /* FMDatabaseQueue.m */; };
 		725B42C31AB1CFEE006212BB /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42BE1AB1CFEE006212BB /* FMResultSet.m */; };
 		725B42C71AB1D138006212BB /* Managerdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 725B42C61AB1D138006212BB /* Managerdb.m */; };
-		725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15541A8CC2E200BD7E26 /* Assunto.m */; };
-		725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */; };
 		725F15691A8D10BD00BD7E26 /* AssuntoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */; };
 		72766CF81A8BF2CA0064862F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CF71A8BF2CA0064862F /* main.m */; };
 		72766CFB1A8BF2CA0064862F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72766CFA1A8BF2CA0064862F /* AppDelegate.m */; };
@@ -44,6 +42,8 @@
 		72838CF41AEA919C00BA07A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72838CF61AEA919C00BA07A0 /* Localizable.strings */; };
 		7294A0FB1AFF904C0000ED10 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7294A0FA1AFF904C0000ED10 /* SWRevealViewController.m */; };
 		72A432A01B1C12F300FEEC8B /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4329F1B1C12F300FEEC8B /* Materia.swift */; };
+		72A432A21B1E6BE200FEEC8B /* Assunto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A432A11B1E6BE200FEEC8B /* Assunto.swift */; };
+		72A432A41B1E84B000FEEC8B /* FotoComAnotacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A432A31B1E84B000FEEC8B /* FotoComAnotacao.swift */; };
 		72A9BB6F1AA7485600899E2F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */; };
 		72DD9C651AE5B253004A86F2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */; };
 		72DD9C671AE5B283004A86F2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */; };
@@ -97,10 +97,6 @@
 		725B42BE1AB1CFEE006212BB /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		725B42C51AB1D138006212BB /* Managerdb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Managerdb.h; sourceTree = "<group>"; };
 		725B42C61AB1D138006212BB /* Managerdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Managerdb.m; sourceTree = "<group>"; };
-		725F15531A8CC2CE00BD7E26 /* Assunto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assunto.h; sourceTree = "<group>"; };
-		725F15541A8CC2E200BD7E26 /* Assunto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assunto.m; sourceTree = "<group>"; };
-		725F15561A8CC2EE00BD7E26 /* FotoComAnotacao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FotoComAnotacao.h; sourceTree = "<group>"; };
-		725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FotoComAnotacao.m; sourceTree = "<group>"; };
 		725F15671A8D10BD00BD7E26 /* AssuntoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssuntoViewController.h; sourceTree = "<group>"; };
 		725F15681A8D10BD00BD7E26 /* AssuntoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssuntoViewController.m; sourceTree = "<group>"; };
 		72766CF21A8BF2CA0064862F /* Quadro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quadro.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +137,8 @@
 		7294A0F91AFF904C0000ED10 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		7294A0FA1AFF904C0000ED10 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		72A4329F1B1C12F300FEEC8B /* Materia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		72A432A11B1E6BE200FEEC8B /* Assunto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assunto.swift; sourceTree = "<group>"; };
+		72A432A31B1E84B000FEEC8B /* FotoComAnotacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotoComAnotacao.swift; sourceTree = "<group>"; };
 		72A9BB6D1AA7475800899E2F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		72DD9C641AE5B253004A86F2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		72DD9C661AE5B283004A86F2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -244,10 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				72A4329F1B1C12F300FEEC8B /* Materia.swift */,
-				725F15531A8CC2CE00BD7E26 /* Assunto.h */,
-				725F15541A8CC2E200BD7E26 /* Assunto.m */,
-				725F15561A8CC2EE00BD7E26 /* FotoComAnotacao.h */,
-				725F15571A8CC2F600BD7E26 /* FotoComAnotacao.m */,
+				72A432A11B1E6BE200FEEC8B /* Assunto.swift */,
+				72A432A31B1E84B000FEEC8B /* FotoComAnotacao.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -503,9 +499,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725F15581A8CC2F600BD7E26 /* FotoComAnotacao.m in Sources */,
 				725B42C71AB1D138006212BB /* Managerdb.m in Sources */,
 				72F26D971B019EC700B14D4A /* FotosCell.swift in Sources */,
+				72A432A41B1E84B000FEEC8B /* FotoComAnotacao.swift in Sources */,
 				725B42BF1AB1CFEE006212BB /* FMDatabase.m in Sources */,
 				725B42B01AB1CFDC006212BB /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				7282062C1ABB56B000E99E3C /* ZoomImageViewController.m in Sources */,
@@ -525,9 +521,9 @@
 				72766CFE1A8BF2CA0064862F /* Quadro.xcdatamodeld in Sources */,
 				725B42AE1AB1CFDC006212BB /* FMDatabase+FTS3.m in Sources */,
 				725B42AF1AB1CFDC006212BB /* FMTokenizers.m in Sources */,
-				725F15551A8CC2E200BD7E26 /* Assunto.m in Sources */,
 				72766CF81A8BF2CA0064862F /* main.m in Sources */,
 				727B20521A9CFCA0005BA527 /* CustomCameraViewController.m in Sources */,
+				72A432A21B1E6BE200FEEC8B /* Assunto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

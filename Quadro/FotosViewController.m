@@ -7,10 +7,8 @@
 //
 
 #import "FotosViewController.h"
-#import "Assunto.h"
 #import "FotoComAnotacao.h"
 #import "ZoomImageViewController.h"
-#import "Quadro-Swift.h"
 
 @interface FotosViewController ()
 

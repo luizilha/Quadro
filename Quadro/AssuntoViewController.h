@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 
+
 @interface AssuntoViewController : GAITrackedViewController
 <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 

@@ -4,7 +4,6 @@
 
 #import "GAITrackedViewController.h"
 #import "AssuntoViewController.h"
-#import "FotoComAnotacao.h"
 #import "SWRevealViewController.h"
 #import <GoogleMobileAds/GADBannerView.h>
 #import "Managerdb.h"

@@ -7,13 +7,11 @@
 //
 
 #import "AssuntoViewController.h"
-#import "Assunto.h"
 #import "PosCameraViewController.h"
 #import "FotosViewController.h"
 #import "CustomCameraViewController.h"
 #import "FotoComAnotacao.h"
 #import "SWRevealViewController.h"
-#import "Quadro-Swift.h"
 
 @interface AssuntoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -61,7 +59,7 @@
             }
         }
         if (!existe) {
-            [a alteradb:nomeMateria eIdMateria:(int)self.posicaoMateria];
+            [a alterardb:nomeMateria idMateria:self.posicaoMateria];
             a.nome = nomeMateria;
         }
         [self.table reloadData];
