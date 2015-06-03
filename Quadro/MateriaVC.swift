@@ -13,14 +13,19 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var btnAdicionar: UIButton!
     var assuntos: NSMutableArray!
     var posicaoAlterar: NSIndexPath!
-    var todasMaterias: NSMutableArray!
+    var todasMaterias: Array<Materia>!
     var posicaoMateria = 0
     
     
     override func viewDidLoad() {
-        todasMaterias = Materia.listadb()
+        todasMaterias = Array<Materia>()
+        
+        for m in Materia.listadb() {
+            todasMaterias.append(m as! Materia)
+        }
+        
         var materia = Materia(materia: "Todos Assuntos")
-        todasMaterias.insertObject(materia, atIndex: 0)
+        todasMaterias.insert(materia, atIndex: 0)
         
         self.table.tableFooterView = UIView(frame: CGRect.zeroRect)
         self.btnAdicionar.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 17)
@@ -44,13 +49,13 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
                 }
                 if !existe {
                     materia.savedb()
-                    self.todasMaterias!.addObject(materia)
+                    self.todasMaterias.append(materia)
                     self.table.reloadData()
                 }
             }
         } else if title == "Alterar" {
             if count(nomeMateria) != 0 {
-                var materia = self.todasMaterias![self.posicaoAlterar.row] as! Materia
+                var materia = self.todasMaterias![self.posicaoAlterar.row]
                 var existe = false
                 for m in self.todasMaterias! {
                     if m.nome == nomeMateria {
@@ -74,7 +79,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("materiaCell") as! UITableViewCell
-        var materia = self.todasMaterias[indexPath.row] as! Materia
+        var materia = self.todasMaterias[indexPath.row]
         cell.textLabel?.font = UIFont(name: "OpenSans-Semibold", size: 17)
         cell.textLabel?.text = materia.nome
         cell.textLabel?.textColor = UIColor(red: 0.0, green: 250.0/255, blue: 180.0/255, alpha: 1.0)
@@ -92,15 +97,15 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             //remover do mutable array
-            var materia = self.todasMaterias!.objectAtIndex(indexPath.row) as! Materia
+            var materia = self.todasMaterias[indexPath.row]
             materia.deletedb()
-            self.todasMaterias!.removeObjectAtIndex(indexPath.row)
+            self.todasMaterias.removeAtIndex(indexPath.row)
             tableView.reloadData()
         }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var materia = self.todasMaterias![indexPath.row] as! Materia
+        var materia = self.todasMaterias![indexPath.row]
         self.posicaoMateria =  Int(Materia.posicaodb(materia))
         self.performSegueWithIdentifier("segueAssunto", sender: self)
         self.table.reloadData()
