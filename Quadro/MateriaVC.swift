@@ -37,7 +37,7 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
             if count(nomeMateria) != 0 {
                 let materia = Materia(materia: nomeMateria)
                 var existe = false
-                for m in self.todasMaterias! {
+                for m in self.todasMaterias {
                     if m.nome == nomeMateria {
                         existe = true
                     }
