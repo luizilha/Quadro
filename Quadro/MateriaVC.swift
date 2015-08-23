@@ -114,8 +114,8 @@ class MateriaVC: GAITrackedViewController, UITableViewDataSource, UITableViewDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueAssunto" {
             var navController = segue.destinationViewController as! UINavigationController
-            var assunto = navController.viewControllers[0] as! AssuntoViewController
-            assunto.posicaoMateria = Int32(self.posicaoMateria)
+            var assunto = navController.viewControllers[0] as! AssuntoVC
+            assunto.posicaoMateria = self.posicaoMateria
         }
     }
     

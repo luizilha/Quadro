@@ -21,14 +21,14 @@ class Assunto: NSObject {
         }
     }
     
-    class func listadb(idMateria: Int) -> NSMutableArray {
-        var assuntos = NSMutableArray()
+    class func listadb(idMateria: Int) -> Array<Assunto> {
+        var assuntos = Array<Assunto>()
         var query = idMateria == 0 ? "select * from assunto" : "select * from assunto where idMateria=?"
         if Managerdb.sharedManager().opendb() {
             var rs = Managerdb.sharedManager().database!.executeQuery(query, withArgumentsInArray: [idMateria])
             while rs.next() {
                 var assunto = Assunto(dataPublicacao: rs.dateForColumn("dataPublicacao"), nomeAssunto: rs.stringForColumn("nome"))
-                assuntos.addObject(assunto)
+                assuntos.append(assunto)
             }
             Managerdb.sharedManager().closedb()
         }

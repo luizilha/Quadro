@@ -86,9 +86,9 @@ AVCaptureStillImageOutput *stillImage;
         if (imageDataSampleBuffer != NULL) {
             NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             UIImage *image = [UIImage imageWithData:imageData];
-            FotoComAnotacao *fotoComAnotacao = [[FotoComAnotacao alloc] init];
-            fotoComAnotacao.foto = image;
-            fotoComAnotacao.anotacao = nil;
+            FotoComAnotacao *fotoComAnotacao = [[FotoComAnotacao alloc] initWithFoto:image comentario:@""];
+//            fotoComAnotacao.foto = image;
+//            fotoComAnotacao.anotacao = nil;
             [self.listaDeFotosComAnotacao addObject:fotoComAnotacao];
             self.imagemTirada.image = image;
             [self.botaoFoto setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.listaDeFotosComAnotacao.count] forState:UIControlStateNormal];

@@ -110,6 +110,8 @@
     }
     Assunto *assunto = self.todosAssuntos[indexPath.row];
     cell.assunto.text = assunto.nome;
+    cell.assunto.text = @"CARAI";
+    NSLog(assunto.nome);
     cell.assunto.font = [UIFont fontWithName:@"OpenSans-Semibold" size:17];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = NSLocalizedString(@"DATA", nil);
